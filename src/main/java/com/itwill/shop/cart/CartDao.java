@@ -71,8 +71,8 @@ public class CartDao {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(CartSQL.CART_INSERT);
 			pstmt.setString(1, cart.getUser_Id());
-			pstmt.setInt(2, cart.getProduct().getP_no());
-			pstmt.setInt(3, cart.getCart_qty());
+			pstmt.setInt(2, cart.getCart_qty());
+			pstmt.setInt(3, cart.getProduct().getP_no());
 			insertRowCount = pstmt.executeUpdate();
 			
 		}finally {

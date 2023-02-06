@@ -11,7 +11,7 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.countByProductNo("cream1", 1));
 		
 		System.out.println("2. insertCart");
-		System.out.println(cartDao.insertCart(new Cart(0, "cream2", 9, productDao.findByProductNo(9))));
+		System.out.println(cartDao.insertCart(new Cart(0, "cream2", 4, productDao.selectByNo(4))));
 		
 		System.out.println("3. deleteByUserId");
 		System.out.println(cartDao.deleteByUserId("cream2"));
@@ -20,7 +20,7 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.deleteByCartNo(32));
 		
 		System.out.println("5.updateByProductNo+UserId");
-		Cart updateCartByProductNo = new Cart(0, "cream1", 4, productDao.findByProductNo(1));
+		Cart updateCartByProductNo = new Cart(0, "cream1", 4, productDao.selectByNo(1));
 		System.out.println(cartDao.updateByProductNo(updateCartByProductNo));
 		
 		System.out.println("6. updateByCartNo");
