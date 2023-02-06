@@ -65,7 +65,7 @@
 											<input onkeyup="idCheck();" type="text" style="width: 150px" name="user_id"
 											value="">&nbsp;&nbsp;<font color="red"><%=msg %></font>
 											<input type="button" value="중복확인" onclick="openIdCheck()">
-											 <div id="id_div" name= "id_div"></div>
+											<div id="id_div" name= "id_div"></div>
 											 
 										</td>
 										
@@ -81,9 +81,9 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호
 											확인</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input onblur="idCheck();" type="password" style="width: 150px" name="password2"
+											<input onblur="pwCheck();" type="password" style="width: 150px" name="password2"
 											value="">
-											 <span id="pw_span" name= "pw_span"></span>
+											<span id="pw_span" name="pw_span"></span>
 										</td>
 									</tr>
 									<tr>

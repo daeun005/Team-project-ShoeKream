@@ -15,21 +15,7 @@
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
  
-<script type="text/javascript">
-	
-	function userModify() {
-		document.f.action = "user_modify_form.jsp";
-		document.f.method = "POST";
-		document.f.submit();
-	}
-	function userRemove() {
-		if (confirm("정말 삭제하시겠습니까?")) {
-			document.f.action = "user_remove_action.jsp";
-			document.f.method='POST';
-			document.f.submit();
-		}
-	}
-</script>
+<script src="js/user.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
