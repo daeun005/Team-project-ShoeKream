@@ -64,15 +64,22 @@ function userCreate() {
 		f.user_address.focus();
 		return false;
 	}
-	if (f.user_password.value != f.password2.value) {
-		alert("비밀번호가 불일치합니다.");
-		f.user_password.focus();
-		f.user_password.select();
-		return false;
-	}
+
 	f.action = "user_write_action.jsp";
 	f.method = 'POST';
 	f.submit();
+}
+function pwCheck() {
+	if (f.user_password.value != f.password2.value) {
+		document.getElementById('pw_span').innerText = "비밀번호가 일치하지 않습니다."
+		document.getElementById('pw_span').style.color = "red";
+		f.user_password.focus();
+		f.user_password.select();
+		return false;
+	}else {
+		document.getElementById('pw_span').innerText = "비밀번호가 일치하지 않습니다."
+		document.getElementById('pw_span').style.color = "red";
+	}
 }
 function openIdCheck(){
 		var left = Math.ceil(( window.screen.width)/5);

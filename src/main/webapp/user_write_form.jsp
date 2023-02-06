@@ -81,8 +81,9 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호
 											확인</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="password" style="width: 150px" name="password2"
+											<input onblur="idCheck();" type="password" style="width: 150px" name="password2"
 											value="">
+											 <span id="pw_span" name= "pw_span"></span>
 										</td>
 									</tr>
 									<tr>
