@@ -11,10 +11,10 @@ public class CartDaoTestMain {
 		System.out.println(cartDao.countByProductNo("cream1", 1));
 		
 		System.out.println("2. insertCart");
-		System.out.println(cartDao.insertCart(new Cart(0, "cream99", 9, productDao.findByProductNo(9))));
+		System.out.println(cartDao.insertCart(new Cart(0, "cream2", 9, productDao.findByProductNo(9))));
 		
 		System.out.println("3. deleteByUserId");
-		System.out.println(cartDao.deleteByUserId("cream99"));
+		System.out.println(cartDao.deleteByUserId("cream2"));
 		
 		System.out.println("4. deleteByCartNo-");
 		System.out.println(cartDao.deleteByCartNo(32));

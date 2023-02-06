@@ -9,7 +9,6 @@
 <link rel=stylesheet href="css/menu.css" type="text/css"> 
 <link rel=stylesheet href="css/shop.css" type="text/css"> 
  
- 
 <style type="text/css" media="screen">
 </style>
 </head>
