@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="com.itwill.shop.user.User"%>
@@ -5,8 +6,7 @@
     pageEncoding="UTF-8"%>
 <%
 	UserService userService = new UserService();
-	List userIdList = userService.findUserIdList();
-	session.setAttribute("userIdList", userIdList);
+	List<String> userIdList = userService.findUserIdList();
 	String msg=(String)request.getAttribute("msg");
 	if(msg==null)msg="";
 %>    
@@ -21,6 +21,32 @@
 <style type="text/css" media="screen">
 </style>
 <script src="js/user.js"></script>
+<script type="text/javascript">
+
+function idCheck() {
+	const idCheck = /^[a-zA-Z][a-zA-Z0-9]{4,10}$/g;
+	let userIdList = new Array();
+	<%for(String userId : userIdList) {%>
+		userIdList.push("<%=userId%>");
+	<%}%>
+	if (!idCheck.test(f.user_id.value)) {
+		document.getElementById('id_span').innerText = "사용할 수 없는 아이디입니다."
+		document.getElementById('id_span').style.color = "red";
+		return false;
+	} else if(userIdList.indexOf(f.user_id.value)!==-1){
+		document.getElementById('id_span').innerText = "중복된 아이디입니다.";
+		document.getElementById('id_span').style.color = "red";
+		document.f.user_id.focus();
+		return false;
+	} else {
+		document.getElementById('id_span').innerText = "사용가능한 아이디입니다."
+		document.getElementById('id_span').style.color = "blue";
+		return true;
+	}
+
+	
+}
+</script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -63,9 +89,9 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input onkeyup="idCheck();" type="text" style="width: 150px" name="user_id"
-											value="">&nbsp;&nbsp;<font color="red"><%=msg %></font>
-											<input type="button" value="중복확인" onclick="openIdCheck()">
-											<div id="id_div" name= "id_div"></div>
+											value="" placeholder="5글자이상 12글자이하의 영문,숫자 혼합">
+											&nbsp;&nbsp;<font color="red"></font>
+											<span id="id_span" name= "id_span"></span>
 											 
 										</td>
 										

@@ -1,26 +1,3 @@
-function idCheck() {
-	const idCheck = /^[a-zA-Z][a-zA-Z0-9]{4,10}$/g;
-	/*
-	if(userIdList.indexOf(f.user_id.value)!==-1){
-		document.getElementById('idSpan').innerText = "사용할 수 없는 아이디입니다."
-		document.getElementById('idSpan').style.color = "red";
-		return false;
-	}else{
-		document.getElementById('idSpan').innerText = "사용가능한 아이디입니다."
-		document.getElementById('idSpan').style.color = "blue";
-		return true;
-	}
-	*/
-	if (!idCheck.test(f.user_id.value)) {
-		document.getElementById('id_div').innerText = "사용할 수 없는 아이디입니다."
-		document.getElementById('id_div').style.color = "red";
-		return false;
-	} else {
-		document.getElementById('id_div').innerText = "사용가능한 아이디입니다."
-		document.getElementById('id_div').style.color = "blue";
-		return true;
-	}
-}
 function idDuplicateCheck(){
 	
 	f.action = "user_id_check_form.jsp";
