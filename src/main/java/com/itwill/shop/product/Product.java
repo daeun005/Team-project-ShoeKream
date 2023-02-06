@@ -1,6 +1,17 @@
 package com.itwill.shop.product;
-
+/*
+CREATE TABLE product(
+		p_no                          		NUMBER(10)		 NULL ,
+		p_name                        		VARCHAR2(50)		 NOT NULL,
+		p_price                       		NUMBER(10)		 NOT NULL,
+		p_image                       		VARCHAR2(100)		 DEFAULT defult		 NOT NULL,
+		p_desc                        		VARCHAR2(300)		 NULL ,
+		p_click_count                 		NUMBER(10)		 DEFAULT 0		 NOT NULL,
+		category_no                   		NUMBER(10)		 NULL 
+);
+*/
 public class Product {
+	
 	private int p_no;
 	private String p_name;
 	private int p_price;
@@ -89,6 +100,4 @@ public class Product {
 	
 	
 
-	
-	
 }
