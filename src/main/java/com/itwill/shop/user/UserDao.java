@@ -86,6 +86,7 @@ public class UserDao {
 			pstmt.setString(3, user.getUser_phone());
 			pstmt.setString(4, user.getUser_email());
 			pstmt.setString(5, user.getUser_address());
+			pstmt.setString(6, user.getUser_id());
 			updateRowCount = pstmt.executeUpdate();
 		} finally {
 			/*

@@ -4,7 +4,7 @@ public class UserSQL {
 	public final static String USER_INSERT=
 	"insert into userinfo(user_id,user_password,user_name,user_phone,user_email,user_address) values(?,?,?,?,?,?)";
 	public final static String USER_UPDATE=
-	"update  userinfo set user_password=?,user_name=?,user_phone,user_email=?,user_address where userid=?";
+	"update userinfo set user_password=?,user_name=?,user_phone=?,user_email=?,user_address=? where user_id=?";
 	public final static String USER_REMOVE=
 	"delete userinfo where user_id=?";
 	public final static String USER_SELECT_BY_ID=

@@ -73,12 +73,11 @@ function pwCheck() {
 	if (f.user_password.value != f.password2.value) {
 		document.getElementById('pw_span').innerText = "비밀번호가 일치하지 않습니다."
 		document.getElementById('pw_span').style.color = "red";
-		f.user_password.focus();
-		f.user_password.select();
 		return false;
 	}else {
-		document.getElementById('pw_span').innerText = "비밀번호가 일치하지 않습니다."
-		document.getElementById('pw_span').style.color = "red";
+		document.getElementById('pw_span').innerText = "비밀번호가 일치합니다."
+		document.getElementById('pw_span').style.color = "blue";
+		return true;
 	}
 }
 function openIdCheck(){
@@ -90,4 +89,29 @@ function openIdCheck(){
 function main() {
 	f.action = "shop_main.jsp";
 	f.submit();
+}
+
+function userModifyAction() {
+	if (f.user_password.value != f.password2.value) {
+		alert("비밀번호가 일치하지 않습니다.");
+		f.user_password.focus();
+		f.user_password.select();
+		return false;
+		}
+	document.f.action = "user_modify_action.jsp";
+	document.f.method='POST';
+	document.f.submit();
+}
+
+function userModify() {
+	document.f.action = "user_modify_form.jsp";
+	document.f.method = "POST";
+	document.f.submit();
+}
+function userRemove() {
+	if (confirm("정말 삭제하시겠습니까?")) {
+		document.f.action = "user_remove_action.jsp";
+		document.f.method='POST';
+		document.f.submit();
+	}
 }
