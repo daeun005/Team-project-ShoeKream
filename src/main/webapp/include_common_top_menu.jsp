@@ -7,7 +7,8 @@ int cart_item_count=0;
 	String sUserId=(String)session.getAttribute("sUserId");
 	if(sUserId!=null){
 		CartService cartService=new CartService();
-		cart_item_count = cartService.viewCartByUserId(sUserId).size();
+	  	cart_item_count = cartService.viewCartByUserId(sUserId).size();
+
 	}
 %>		
 <div id="menu">
