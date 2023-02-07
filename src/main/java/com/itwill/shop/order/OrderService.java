@@ -63,7 +63,35 @@ public class OrderService {
 	}
 	
 	/***************** 카트에서 선택 상품 주문하기 *******************/
-	// 작성중...
+	public int cartSelectOrder(String user_id, String[] cart_item_noStr_array) throws Exception {
+		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
+		String o_desc = null;
+		int o_tot_price = 0;
+		int oi_tot_qty = 0;
+		
+		for(int i = 0; i < cart_item_noStr_array.length; i++) {
+			Cart cartItem = cartDao.findByCartNo(Integer.parseInt(cart_item_noStr_array[i]));
+			OrderItem orderItem = new OrderItem(0, cartItem.getCart_qty(), 0, cartItem.getProduct());
+			orderItemList.add(orderItem);
+			o_tot_price += orderItem.getOi_qty() * orderItem.getProduct().getP_price();
+			oi_tot_qty += orderItem.getOi_qty();
+		}
+		
+		if (orderItemList.size() < 2) {
+			o_desc = orderItemList.get(0).getProduct().getP_name();
+		} else {
+			o_desc = orderItemList.get(0).getProduct().getP_name() + " 외 " + (oi_tot_qty - 1) + "건";
+		}
+		
+		Order order = new Order(0, o_desc, null, o_tot_price, user_id);
+		order.setOrderItemList(orderItemList);
+		
+		for(int i =0;i<cart_item_noStr_array.length;i++) {
+			cartDao.deleteByCartNo(Integer.parseInt(cart_item_noStr_array[i]));
+		}
+		
+		return orderDao.insert(order);
+	}
 	
 	/*************** 회원의 주문 선택 삭제 ***************/
 	public int deleteByOrderNo(int o_no) throws Exception {
