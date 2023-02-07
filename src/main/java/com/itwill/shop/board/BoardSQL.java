@@ -44,7 +44,7 @@ public class BoardSQL {
 	public final static String BOARD_COUNT_REPLY = "select count(*) cnt from board"
 			+ "where board_group_no=? and board_depth=? and board_step=?";
 
-	public final static String BOARD_INCREASE_READCOUNT = "UPDATE board SET readcount = readcount + 1 WHERE boardno = ?";
+	public final static String BOARD_INCREASE_READCOUNT = "UPDATE board SET board_readcount = board_readcount + 1 WHERE board_no = ?";
 
 	public final static String BOARD_UPDATE = "update board set board_title=?,board_content=? where board_no=?";
 	public final static String BOARD_DELETE_BY_BOARDNO = "delete from board where board_no=?";
