@@ -64,18 +64,11 @@ if(fuser==null){
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<div id="navigation">
-			<!-- include_common_left.jsp start-->
-			<jsp:include page="include_common_left.jsp" />
-			<!-- include_common_left.jsp end-->
-		</div>
-		<!-- navigation end-->
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
 			<!-- include_content.jsp start-->
-			<div id="content">
+			<div id="login_content">
 
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
@@ -91,21 +84,17 @@ if(fuser==null){
 								<table border="0" cellpadding="0" cellspacing="1"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">사용자
-											아이디</td>
-										<td width=490 align="left" bgcolor="ffffff"
-											style="padding-left: 10px"><input type="text"
-											style="width: 150" name="user_id"
-											value="">&nbsp;&nbsp;<font
-											color="red"><%=msg1%></font></td>
+										<td width=100 align=center bgcolor="ffffff" height="22"><img src='image/login_form_id.png'></td>
+										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px">
+										<input type="text" placeholder="아이디" style="width: 150" name="user_id"
+										value="">&nbsp;&nbsp;<font color="red"><%=msg1%></font></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
+										<td width=100 align=center bgcolor="ffffff" height="22"><img src='image/login_form_pw.png'></td>
 										<td width=490 align="left" bgcolor="ffffff"
-											style="padding-left: 10px"><input type="password"
-											style="width: 150" name="user_password"
-											value="">&nbsp;&nbsp;<font
-											color="red"><%=msg2%></font></td>
+											style="padding-left: 10px">
+										<input type="password" placeholder="패스워드" style="width: 150" name="user_password"
+										value="">&nbsp;&nbsp;<font color="red"><%=msg2%></font></td>
 									</tr>
 								</table>
 							</form> <br />
