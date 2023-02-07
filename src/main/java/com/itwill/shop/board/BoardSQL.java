@@ -38,11 +38,11 @@ public class BoardSQL {
 			+ " values (board_board_no_SEQ.nextval,?,?,sysdate,0,board_board_no_SEQ.currval,1,0,?)";
 
 	public final static String BOARD_USERID_CHECK = "select count(*) from board where user_id=? and board_no=?";
-	public final static String BOARD_UPDATE_STEP = "update set board_step = board_step+1 where board_step > ? and board_group_no = ?";
+	public final static String BOARD_UPDATE_STEP = "update board set board_step = board_step+1 where board_step > ? and board_group_no = ?";
 	public final static String BOARD_INSERT_REPLY = "insert into board"
-			+ "values (board_board_no_SEQ.nextval,?,?,sysdate,0,?,?,?,?) ;";
+			+ " values (board_board_no_SEQ.nextval,?,?,sysdate,0,?,?,?,?)";
 	public final static String BOARD_COUNT_REPLY = "select count(*) cnt from board"
-			+ "where board_group_no=? and board_depth=? and board_step=?";
+			+ " where board_group_no=? and board_depth=? and board_step=?";
 
 	public final static String BOARD_INCREASE_READCOUNT = "UPDATE board SET board_readcount = board_readcount + 1 WHERE board_no = ?";
 
