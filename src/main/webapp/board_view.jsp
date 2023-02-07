@@ -102,7 +102,7 @@
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">글쓴이</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
-											align="left"><%=sUserId%></td>
+											align="left"><%=board.getUser_id()%></td>
 									</tr>
 
 									<tr>
@@ -126,8 +126,13 @@
 									<td align=center><input type="button" value="글쓰기"
 										onClick="boardCreate()"> &nbsp; 
 										<input type="button" value="답글쓰기" onClick="boardReplyCreate()"> &nbsp; 
+										<%if(session.getAttribute("sUserId").equals(board.getUser_id())) {%>
 										<input type="button" value="수정" onClick="boardUpdate()"> &nbsp; 
 										<input type="button" value="삭제" onClick="boardRemove()"> &nbsp; 
+										<%}else { %>
+										<input type="hidden" value="수정" onClick="boardUpdate()"> 
+										<input type="hidden" value="삭제" onClick="boardRemove()"> 
+										<%} %>
 										<input type="button" value="리스트" onClick="boardList()"></td>
 								</tr>
 							</table></td>
