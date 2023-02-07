@@ -1,5 +1,5 @@
-<%@page import="com.itwill.shop.product.ProductService"%>
 <%@page import="com.itwill.shop.product.Product"%>
+<%@page import="com.itwill.shop.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -108,33 +108,21 @@ if (product == null) {
 							-->
 							<table style="margin-left: 10px" border=0 width=80% height=376
 								align=center>
-
+								<tr valign=bottom>
+									<td width=30% align=center class=t1><font size=2
+										color=#0000FF><b>주문량</b></font></td>
+									<td width=40% align=center class=t1><font size=2
+										color=#0000FF><b>Boots 이름</b></font></td>
+									<td width=30% align=center class=t1><font size=2
+										color=#0000FF><b>Boots 소개</b></font></td>
+								</tr>
 								<tr width=100%>
-									<td colspan=5 height=5><hr color=#556b2f></td>
+									<td colspan=3 height=5><hr color=#556b2f></td>
 								</tr>
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1>
-										<img border=0 src='image/<%=product.getP_image()%>' width=200 height=200></td>
-
-									<td width=20% height=200 align=left>
-											<font size=2>카테고리</font><br><br>
-											<font size=2>상품명</font><br><br>
-											<font size=2>가격</font><br><br>
-											<font size=2>설명</font><br>
-									
-									<td width=20% height=200 align=left>
-											<font size=2><%=product.getCategory_no() %>(카테고리)</font><br><br>
-											<font size=2><%=product.getP_name()%></font><br><br>
-											<font size=2>￦ <%=product.getP_price()%></font><br><br>
-											<font size=1><%=product.getP_desc()%></font>
-									
-									</td>
-									
-									<td width=30% height=200 class=t1>
-											<form name="add_cart_form" method="post" action="cart_add_action.jsp">
-																							<input type="hidden" name=p_no value="<%=product.getP_no()%>">
-											
-											<font size=2>수량</font> 
+										<form name="add_cart_form" method="post" action="cart_add_action.jsp">
+											수량 :
 											<!-- 
 											 <input type=text name="cart_qty" value=1 size=4 class=TXTFLD>  
 											-->
@@ -149,33 +137,39 @@ if (product == null) {
 												<option value="8">8
 												<option value="9">9
 												<option value="10">10
-											</select><br><br> 
-											<!-- 버튼 수정 
+											</select> 마리<br><br> 
 												<input width=40px height=40px type=image src='image/cart.png' value="장바구니담기[장바구니보여주기]" title="장바구니담기[장바구니보여주기]" style="font-size: 6pt;"/> 
 												<a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니담기[계속쇼핑팝업]"><img src='image/cart25.png' style="margin-bottom: 5px "></a>
-											-->
-											<input type="button" class="w-btn w-btn-indigo" value="바로구매" onClick="order_create_form();"><br><br>
-											<input type="button" class="w-btn w-btn-indigo" value="장바구니" onClick="javascript:add_cart_popup_window(this.parentElement);"></td>
-											</form>
-										
-
+												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
+										</form>
+									</td>
+									<td width=40% height=200 align=center><img border=0
+									    src='image/<%=product.getP_image()%>' width=120 height=200></td>
+									<td width=30% height=200 class=t1>
+										<ol type="disc">
+											<li><b>신발 : <%=product.getP_name()%>&nbsp;&nbsp;&nbsp;
+											</b></li>
+											<li><font color=#FF0000>가격 : <%=product.getP_price()%>&nbsp;&nbsp;&nbsp;
+											</font></li>
+											<li><font color=#0000FF><%=product.getP_desc()%></font></li>
+										</ol>
 									</td>
 								</tr>
 								<tr>
-									<td colspan=5 height=21><hr color=#556b2f></td>
+									<td colSpan=3 height=21><hr color=#556b2f></td>
 								</tr>
 							</table> <!-- 
 							</form>
 							-->
 
-									</td>
 
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center>
-										<input type="button" class="w-btn w-btn-indigo" value="상품목록" onClick="productList();"></td>
+									<td align=center><input type="button" value="주문하기[주문폼]"
+										onClick="order_create_form();"> &nbsp; <input
+										type="button" value="상품리스트" onClick="productList();"></td>
 								</tr>
-							</table>
+							</table></td>
 					</tr>
 				</table>
 			</div>

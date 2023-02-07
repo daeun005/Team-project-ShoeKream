@@ -1,21 +1,29 @@
-<%@page import="com.itwill.shop.product.ProductService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.shop.product.ProductService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	
 <%
-ProductService productService = new ProductService();
-List<Product> productList = productService.productList();
-%>
-<%
 boolean isLogin = false;
-if (session.getAttribute("sUserId") != null) {
+String sUserId=(String)session.getAttribute("s_u_id");
+if (session.getAttribute("s_u_id") != null) {
 	isLogin = true;
 }
+String category_noStr=request.getParameter("category_no");
+if(category_noStr==null)category_noStr="0";
+
+ProductService productService = new ProductService();
+List<Product> productList = null;
+if(category_noStr.equals("0")){
+	productList=productService.productList();
+}else{
+	productList=productService.productCategory(Integer.parseInt(category_noStr));
+}
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,17 +108,16 @@ function add_cart_popup_window(f){
 									<%} %>
 										<td align="center" width="25%"  bgcolor="ffffff"><a
 											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
-												src="image/<%=product.getP_image()%>" border="0"></a><br />
+												src="image/product_image/<%=product.getP_image()%>" border="0"></a><br />
 												
-											<br /> <b><%=product.getP_name()%></b><br>
+											<br /> <b><%=product.getP_name()%></b>
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<font color="#FF0000">￦<%=new DecimalFormat("#,##0").format(product.getP_price())%>
-												</font><br>
 												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top"/>
-											</form><br> 
-												</td>
+											</form><br> <font
+											color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
+										</font></td>
 									<%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	

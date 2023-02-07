@@ -19,7 +19,7 @@ public class ProductDaoTestMain {
 		
 		System.out.println(productDao.delete("shoes2"));
 		
-		System.out.println(productDao.findByCategory(1));
+		System.out.println(productDao.selectByCategory(1));
 	}
 
 }
