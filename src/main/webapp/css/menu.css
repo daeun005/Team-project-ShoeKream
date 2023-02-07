@@ -71,7 +71,7 @@ div#header #menu {
 #menu li#cart:hover{
 	opacity: 1;
 }
- #menu li#mypage {
+#menu li#mypage {
 	width: 40px;
 	background: url('../image/image__header-mypage.svg');
 	background-position: bottom;
@@ -79,6 +79,7 @@ div#header #menu {
 	background-repeat: no-repeat;
 	opacity: 0.8;
 }
+
 #menu limypage:hover{
 	opacity: 1;
 }

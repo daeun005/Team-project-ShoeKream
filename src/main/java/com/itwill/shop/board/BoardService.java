@@ -23,7 +23,6 @@ public class BoardService {
 	public int remove(int boardno) throws Exception,BoardException{
 		Board tempBoard=boardDao.findBoard(boardno);
 		boolean rExist=boardDao.countReplay(tempBoard);
-		System.out.println("답글존재여부:"+rExist);
 		if(boardDao.countReplay(tempBoard)){
 			//답글존재
 			throw new BoardException("답글이 있는 게시글은 삭제앙돼요!!");
