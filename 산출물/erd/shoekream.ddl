@@ -72,7 +72,6 @@ CREATE SEQUENCE cart_cart_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 CREATE TABLE board(
 		board_no                      		NUMBER(10)		 NULL ,
 		board_title                   		VARCHAR2(100)		 NOT NULL,
-		board_writer                  		VARCHAR2(20)		 NOT NULL,
 		board_content                 		VARCHAR2(200)		 NOT NULL,
 		board_regdate                 		DATE		 DEFAULT sysdate		 NULL ,
 		board_readcount               		NUMBER(10)		 DEFAULT 0		 NOT NULL,

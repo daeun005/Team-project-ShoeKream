@@ -22,7 +22,6 @@
 	%>
 	     	<li><a href="user_login_form.jsp">로그인</a></li>
 			<li><a href="user_write_form.jsp">회원가입</a></li>
-			<li><a href="user_write_form_popup.jsp">회원가입[팝업]</a></li>
 			<li><a href=""></a></li>
 			<li><a href="javascript:login_message();">장바구니</a></li>
 	<%

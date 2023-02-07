@@ -50,7 +50,8 @@ insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextv
 
 
 /**********************board insert************************/
-
+insert into board(board_no,board_title,board_content,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id)
+values (board_board_no_SEQ.nextval,'게시판테스트','게시판insert를 해보자',sysdate,0,board_board_no_SEQ.currval,1,0,'cream1');
 
 commit;
 desc order_item;
