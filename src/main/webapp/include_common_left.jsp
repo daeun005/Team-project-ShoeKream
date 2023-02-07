@@ -28,7 +28,7 @@
 		}else{ 
 			User sUser=new UserService().findUser(sUserId);
 		    CartService cartService=new CartService();
-		  	int cart_item_count = cartService.viewCartItem(sUserId).size();
+		  	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
 	%>	
 		<li><a href="user_view.jsp"><%=sUser.getUser_name()+"님"%></a></li>
 		<li><a href="user_logout_action.jsp">로그아웃</a></li>

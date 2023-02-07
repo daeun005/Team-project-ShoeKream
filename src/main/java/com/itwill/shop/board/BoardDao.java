@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
-
 public class BoardDao {
 	
 	private DataSource dataSource;
@@ -244,7 +243,7 @@ public class BoardDao {
 			pstmt = con.prepareStatement(BoardSQL.BOARD_UPDATE);
 			pstmt.setString(1, board.getBoard_title());
 			pstmt.setString(2, board.getBoard_content());
-			pstmt.setInt(4, board.getBoard_no());
+			pstmt.setInt(3, board.getBoard_no());
 			count = pstmt.executeUpdate();
 		} finally {
 			try {
@@ -273,20 +272,27 @@ public class BoardDao {
 
 		try {
 			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_BOARDNO);
+			StringBuffer sql = new StringBuffer(300);
+			sql.append("SELECT ");
+			sql.append("board_no, board_title, user_id, board_content, ");
+			sql.append("board_regdate, board_readcount, ");
+			sql.append("board_group_no, board_step, board_depth ");
+			sql.append("FROM board ");
+			sql.append("WHERE board_no = ?");
+			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, boardNo);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				board = new Board();
 				board.setBoard_no(rs.getInt(1));
 				board.setBoard_title(rs.getString(2));
-				board.setBoard_content(rs.getString(3));
-				board.setBoard_regDate(rs.getDate(4));
-				board.setBoard_readCount(rs.getInt(5));
-				board.setBoard_group_no(rs.getInt(6));
-				board.setBoard_step(rs.getInt(7));
-				board.setBoard_depth(rs.getInt(8));
-				board.setUser_id(rs.getString(9));
+				board.setUser_id(rs.getString(3));
+				board.setBoard_content(rs.getString(4));
+				board.setBoard_regDate(rs.getDate(5));
+				board.setBoard_readCount(rs.getInt(6));
+				board.setBoard_group_no(rs.getInt(7));
+				board.setBoard_step(rs.getInt(8));
+				board.setBoard_depth(rs.getInt(9));
 			}
 		}finally {
 			try {
