@@ -50,8 +50,8 @@ public class CartService {
 	}
 	
 	//카트 번호로 출력
-	public List<Cart> viewCartByCartNo(int cart_no) throws Exception{
-		return cartDao.findByCartNo(cart_no);
+		public Cart viewCartByCartNo(int cart_no) throws Exception{
+			return cartDao.findByCartNo(cart_no);
 	}
 	
 

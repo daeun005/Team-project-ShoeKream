@@ -199,30 +199,30 @@ public class CartDao {
 		
 	
 	//카트 일부 목록 (for 선택주문)
-	public List<Cart> findByCartNo(int cart_no) throws Exception{
-		List<Cart> cartList = new ArrayList<Cart>();
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		pstmt = con.prepareStatement(CartSQL.CART_SELECT_BY_CARTNO);
-		pstmt.setInt(1, cart_no);
-		rs = pstmt.executeQuery();
-		while(rs.next()) {
-			cartList.add(new Cart( rs.getInt("cart_no"),
-					   			   rs.getString("user_Id"),
-					   			   rs.getInt("cart_qty"),
-					   			   new Product(rs.getInt("p_no"),
-							    		       rs.getString("p_name"),
-							    		       rs.getInt("p_price"),
-							    		       rs.getString("p_image"),
-							    		       rs.getString("p_desc"), 
-							    		       rs.getInt("p_click_count"),
-							    		       rs.getInt("category_no"))
-						));
+		public Cart findByCartNo(int cart_no) throws Exception{
+			Cart cart = null;
+			Connection con = dataSource.getConnection();
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			pstmt = con.prepareStatement(CartSQL.CART_SELECT_BY_CARTNO);
+			pstmt.setInt(1, cart_no);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				cart = (new Cart( rs.getInt("cart_no"),
+						   			   rs.getString("user_Id"),
+						   			   rs.getInt("cart_qty"),
+						   			   new Product(rs.getInt("p_no"),
+								    		       rs.getString("p_name"),
+								    		       rs.getInt("p_price"),
+								    		       rs.getString("p_image"),
+								    		       rs.getString("p_desc"), 
+								    		       rs.getInt("p_click_count"),
+								    		       rs.getInt("category_no"))
+							));
+			}
+			return cart;
 		}
-		return cartList;
-	}
 	
 	
 }
