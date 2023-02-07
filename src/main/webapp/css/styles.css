@@ -33,7 +33,7 @@ div#header h1 {
 /***************** menu start****************/
 /***************** menu end****************/
 div#container {
-	text-align: left
+	text-align: center
 }
 
 div#content p {
@@ -76,14 +76,14 @@ div#footer p {
 }
 
 div#container {
-	width: 700px;
+	width: 1200px;
 	margin: 0 auto
 }
 /*
 div#navigation{float:left;width:150px;height:350px;margin-left:-700px}
 */
 div#navigation {
-	float: left;
+	float: top;
 	width: 150px;
 	height: 350px;
 }
@@ -96,7 +96,12 @@ div#wrapper {
 }
 
 div#content {
-	margin: 0 0 0 150px
+	margin: 0 0 0 0px
+}
+
+div#login_content {
+	width: 300px;
+    margin: 0 auto;
 }
 
 div#footer {
