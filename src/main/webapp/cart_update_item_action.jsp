@@ -1,8 +1,7 @@
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.cart.Cart"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf" %>    
 <%
     if(request.getMethod().equalsIgnoreCase("GET")){
@@ -11,7 +10,6 @@
     	}
 
     	String cart_qtyStr = request.getParameter("cart_qty");
-    	//String p_noStr = request.getParameter("p_no");
     	String cart_noStr = request.getParameter("cart_no");
     	
     	CartService cartService = new CartService();
@@ -21,6 +19,6 @@
     	}else{
     		cartService.updateCart(cart);
     	}
-    	//response.sendRedirect("cart_view_select_update_qty.jsp");
-    	response.sendRedirect("cart_view_select_update_qyt_all_check_delete_image.jsp");
+    	
+    	response.sendRedirect("cart_view.jsp");
     %>

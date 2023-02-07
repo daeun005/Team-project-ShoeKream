@@ -7,7 +7,7 @@ int cart_item_count=0;
 	String sUserId=(String)session.getAttribute("sUserId");
 	if(sUserId!=null){
 		CartService cartService=new CartService();
-		cart_item_count = cartService.viewCartItem(sUserId).size();
+		cart_item_count = cartService.viewCartByUserId(sUserId).size();
 	}
 %>		
 <div id="menu">
@@ -19,7 +19,7 @@ int cart_item_count=0;
 			
 		<%}else{ %>
 			<li id="mypage" title="나의페이지" ><a href="user_view.jsp"></a></li>
-			<li id="cart" title="장바구니"><span class="w3-badge w3-green w3-margin-right"><%=cart_item_count%></span><a href="cart_view_select_update_qyt_all_check_delete_image.jsp"></a></li>
+			<li id="cart" title="장바구니"><span class="w3-badge w3-green w3-margin-right"><%=cart_item_count%></span><a href="cart_view.jsp"></a></li>
 			
 		<%} %>
 	</ul>
