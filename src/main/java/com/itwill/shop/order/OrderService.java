@@ -20,13 +20,20 @@ public class OrderService {
 	}
 	
 	/*************** 상품 상세보기에서 직접 주문 하기 ***************/
+	/*
+	 * 해당 product의 정보를 가져와서(p_no로 찾기) 그 정보를 결과적으로는 order에 넣어줘야 함.
+	 * orderItem에 product를 넣어주고,
+	 * orderItemList에 orderItem을 넣어줌(order에 orderItem 정보를 넣기 위해서는 setter를 이용해서 List의 형태 넣어줘야 함.)
+	 * 새로운 order를 먼저 생성하고,
+	 * order에 setOrderItemList() 메소드를 사
+	 */
 	public int directOrder(String user_id, int p_no, int oi_qty) throws Exception {
 		Product product = productDao.selectByNo(p_no);
 		OrderItem orderItem = new OrderItem(0, oi_qty, 0, product);
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		orderItemList.add(orderItem);
 		
-		Order order = new Order(0, orderItem.getProduct().getP_name() + " 주문", null, orderItemList.get(0).getOi_qty() * orderItemList.get(0).getProduct().getP_price(), user_id);
+		Order order = new Order(0, orderItem.getProduct().getP_name(), null, orderItemList.get(0).getOi_qty() * orderItemList.get(0).getProduct().getP_price(), user_id);
 		order.setOrderItemList(orderItemList);
 		
 		return orderDao.insert(order);

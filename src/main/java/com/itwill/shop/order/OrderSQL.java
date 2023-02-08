@@ -4,7 +4,7 @@ public class OrderSQL {
 	public static final String ORDERS_INSERT= 
 										"insert into orders(o_no, o_desc, o_date, o_price, user_id) values(orders_o_no_SEQ.nextval, ?, sysdate, ?, ?)";
 	public static final String ORDER_ITEM_INSERT = 
-										"insert into order_item(oi_no, oi_qty, o_no, p_no) values(order_item_oi_no_SEQ.nextval, ?, orders_o_no.SEQ_currval, ?)";
+										"insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval, ?, orders_o_no_SEQ.currval , ?)";
 	public static final String ORDERS_DELETE_BY_USER_ID= 
 										"delete from orders where user_id = ?";
 	public static final String ORDERS_DELETE_BY_O_NO= 

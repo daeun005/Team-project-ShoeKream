@@ -54,10 +54,10 @@ div#header #menu {
 }
 
 #menu li#logo {
-	width: 80px;
-	background: url('../image/itwill-logo.png');
+	width: 200px;
+	background: url('../image/logo_shoekream_pt10.png');
 	background-position: left;
-	background-size: 110%;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	opacity: 0.8;
 }
