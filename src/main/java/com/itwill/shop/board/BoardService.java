@@ -74,7 +74,10 @@ public class BoardService {
 		pageMakerBoardList.pageMaker=pageMaker;
 		return pageMakerBoardList;
 	}
-	
+	public int boardCount() throws Exception {
+		int totalBoardCount = boardDao.getBoardCount();
+		return totalBoardCount;
+	}
 	/*
 	 * 게시물수정
 	 */

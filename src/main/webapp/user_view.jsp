@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.board.BoardService"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@page import="com.itwill.shop.user.User"%>
 <%@page import="com.itwill.shop.user.UserService"%>
@@ -9,6 +10,7 @@
 	User user = userService.findUser(sUserId);
     CartService cartService=new CartService();
   	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
+  	int boardListCount = BoardService.getInstance().boardCount();
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,7 +40,7 @@
 			<div id="user_content">
 				<div class="member-grade-box">
 					<div class="grade-info-box">
-						<span class="grade-info"><span></span> 님 환영합니다.</span>
+						<span class="grade-info"><span><%=sUserId %></span> 님 환영합니다.</span>
 
 						<form id="mypageChangeForm" name="mypageChangeForm" method="post">
 							<input type="hidden" id="changeMemberNo" name="changeMemberNo">
@@ -49,7 +51,7 @@
 							<div class="info-item">
 								<span class="info-title"><i class="icon-cart"></i>장바구니</span> 
 								<span class="info-data"> <a href="cart_view.jsp">
-								<span class="unit">개</span></a></span>
+								<span class="unit"><%=cart_item_count %>개</span></a></span>
 							</div>
 							<div class="info-item">
 								<span class="info-title"><i class="icon-order"></i>구매목록</span>
@@ -60,8 +62,8 @@
 						<div class="shopping-info">
 							<div class="info-item">
 								<span class="info-title"><i class="icon-board"></i>게시글 </span>
-								<span class="info-data"><a href="/cart/cart-list">0 
-								<span class="unit">개</span></a></span>
+								<span class="info-data"><a href="/cart/cart-list">0
+								<span class="unit"><%=boardListCount %>개</span></a></span>
 							</div>
 							<div class="info-item">
 								<span class="info-title"><i class="icon-reply"></i>상품댓글</span>
@@ -89,40 +91,33 @@
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">아이디</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_id() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_name() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">전화번호</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_phone() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
 											주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_email() %>
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_address() %>
 										</td>
 									</tr>
 								</table>
 							</form> <br />
-							<table border="0" cellpadding="0" cellspacing="1">
-								<tr>
-									<td align=center>
-									<input type="button" value="내정보수정" onClick="userModify()">&nbsp; 
-									<input type="button" value="탈퇴" onClick="userRemove()">&nbsp;
-									</td>
-								</tr>
-							</table>
+
 						</td>
 					</tr>
 				</table>

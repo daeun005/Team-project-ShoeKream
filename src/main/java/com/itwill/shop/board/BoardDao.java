@@ -374,4 +374,36 @@ public class BoardDao {
 		}
 		return count;
 	}
+	
+	public int countByUserId() throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_COUNT_SELECT);
+			rs = pstmt.executeQuery();
+			if (rs.next())
+				count = rs.getInt(1);
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+		return count;
+	}
 }

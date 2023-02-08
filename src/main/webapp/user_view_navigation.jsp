@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.board.BoardService"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="com.itwill.shop.user.User"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,17 +8,7 @@
 <%
 	String sUserId=(String)session.getAttribute("sUserId");
 %>	
-	<%
-		if(sUserId==null){
-	%>
-			<li><a href=""></a></li>
-			<li><a href="javascript:login_message();">장바구니</a></li>
-	<%
-		}else{ 
-			User sUser=new UserService().findUser(sUserId);
-		    CartService cartService=new CartService();
-		  	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
-	%>	
+
 <ol class="mypage">마이페이지
 	<li></li>
 	<li></li>
@@ -43,7 +34,6 @@
 	<li><span class="mypage_title"><a href="user_logout_action.jsp">로그아웃</a></span></li>
 	<li></li>
 		
-	<%} %>
 		<li><a href="board_list.jsp">게시판리스트</a></li>
 		<li><a href="board_write.jsp">게시판쓰기</a></li>
 		
