@@ -196,4 +196,33 @@ public class ProductDao {
 		}
 		return productList;
 	}
+	
+	
+	/************************************************************/
+	
+	/*
+	 * 상품 조회수 증가
+	 */
+	public void increaseClickCount(int number) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+	
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(ProductSQL.PRODUCT_INCREASE_CLICK_COUNT);
+			pstmt.setInt(1, number);
+			pstmt.executeUpdate();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+	}
 }

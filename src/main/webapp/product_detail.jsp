@@ -22,6 +22,16 @@ if (product == null) {
 	out.println("</script>");
 	return;
 }
+
+//조회수 증가
+Integer p_no = null;
+try{
+	p_no=Integer.parseInt(request.getParameter("p_no"));
+}catch(Exception e){
+	
+}
+ProductService.getInstance().updateHitCount(p_no);
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
