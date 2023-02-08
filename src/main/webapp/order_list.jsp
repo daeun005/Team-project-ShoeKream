@@ -11,7 +11,6 @@
 <%
 OrderService orderService = new OrderService();
 List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
-System.out.println(orderList);
 //NumberFormat numberFormat = NumberFormat.getInstance();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

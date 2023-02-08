@@ -205,16 +205,11 @@ public class OrderDao {
 				}
 				orderList.set(i, orderWithOrderItem);
 			}
+		}catch(Exception e){
+			e.printStackTrace();
+			orderList = null;
 		}
 		finally {
-			if(rs1 != null || rs2 != null) {
-				rs1.close();
-				rs2.close();
-			}
-			if(pstmt1 != null || pstmt2 != null) {
-				pstmt1.close();
-				pstmt2.close();
-			}
 			if(con != null) {
 				con.close();
 			}

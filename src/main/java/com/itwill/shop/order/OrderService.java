@@ -118,7 +118,6 @@ public class OrderService {
 	/*************** 회원의 전체 주문의 상세 내역(아이디로 조회) ***************/
 	public List<Order> findWithOrderItemByUserId(String user_id) throws Exception {
 		try {
-			System.out.println(orderDao.findWithOrderItemByUserId(user_id));
 			return orderDao.findWithOrderItemByUserId(user_id);
 		}catch (Exception e) {
 			e.printStackTrace();
