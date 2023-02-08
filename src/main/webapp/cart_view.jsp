@@ -8,6 +8,13 @@
 <%
 	CartService cartService = new CartService();
 	List<Cart> cartList = cartService.viewCartByUserId(sUserId);
+	
+	String loginUser = (String)session.getAttribute("sUserId");
+	if(loginUser == null){
+		response.sendRedirect("user_login_form.jsp");
+		return;
+	}
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -135,7 +142,7 @@
 										<a href="cart_view_form_select_submit();" class=m1>
 										 	총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</a>&nbsp;&nbsp;
 											<a href="cart_delete();" class=m1>장바구니 비우기</a>&nbsp;&nbsp;
-											<%}	%>
+											<%}%>
 									</td>
 								</tr>
 							</table></td>
