@@ -1,3 +1,5 @@
+<%@page import="com.itwill.shop.delivery.DeliveryService"%>
+<%@page import="com.itwill.shop.delivery.Delivery"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,6 +12,9 @@
 OrderService orderService = new OrderService();
 List<Order> orderList = orderService.findByUserId(sUserId);
 List<OrderItem> orderItemList = new ArrayList<OrderItem>();
+
+DeliveryService deliveryService = new DeliveryService();
+List<Delivery> deliveryInfo = deliveryService.selectDelivery(sUserId);
 
 String o_noStr = request.getParameter("o_no");
 Order thisOrder = orderService.findWithOrderItemByOrderNo(Integer.parseInt(o_noStr));
@@ -74,6 +79,8 @@ form > table tr td{
 											>주문일</font></td>
 										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>주문자</font></td>
+										<td width=30% height=25 bgcolor="E6ECDE" align=center class=t1><font
+											>배송지</font></td>	
 										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>비 고</font></td>
 									</tr>
@@ -83,7 +90,12 @@ form > table tr td{
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%= thisOrder.getO_no() %></td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(thisOrder.getO_date()) %></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%= sUserId %></td>
-										
+										<%
+										String address = null;
+										if(deliveryInfo.size() != 0) { 
+											address = deliveryInfo.get(0).getD_address();
+										} %>
+										<td width=50 height=26 align=center bgcolor="ffffff" class=t1><%= address%></td>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
 												<input type="submit" value="삭제">
 										</td>
