@@ -1,15 +1,9 @@
-<%@page import="com.itwill.shop.cart.CartService"%>
 <%@page import="com.itwill.shop.user.User"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="login_check.jspf" %>     
+	pageEncoding="UTF-8"%>
 <%
-	UserService userService=new UserService();
-	User user = userService.findUser(sUserId);
-    CartService cartService=new CartService();
-  	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
-%>    
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
- 
+
 <script src="js/user.js"></script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -25,9 +19,7 @@
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
-		<div id="header">
-			<jsp:include page="include_common_top.jsp"/>
-		</div>
+		<div id="header"></div>
 		<!-- header end -->
 		<!-- wrapper start -->
 		<div id="wrapper">
