@@ -7,26 +7,37 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
+
+/*
+ * 자료실 게시판에서 데이터베이스의 접근을 전담하는 클래스. 
+ * BOARD 테이블과의 접근을 담당한다.
+ */
 public class BoardDao {
-	
 	private DataSource dataSource;
+
+	public BoardDao()  throws Exception{
+		InitialContext ic = new InitialContext();
+		dataSource = (DataSource)ic.lookup("java:/comp/env/jdbc/OracleDB");
+
+	}
 	
+	/*
 	public BoardDao() throws Exception{
 		Properties properties = new Properties();
 		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		/*** Apache DataSource ***/
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
 		basicDataSource.setUsername(properties.getProperty("username"));
 		basicDataSource.setPassword(properties.getProperty("password"));
 		dataSource = basicDataSource;
-		
 	}
+*/
 	/**
 	 * 새로운 게시물을 추가하는 메써드.
 	 * @throws Exception 

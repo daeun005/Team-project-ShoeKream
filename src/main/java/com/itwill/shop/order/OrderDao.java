@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
@@ -14,12 +15,18 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import com.itwill.shop.product.Product;
 
 public class OrderDao {
+
 	private DataSource dataSource;
-	
-	public OrderDao() throws Exception{
+	public OrderDao() throws Exception {
+		InitialContext ic = new InitialContext();
+		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
+		
+	}
+	/*
+	public OrderDao() throws Exception {
 		Properties properties = new Properties();
 		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		/*** Apache DataSource ***/
+		// Apache DataSource
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
 		basicDataSource.setUrl(properties.getProperty("url"));
@@ -27,8 +34,7 @@ public class OrderDao {
 		basicDataSource.setPassword(properties.getProperty("password"));
 		dataSource = basicDataSource;
 	}
-	
-	
+	*/
 	/*********** insert(새로운 주문 생성) **********/
 	public int insert(Order order) throws Exception {
 		Connection con = null;
