@@ -82,7 +82,7 @@ if (product == null) {
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-<<<<<<< HEAD
+
 		<!-- navigation start-->
 		<div id="navigation">
 			<!-- include_common_left.jsp start-->
@@ -91,8 +91,7 @@ if (product == null) {
 			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
-=======
->>>>>>> branch 'master' of https://github.com/2022-11-JAVA-DEVELOPER/web-project-team1-shoekream.git
+
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
