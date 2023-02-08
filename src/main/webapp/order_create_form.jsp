@@ -218,18 +218,17 @@ form > table tr td{
 											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=user.getUser_phone()%></td>
 											<td width=150 height=26 align=center bgcolor="ffffff" class=t1 ><%=user.getUser_email()%></td>
 											<td width=150 height=26 align=center bgcolor="ffffff" class=t1>
-                                 <select name="d_address">
-                                  <option value="0">배송지 선택</option>
-                                 <% for(Delivery delivery : deliveryList) { %>
-                                    <%int i = 0; %>
-                                 <option value="<%=i++%>" 
-                                 <% if(delivery.getD_address()==delivery.getD_address()){%>
-                                 selected
-                                 <%}%>>
-                                 <%=delivery.getD_address() %></option>
-                                    
-                                    <%} %>   
-                                    
+			                                 <select name="d_address">
+				                                  <option value="0">배송지 선택</option>
+				                                	 <% for(Delivery delivery : deliveryList) { %>
+				                                    <%int i = 0; %>
+				                                	 <option value="<%=i++%>" 
+					                             	 <% if(delivery.getD_address()==delivery.getD_address()){%>
+					                              	selected
+					                             	 <%}%>>
+			                                 		<%=delivery.getD_address() %></option>
+			                                  <%} %>   
+                                   
                                     
                         
                               

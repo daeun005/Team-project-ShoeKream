@@ -28,6 +28,7 @@ public class DeliveryDao {
 		basicDataSource.setUsername(properties.getProperty("username"));
 		basicDataSource.setPassword(properties.getProperty("password"));
 		datasource = basicDataSource;
+		
 	}	
 
 	/*

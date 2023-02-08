@@ -13,8 +13,7 @@
                             	*/
                             	if(request.getMethod().equalsIgnoreCase("GET")){
                             		response.sendRedirect("order_list.jsp");
-                            		return;
-                            	}
+                            		return;}
                             	String buyType=request.getParameter("buyType");
                             	String p_noStr=request.getParameter("p_no");
                             	String p_qtyStr=request.getParameter("p_qty");
@@ -24,6 +23,7 @@
 								DeliveryService deliveryService = new DeliveryService();
                             	OrderService orderService=new OrderService();
                             	CartService cartService=new CartService();
+                            	
                             	if(buyType.equals("cart")){
                             		orderService.cartOrder(sUserId);
                             	}else if(buyType.equals("cart_select")){
