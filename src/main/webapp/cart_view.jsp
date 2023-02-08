@@ -9,12 +9,6 @@
 	CartService cartService = new CartService();
 	List<Cart> cartList = cartService.viewCartByUserId(sUserId);
 	
-	String loginUser = (String)session.getAttribute("sUserId");
-	if(loginUser == null){
-		response.sendRedirect("user_login_form.jsp");
-		return;
-	}
-	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,9 +31,6 @@
 	<div id="container">
 		<div id="header">
 			<jsp:include page="include_common_top.jsp" />
-		</div>
-		<div id="navigation">
-			<jsp:include page="include_common_left.jsp" />
 		</div>
 		<div id="wrapper">
 			<!-- content start -->
