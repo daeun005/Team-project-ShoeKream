@@ -34,14 +34,23 @@ insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream2_office','
 insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream3_home','3333-1111','집','cream3');
 
 /**********************orders insert************************/
-insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes1외1종',sysdate-2,11111,'cream1');
+insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes1외1종',sysdate-2,300000,'cream1');
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
 
-insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes2외0종',sysdate-1,22222,'cream2');
+insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes3',sysdate-2,300000,'cream2');
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
 
-insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes3외1종',sysdate,33333,'cream3');
+insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes4외 1종',sysdate-1,400000,'cream2');
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,4);
+
+insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes2외 3종',sysdate,1900000,'cream2');
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,1);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,2);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,5);
+insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,6);
+
+insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes3외 1종',sysdate,1100000,'cream3');
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,1,orders_o_no_SEQ.currval,3);
 insert into order_item(oi_no,oi_qty,o_no,p_no) values(order_item_oi_no_SEQ.nextval,2,orders_o_no_SEQ.currval,4);
 
