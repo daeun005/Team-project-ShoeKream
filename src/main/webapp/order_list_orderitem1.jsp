@@ -45,13 +45,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<div id="navigation">
-			<!-- include_common_left.jsp start-->
-			<jsp:include page="include_common_left.jsp" />
-			<!-- include_common_left.jsp end-->
-		</div>
-		<!-- navigation end-->
+
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
@@ -76,7 +70,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문이름</font></td>
 										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문날짜</font></td>
 										<td width=136 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문가격</font></td>
-										<td width=80 height=25 bgcolor="E6ECDE" align=center class=t1><font></font></td>
+										<td width=80 height=25 bgcolor="E6ECDE" align=center class=t1><font>비고</font></td>
 									</tr>
 									<!-- order start -->
 									<%
@@ -88,6 +82,13 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(order.getO_date())%></td>
 										<td width=136 height=26 align=center bgcolor="ffffff" class=t1><%=new DecimalFormat("#,###").format(order.getO_price())%></td>
 										<td width=80 height=26 align=center bgcolor="ffffff" class=t1></td>
+									</tr>
+									<tr>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>상품 정보</font></td>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>상품 정보</font></td>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>상품 정보</font></td>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>상품 정보</font></td>
+										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>상품 정보</font></td>
 									</tr>
 										<%
 											for(OrderItem orderItem:order.getOrderItemList()) {

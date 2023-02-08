@@ -45,13 +45,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
-		<div id="navigation">
-			<!-- include_common_left.jsp start-->
-			<jsp:include page="include_common_left.jsp" />
-			<!-- include_common_left.jsp end-->
-		</div>
-		<!-- navigation end-->
+		
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
@@ -80,7 +74,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
 											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %></span>
 											<span style="font-size: 8pt">주문번호 <%= order.getO_no() %></span>
-											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt text-align:right">상세보기</a>
+											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt">상세보기</a>
 										</td>
 									</tr>
 									<tr>
