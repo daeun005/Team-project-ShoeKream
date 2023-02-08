@@ -1,5 +1,7 @@
 package com.itwill.shop.delivery;
 
+import java.util.List;
+
 public class DeliveryService {
 		
 		private DeliveryDao deliveryDao;
@@ -11,7 +13,7 @@ public class DeliveryService {
 			return deliveryDao.insertDelivery(d_address, d_phone, d_name, user_id);
 		}
 		//배송정보 정보가져오기
-		public Delivery selectDelivery(String user_id) throws Exception {
+		public List<Delivery> selectDelivery(String user_id) throws Exception {
 			return deliveryDao.selectDeliveryByuserId(user_id);
 		}
 
