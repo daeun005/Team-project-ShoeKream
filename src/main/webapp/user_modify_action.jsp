@@ -18,6 +18,8 @@
 		User user=new User(sUserId,user_password,user_name,user_phone,user_email,user_address);
 		UserService userService=new UserService();
 		int updateRowCount=userService.update(user);
+		session.removeAttribute("sUser");
+		session.setAttribute("sUser", user);
 		
 		response.sendRedirect("user_view.jsp");
 	}catch(Exception e){

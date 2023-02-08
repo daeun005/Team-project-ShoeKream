@@ -25,7 +25,7 @@
 			<a href="user_view.jsp" class="">배송주소록 관리</a>
 			</li>
 			<li class="mypage_item">
-			<a href="user_view.jsp" class="">개인정보 수정</a>
+			<a href="user_view_update.jsp" class="">개인정보 수정</a>
 			</li>
 			<li class="mypage_item">
 			<a href="user_remove_action.jsp" class="" onClick="userRemove()" >회원탈퇴</a>

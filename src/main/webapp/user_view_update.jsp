@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>내정보</title>
+<title>내정보수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
@@ -47,32 +47,53 @@
 									bgcolor="BBBBBB">
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">아이디</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_id() %>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px"><%=sUser.getUser_id() %>
 										</td>
 									</tr>
 									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input type="password" name="user_password" value="">
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호확인</td>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input onblur="pwCheck();" width=400 type="password" name="password2" value="" >
+										<span id="pw_span" name="pw_span"></span>
+									</tr>
+									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_name() %>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input type="text" name="user_name" value="<%=sUser.getUser_name() %>">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">전화번호</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_phone() %>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input type="text" name="user_phone" value="<%=sUser.getUser_phone() %>">
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
-											주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_email() %>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일</td>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input type="text" name="user_email" value="<%=sUser.getUser_email() %>">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">주소</td>
-										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_address() %>
+										<td width=490 align=left bgcolor="ffffff" style="padding-left: 10px">
+										<input type="text" name="user_address" value="<%=sUser.getUser_address() %>">
 										</td>
 									</tr>
 								</table>
-							</form> <br />
+							</form>
+							<br/><br/>
+							<table align=center >
+								<tr>
+									<td><input type="button" value="수정" onClick="userModifyAction();">&nbsp;</td>
+									<td><input type="button" value="돌아가기" onClick="">&nbsp;</td>
+								</tr>
+							</table>
 
 						</td>
 					</tr>
