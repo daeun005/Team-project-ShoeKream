@@ -386,14 +386,15 @@ public class BoardDao {
 		return count;
 	}
 	
-	public int countByUserId() throws Exception{
+	public int countByUserId(String userId) throws Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int count = 0;
 		try {
 			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(BoardSQL.BOARD_COUNT_SELECT);
+			pstmt = con.prepareStatement(BoardSQL.BOARD_COUNT_BY_USERID);
+			pstmt.setString(1, userId);
 			rs = pstmt.executeQuery();
 			if (rs.next())
 				count = rs.getInt(1);

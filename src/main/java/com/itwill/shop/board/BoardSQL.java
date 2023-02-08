@@ -1,5 +1,7 @@
 package com.itwill.shop.board;
 
+import javax.servlet.jsp.tagext.TryCatchFinally;
+
 public class BoardSQL {
 	/*
 	 * 
@@ -43,7 +45,9 @@ public class BoardSQL {
 			+ " values (board_board_no_SEQ.nextval,?,?,sysdate,0,?,?,?,?)";
 	public final static String BOARD_COUNT_REPLY = "select count(*) cnt from board"
 			+ " where board_group_no=? and board_depth=? and board_step=?";
-
+	public final static String BOARD_COUNT_BY_USERID = "select count(*) from board where user_id=?";
+	
+	
 	public final static String BOARD_INCREASE_READCOUNT = "UPDATE board SET board_readcount = board_readcount + 1 WHERE board_no = ?";
 
 	public final static String BOARD_UPDATE = "update board set board_title=?,board_content=? where board_no=?";
@@ -58,4 +62,6 @@ public class BoardSQL {
 	public final static String BOARD_SELECT_BY_USERID = "select * from (select rownum idx, s.*"
 			+ " from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id"
 			+ " from board order by board_group_no DESC, board_step asc) s ) where user_id =? and idx >= ? and idx<= ?";
+	
+	
 }

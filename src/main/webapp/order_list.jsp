@@ -11,6 +11,7 @@
 <%
 OrderService orderService = new OrderService();
 List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
+System.out.println(orderList);
 //NumberFormat numberFormat = NumberFormat.getInstance();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -66,6 +67,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									cellspacing="1">
 									<!-- order start -->
 									<%
+									if(orderList!=null){
 									for (Order order : orderList) {
 										List<OrderItem> orderItemList = order.getOrderItemList();
 										
@@ -123,8 +125,40 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									</tr>
 									<!-- order end -->
 									<%
-									}
+									}}else {
 									%>
+										<tr>
+										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
+										</td>
+									</tr>
+									<tr>
+										<td colspan="6" height=4 align=left class=t1 >
+										</td>
+									</tr>
+									<tr>
+										<td width="5%"></td>
+										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
+											<!--  -->
+											<table align="left" border="0" 
+												cellspacing="1" bgcolor="EEEEEE">
+												<tr >
+													<!--상품시작 -->
+													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
+													</td>
+													<!--상품 끝 -->
+													<!--상품시작 -->
+													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
+													</td>
+													<!--상품 끝 -->
+													
+													</tr>
+											</table>
+										</td>
+									<tr>
+										<td colspan="5" width=145 height=10 align=center
+											bgcolor="ffffff" class=t1></td>
+									</tr>
+									<%} %>
 									<!-- order end -->
 								</table>
 							</form> <br />

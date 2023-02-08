@@ -21,7 +21,6 @@ public class UserDao {
 	public UserDao() throws Exception {
 		InitialContext ic = new InitialContext();
 		dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/OracleDB");
-		System.out.println("UserDao()생성자:" + this + "-->" + dataSource);
 	}
 	 /*
 	  public UserDao() throws Exception { 

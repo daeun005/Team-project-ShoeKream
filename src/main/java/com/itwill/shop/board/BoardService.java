@@ -78,6 +78,11 @@ public class BoardService {
 		int totalBoardCount = boardDao.getBoardCount();
 		return totalBoardCount;
 	}
+	
+	public int countBoardListByUserId(String userId) throws Exception {
+		return boardDao.countByUserId(userId);
+		
+	}
 	/*
 	 * 게시물수정
 	 */

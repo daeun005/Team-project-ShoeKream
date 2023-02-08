@@ -176,7 +176,6 @@ public class OrderDao {
 			while(rs1.next()) {
 				orderList.add(new Order(rs1.getInt("o_no"), rs1.getString("o_desc"), rs1.getDate("o_date"), rs1.getInt("o_price"), rs1.getString("user_id")));
 			}
-			
 			pstmt2 = con.prepareStatement(OrderSQL.ORDERS_SELECTE_WITH_ORDER_ITEM_BY_O_NO);
 			for (int i = 0; i < orderList.size(); i++) {
 				Order order = orderList.get(i);

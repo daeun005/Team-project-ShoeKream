@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.order.OrderService"%>
 <%@page import="com.itwill.shop.board.BoardService"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@page import="com.itwill.shop.user.User"%>
@@ -5,12 +6,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="login_check.jspf" %>     
-<%
-	UserService userService=new UserService();
-	User user = userService.findUser(sUserId);
+<%	
     CartService cartService=new CartService();
   	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
-  	int boardListCount = BoardService.getInstance().boardCount();
+  	int boardListCount = BoardService.getInstance().countBoardListByUserId(sUserId);
+  	OrderService orderService = new OrderService();
+	int orderListCount = 0; 
+  	if(orderService.findWithOrderItemByUserId(sUserId)!=null){
+  		orderListCount = orderService.findWithOrderItemByUserId(sUserId).size();
+  	}
+  	
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -50,20 +55,20 @@
 						<div class="shopping-info point">
 							<div class="info-item">
 								<span class="info-title"><i class="icon-cart"></i>장바구니</span> 
-								<span class="info-data"> <a href="cart_view.jsp">
-								<span class="unit"><%=cart_item_count %>개</span></a></span>
+								<span class="info-data"> <a href="cart_view.jsp"><%=cart_item_count %>
+								<span class="unit">개</span></a></span>
 							</div>
 							<div class="info-item">
 								<span class="info-title"><i class="icon-order"></i>구매목록</span>
-								<span class="info-data"><a href="order_list.jsp">0 
+								<span class="info-data"><a href="order_list.jsp"><%=orderListCount %>
 								<span class="unit">개</span></a></span>
 							</div>
 						</div>
 						<div class="shopping-info">
 							<div class="info-item">
 								<span class="info-title"><i class="icon-board"></i>게시글 </span>
-								<span class="info-data"><a href="/cart/cart-list">0
-								<span class="unit"><%=boardListCount %>개</span></a></span>
+								<span class="info-data"><a href="/cart/cart-list"><%=boardListCount %>
+								<span class="unit">개</span></a></span>
 							</div>
 							<div class="info-item">
 								<span class="info-title"><i class="icon-reply"></i>상품댓글</span>
