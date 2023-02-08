@@ -15,21 +15,13 @@ div#header h1 {
 	background-size: 100%
 }
 
-div#header h1 {
-	height: 80px;
-	line-height: 80px;
-	margin: 0px 0 0 0;
-	padding-left: 10px;
-	background: #fff url('../image/nav_bg01.png');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100%
-}
-
 div#header #menu {
 	margin-top:10px; 
 }
 
+#menu {
+	margin: 0 20% 0 20%;
+}
 #menu ul {
 	list-style-type: none;
 	margin: 0;
@@ -86,7 +78,8 @@ div#header #menu {
 }
 
 #menu li#login {
-	width: 40px;
+	width: 60px;
+	height: 60px;
 	background: url('../image/top_login.png');
 	background-position: center;
 	background-size: 60%;
@@ -99,7 +92,8 @@ div#header #menu {
 }
 
 #menu li#join {
-	width: 43px;
+	width: 63px;
+	height: 60px;
 	background: url('../image/top_join.png');
 	background-position: center;
 	background-size: 60%;
@@ -109,6 +103,11 @@ div#header #menu {
 
 #menu li#join:hover{
 	opacity: 1;
+}
+
+div#top_navigation span{
+	color : white;
+	font-size: 14px;
 }
 
 #menu li#mypage {

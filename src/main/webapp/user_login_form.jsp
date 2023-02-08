@@ -3,24 +3,16 @@
 	pageEncoding="UTF-8"%>
 
 <%
-/********************case1[redirected]*************/
-String msg1 = request.getParameter("msg1");
-String msg2 = request.getParameter("msg2");
-if (msg1 == null)
-	msg1 = "";
-if (msg2 == null)
-	msg2 = "";
-/**********************************************/
-/********************case2[forwared]*************
+
 String msg1=(String)request.getAttribute("msg1");
 if(msg1==null)msg1="";
 String msg2=(String)request.getAttribute("msg2");
 if(msg2==null)msg2="";
 User fuser=(User)request.getAttribute("fuser");
 if(fuser==null){
-	fuser=new User("","","","");
+	fuser=new User("","","","","","");
 }
-************************************************/
+
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -84,17 +76,17 @@ if(fuser==null){
 								<table border="0" cellpadding="0" cellspacing="1"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="ffffff" height="22"><img src='image/login_form_id.png'></td>
+										<td id="id_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
 										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px">
 										<input type="text" placeholder="아이디" style="width: 150" name="user_id"
-										value="">&nbsp;&nbsp;<font color="red"><%=msg1%></font></td>
+										value="<%=fuser.getUser_id()%>"><div><font color="red"><%=msg1%></div></font></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="ffffff" height="22"><img src='image/login_form_pw.png'></td>
+										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 										<input type="password" placeholder="패스워드" style="width: 150" name="user_password"
-										value="">&nbsp;&nbsp;<font color="red"><%=msg2%></font></td>
+										value="<%=fuser.getUser_password()%>"><div><font color="red"><%=msg2%></div></font></td>
 									</tr>
 								</table>
 							</form> <br />

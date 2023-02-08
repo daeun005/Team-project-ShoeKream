@@ -14,7 +14,7 @@
 		location.href = 'user_login_form.jsp';
 	}
 </script>
-
+<div id=top_navigation>
 <h1>
 <p>
 	<%
@@ -48,3 +48,4 @@
 		
 </p>
 </h1>
+</div>

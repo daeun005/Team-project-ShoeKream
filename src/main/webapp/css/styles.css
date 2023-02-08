@@ -33,7 +33,7 @@ div#header h1 {
 /***************** menu start****************/
 /***************** menu end****************/
 div#container {
-	text-align: center
+	text-align: center;
 }
 
 div#content p {
@@ -76,9 +76,11 @@ div#footer p {
 }
 
 div#container {
-	width: 1200px;
+	width: 100%;
 	margin: 0 auto
 }
+
+
 /*
 div#navigation{float:left;width:150px;height:350px;margin-left:-700px}
 */
@@ -91,8 +93,9 @@ div#navigation {
 div#wrapper{float:left;width:100%}
 */
 div#wrapper {
-	margin-left: 0px;
-	width: 100%
+	margin: 0 auto;
+	width: 60%;
+	height: 600px;
 }
 
 div#content {

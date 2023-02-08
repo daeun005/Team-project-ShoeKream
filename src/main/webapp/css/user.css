@@ -90,4 +90,21 @@ td {
 	font-size: 8pt;
 	color: #be0000;
 }
+#id_icon{
+	background: url('../image/login_form_id.png');
+	background-position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+	opacity: 1;
+}
+#pw_icon{
+	background: url('../image/login_form_pw.png');
+	background-position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-color: #ffffff;
+	opacity: 1;
+}
 
+    
