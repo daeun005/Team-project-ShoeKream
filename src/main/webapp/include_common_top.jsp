@@ -33,8 +33,6 @@
 		<span></span>
 		<span><a href=""></a></li>
 		<span><a href="order_list.jsp">주문목록</a></li>
-		<span><a href="order_list_orderitem1.jsp">주문+아이템 목록1</a></span>
-		<span><a href="order_list_orderitem2.jsp">주문+아이템 목록2</a></span>
 		
 	<%} %>
 		<span><a href="product_list.jsp?category_no=1">운동화</a></span>

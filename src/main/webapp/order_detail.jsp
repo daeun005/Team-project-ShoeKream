@@ -60,8 +60,7 @@ form > table tr td{
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
-											주문상세조회</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUserId %>님의 주문 상세 조회</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
@@ -107,8 +106,7 @@ form > table tr td{
 									<% 
 									int tot_price = 0;
 									for(OrderItem orderItem : thisOrder.getOrderItemList()) { 
-									tot_price += orderItem.getOi_qty() * orderItem.getProduct().getP_price();
-									String oi_tot_price = numberFormat.format(tot_price);
+									tot_price = orderItem.getOi_qty() * orderItem.getProduct().getP_price();
 									%>
 									<tr>
 										<td width=290 height=50 align=center  bgcolor="ffffff" class=t1>
@@ -120,7 +118,7 @@ form > table tr td{
 										
 										<td width=110 height=26 align=center  bgcolor="ffffff" class=t1><%= orderItem.getOi_qty() %></td>
 										
-										<td width=150 height=26 align=center bgcolor="ffffff" class=t1><%= oi_tot_price %></td>
+										<td width=150 height=26 align=center bgcolor="ffffff" class=t1><%= numberFormat.format(tot_price) %></td>
 										<td width=60 height=26 align=center class=t1 bgcolor="ffffff"></td>
 									</tr>
 									<% }

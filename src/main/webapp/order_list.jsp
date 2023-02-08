@@ -1,21 +1,20 @@
-<%@page import="java.text.NumberFormat"%>
-<%@page import="java.util.List"%>
+
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="com.itwill.shop.order.*"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="com.itwill.shop.product.Product"%>
+<%@page import="com.itwill.shop.order.OrderItem"%>
+<%@page import="com.itwill.shop.order.Order"%>
+<%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.order.OrderService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf"%>
 <%
 OrderService orderService = new OrderService();
-List<Order> orderList = orderService.findByUserId(sUserId);
-
-NumberFormat numberFormat = NumberFormat.getInstance();
+List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
+//NumberFormat numberFormat = NumberFormat.getInstance();
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <title>쇼핑몰 관리</title>
@@ -41,19 +40,12 @@ NumberFormat numberFormat = NumberFormat.getInstance();
 	<div id="container">
 		<!-- header start -->
 		<div id="header">
-		
 			<!-- include_common_top.jsp start-->
-			<jsp:include page="include_common_top.jsp"></jsp:include>
+			<jsp:include page="include_common_top.jsp" />
 			<!-- include_common_top.jsp end-->
-
 		</div>
 		<!-- header end -->
-		<!-- navigation start-->
 		
-			<!-- include_common_left.jsp start-->
-			<!-- include_common_left.jsp end-->
-			
-		<!-- navigation end-->
 		<!-- wrapper start -->
 		<div id="wrapper">
 			<!-- content start -->
@@ -71,44 +63,69 @@ NumberFormat numberFormat = NumberFormat.getInstance();
 							</table> <!--form-->
 							<form name="f" method="post">
 								<table align=center width=80%  border="0" cellpadding="0"
-									cellspacing="1" bgcolor="BBBBBB">
-									<tr>
-										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문 번호</font></td>
-										<td width=145 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문 이름</font></td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문 날짜</font></td>
-										<td width=136 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문 가격</font></td>
-										<td width=80 height=25 bgcolor="E6ECDE" align=center class=t1><font>주문 상세</font></td>
-									</tr>
-
+									cellspacing="1">
 									<!-- order start -->
-									
 									<%
-									for(Order order : orderList) { 
-									String price_format = numberFormat.format(order.getO_price());
-									/*	
-									String o_desc = null;
-									if(orderList.size() < 2) {
-										o_desc =  order.getOrderItemList().get(0).getProduct().getP_name();
-									} else {
-										o_desc = order.getOrderItemList().get(0).getProduct().getP_name() + "외" + order.getOrderItemList().get(0) + "건";
-									}
-									*/
+									for (Order order : orderList) {
+										List<OrderItem> orderItemList = order.getOrderItemList();
+										
 									%>
 									<tr>
-										<td width=145 height=26 align=center bgcolor="ffffff" class=t1><%= order.getO_no() %></td>
-										<td width=145 height=26 align=center bgcolor="ffffff" class=t1><%= order.getO_desc() %></td>
-										<td width=110 height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(order.getO_date()) %></td>
-										<td width=130 height=26 align=center bgcolor="ffffff" class=t1><%= price_format %>원</td>
-										<td width=80 height=26 align=center bgcolor="ffffff" class=t1>
-										<a href="order_detail.jsp?o_no=<%= order.getO_no() %>" class=m1>주문상세</a></td>
+										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
+											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %></span>
+											<span style="font-size: 8pt">주문번호 <%= order.getO_no() %></span>
+											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt">상세보기</a>
+										</td>
 									</tr>
-									<% } %>
-									
+									<tr>
+										<td colspan="6" height=4 align=left class=t1 >
+										</td>
+									</tr>
+									<tr>
+										<td width="5%"></td>
+										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
+											<!--  -->
+											<table align="left" border="0" 
+												cellspacing="1" bgcolor="EEEEEE">
+												<tr >
+													<%
+													int orderItemSize = orderItemList.size();
+													int remainSize = 8 - orderItemSize;
+													for(int j=0;j<orderItemSize;j++){
+														OrderItem orderItem = orderItemList.get(j);
+														Product product = orderItem.getProduct();
+													%>
+													<!--상품시작 -->
+													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
+														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="50px"
+															height="50px" src="image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
+														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> <%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
+													</td>
+													<!--상품 끝 -->
+													<%} %>
+													<%
+													for(int j=0;j<remainSize;j++){
+													%>
+													<!--상품시작 -->
+													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
+													</td>
+													<!--상품 끝 -->
+													<%
+													}	
+													%>
+													
+													</tr>
+											</table>
+										</td>
+									<tr>
+										<td colspan="5" width=145 height=10 align=center
+											bgcolor="ffffff" class=t1></td>
+									</tr>
 									<!-- order end -->
-
-
-
-
+									<%
+									}
+									%>
+									<!-- order end -->
 								</table>
 							</form> <br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
@@ -131,7 +148,7 @@ NumberFormat numberFormat = NumberFormat.getInstance();
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			<jsp:include page="include_common_bottom.jsp"/>
+			<jsp:include page="include_common_bottom.jsp" />
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>
