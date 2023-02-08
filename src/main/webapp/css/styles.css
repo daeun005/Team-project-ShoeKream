@@ -40,13 +40,17 @@ div#content p {
 	line-height: 1.4
 }
 
-div#navigation {
-	background: #F6F0E0;
+div#user_content  {
+	margin-left: 15%;
+	margin-top: 2%;	
 }
 
-div#navigation {
-	margin-top: 10px;;
-	margin-bottom: 10px
+div#user_navigation {
+	background: #F6F0E0;
+	float: left;
+	margin-top: 2%;
+    width: 150px;
+    height: 350px;
 }
 
 div#navigation ul {
