@@ -10,7 +10,19 @@ int cart_item_count=0;
 	  	cart_item_count = cartService.viewCartByUserId(sUserId).size();
 
 	}
-%>		
+%>
+<script type="text/javascript">
+function p_search(){
+	if(document.getElementById("p_search_input").value==""){
+		alert('검색어를 입력하세요');
+		return;
+	}else{
+		document.top_f.action="";
+		document.top_f.method="POST";
+		document.top_f.submit;
+	}
+}
+</script>		
 <div id="menu">
 	<ul>
 		<li id="logo"><a href="shop_main.jsp"></a></li>
@@ -24,5 +36,16 @@ int cart_item_count=0;
 			<li id="cart" title="장바구니"><span class="w3-badge w3-green w3-margin-right"><%=cart_item_count%></span><a href="cart_view.jsp"></a></li>
 			
 		<%} %>
+		<li id="p_search">
+			<img src="image/search.png" style="cursor:pointer" onclick="p_search()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li>
+			<form id="top_f" name="top_f" action="POST">
+				<input id="p_search_input" name="p_serch_input" style="width:300px;height:30px;font-size:18px;" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+			</form>
+		</li>
+		
 	</ul>
+
 </div>

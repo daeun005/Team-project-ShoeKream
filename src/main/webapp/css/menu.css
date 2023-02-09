@@ -21,11 +21,11 @@ div#header #menu {
 
 #menu {
 	margin: 0 20% 0 20%;
+	align-items: flex-end;
 }
 #menu ul {
 	list-style-type: none;
 	margin: 0;
-	padding: 0;
 	background-color: #fff;
 }
 
@@ -33,13 +33,16 @@ div#header #menu {
 	content: '';
 	display: block;
 	clear: both;
+	align-items: flex-end;
 }
 
 #menu li#logo {
 	float: left;
 }
+
 #menu li{
 	float: right;
+	align-items: flex-end;
 }
 
 #menu li a {
