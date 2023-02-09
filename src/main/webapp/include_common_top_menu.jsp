@@ -27,13 +27,14 @@ function p_search(){
 	<ul>
 		<li id="logo"><a href="shop_main.jsp"></a></li>
 		<%if(sUserId==null){  %>
-			<li id="cart" title="장바구니"><span class="w3-badge-no-login w3-green-no-login w3-margin-right">0 </span><a href="user_login_form.jsp" title="장바구니"></a></li>
+			<li id="cart" title="장바구니"><span class="w3-badge-no-login w3-green-no-login w3-margin-right"> </span><a href="user_login_form.jsp" title="장바구니"></a></li>
 			<li id="join" title="회원가입" ><a href="user_write_form.jsp" ></a></li>
 			<li id="login" title="로그인" ><a href="user_login_form.jsp" ></a></li>
 			
 		<%}else{ %>
-			<li id="mypage" title="나의페이지" ><a href="user_view.jsp"></a></li>
 			<li id="cart" title="장바구니"><span class="w3-badge w3-green w3-margin-right"><%=cart_item_count%></span><a href="cart_view.jsp"></a></li>
+			<li id="mypage" title="나의페이지" ><a href="user_view.jsp"></a></li>
+			<li id="logout" title="로그아웃" ><a href="user_logout_action.jsp"></a></li>
 			
 		<%} %>
 		<li id="p_search">

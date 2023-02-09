@@ -76,7 +76,7 @@
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><input type="text" style="width: 150px"
-											name="user_name" value="<%=user.getUser_name()%>"></td>
+											name="user_name" value="<%=user.getUser_name()%>" readonly></td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">전화번호</td>

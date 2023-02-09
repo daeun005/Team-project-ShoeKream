@@ -129,7 +129,7 @@ div#content {
 }
 
 div#login_content {
-	width: 300px;
+	width: 400px;
     margin: 0 auto;
 }
 
@@ -316,7 +316,8 @@ img.icon-reply{
     vertical-align: top;
 }
 
-img{
+img#p_search{
 	border: none;
+	height: 60px
 }
     

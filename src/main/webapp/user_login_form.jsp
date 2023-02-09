@@ -78,14 +78,14 @@ if(fuser==null){
 									<tr>
 										<td id="id_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
 										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px">
-										<input type="text" placeholder="아이디" style="width: 150" name="user_id"
+										<input type="text" placeholder="아이디" style="width: 150; height: 50" name="user_id"
 										value="<%=fuser.getUser_id()%>"><div><font color="red"><%=msg1%></div></font></td>
 									</tr>
 									<tr>
 										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-										<input type="password" placeholder="패스워드" style="width: 150" name="user_password"
+										<input type="password" placeholder="패스워드" style="width: 150; height: 50" name="user_password"
 										value="<%=fuser.getUser_password()%>"><div><font color="red"><%=msg2%></div></font></td>
 									</tr>
 								</table>
