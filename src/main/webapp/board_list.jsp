@@ -86,7 +86,18 @@ String sUserId = (String)session.getAttribute("sUserId");
 										)
 									</td>
 								</tr>
-							</table> <br /> <!-- list -->
+							</table> <br />
+							
+							<form name = "sortF" method = "post" action = "">
+								<select name = "정렬" >
+								<option value="0">--- 정렬 ---</option>
+								<option></option>
+								<option></option>
+								</select>
+							</form>
+							
+							<br>
+							<!-- list -->
 							<form name="f" method="post" action="">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
@@ -150,9 +161,15 @@ String sUserId = (String)session.getAttribute("sUserId");
 							</table> <!-- button -->
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
+									<td><select>
+									<option>제목</option>
+									<option>글쓴이</option>
+									</select></td>
 									<td align="center"><input type="text" value=""></td>
-									<td align="right" width= 60px><input type="button" value="게시물 생성"
-										onclick="boardCreate();" /></td>
+									<td> <input type="button" value="검색" onclick="boardCreate();" /> </td>
+									<td align="right" width= 60px>
+									<input type="button" value="게시물 생성" onclick="boardCreate();" />
+									</td>
 								</tr>
 							</table></td>
 					</tr>

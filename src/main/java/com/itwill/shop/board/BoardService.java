@@ -90,4 +90,22 @@ public class BoardService {
 		return boardDao.update(board);
 	}
 	
+	/*
+	 * 특정 회원의 게시글 카운트
+	 */
+	public int boardCountByUserId(String userId) throws Exception {
+		return boardDao.boardCountByUserId(userId);
+	}
+	
+	/*
+	 * 특정 회원의 게시글 리스트
+	 */
+	public List<Board> findBoardListByUserId(String userId) throws Exception {
+		return boardDao.findBoardListByUserId(userId);
+	}
+	
+	/*
+	 * 게시글 조회순 정렬
+	 */
+	
 }

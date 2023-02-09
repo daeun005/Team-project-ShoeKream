@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -401,5 +402,125 @@ public class BoardDao {
 			}
 		}
 		return count;
+	}
+	
+	/*
+	 * 특정 회원의 게시글 카운트 (((((((((((((((( ok )))))))))))))))))
+	 */
+	public int boardCountByUserId(String userId) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_COUNT_BY_USER_ID);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt("count(*)");
+			}
+			
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception ex) {
+			}
+			try {
+				if (con != null)
+					con.close();
+			} catch (Exception ex) {
+			}
+		}
+		return count;
+	}
+	
+	/**
+	 * 회원의 게시물 리스트를 반환
+	 */
+	public List<Board> findBoardListByUserId(String userId) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> boards = new ArrayList<Board>();
+
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_USERID_FOR_USERPAGE);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoard_no(rs.getInt("board_no"));
+				board.setBoard_title(rs.getString("board_title"));
+				board.setBoard_regDate(rs.getDate("board_regdate"));
+				board.setBoard_readCount(rs.getInt("board_readCount"));
+				board.setBoard_group_no(rs.getInt("board_group_no"));
+				board.setBoard_step(rs.getInt("board_step"));
+				board.setBoard_depth(rs.getInt("board_depth"));
+				board.setUser_id(rs.getString("user_id"));
+
+				boards.add(board);
+			}
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		return boards;
+	}
+	
+	/*
+	 * 게시글 조회수 높은 순으로 리스트
+	 */
+	public List<Board> sortByReadCount(int start, int last) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> boards = new ArrayList<Board>();
+
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_READ_COUNT);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, last);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoard_no(rs.getInt(2));
+				board.setBoard_title(rs.getString(3));
+				board.setBoard_regDate(rs.getDate(4));
+				board.setBoard_readCount(rs.getInt(5));
+				board.setBoard_group_no(rs.getInt(6));
+				board.setBoard_step(rs.getInt(7));
+				board.setBoard_depth(rs.getInt(8));
+				board.setUser_id(rs.getString(9));
+
+				boards.add(board);
+			}
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		System.out.println(boards);
+		return boards;
 	}
 }

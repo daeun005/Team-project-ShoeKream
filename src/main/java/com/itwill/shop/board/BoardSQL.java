@@ -63,5 +63,14 @@ public class BoardSQL {
 			+ " from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id"
 			+ " from board order by board_group_no DESC, board_step asc) s ) where user_id =? and idx >= ? and idx<= ?";
 	
+	/***********************************************************************************************************************************/
 	
+	public final static String BOARD_COUNT_BY_USER_ID = "select count(*) from board where user_id =?";
+	
+	public final static String BOARD_SELECT_BY_USERID_FOR_USERPAGE = "select * from board where user_id = ?";
+	
+	public final static String BOARD_SELECT_BY_READ_COUNT = "select * from (select rownum idx, s.* "
+			+ "from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id"
+			+ "from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ?"
+			+ " order by board_readcount desc";
 }
