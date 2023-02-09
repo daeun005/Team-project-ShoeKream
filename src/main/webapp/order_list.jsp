@@ -11,7 +11,6 @@
 <%
 OrderService orderService = new OrderService();
 List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
-//NumberFormat numberFormat = NumberFormat.getInstance();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -167,7 +166,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									<a href=product_list.jsp
 										class=m1>계속 구경하기</a>
 									<a href='javascript:order_delete_all_action();'
-										class=m1>주문전체삭제</a>
+										class=m1>주문내역 전체 삭제</a>
 									</td>
 									
 								</tr>
