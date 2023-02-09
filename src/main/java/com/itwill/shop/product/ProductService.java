@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ProductService {
 	private ProductDao productDao;
-	public ProductService() throws Exception {
+	private ProductService() throws Exception {
 		productDao = new ProductDao();
 	}
 	/*
