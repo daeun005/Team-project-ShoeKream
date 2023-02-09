@@ -3,9 +3,17 @@ package com.itwill.shop.product;
 import java.util.List;
 
 public class ProductService {
+	private static ProductService _instance;
+
 	private ProductDao productDao;
 	public ProductService() throws Exception {
 		productDao = new ProductDao();
+	}
+	public static ProductService getInstance() throws Exception{
+		if(_instance == null) {
+			_instance = new ProductService();
+		}
+		return _instance;
 	}
 	/*
 	 * 전체 상품 보기
@@ -57,14 +65,6 @@ public class ProductService {
 	 /*
 	 조회수 증가
 	 */
-	private static ProductService _instance;
-	public static ProductService getInstance() throws Exception{
-		if(_instance == null) {
-			_instance = new ProductService();
-		}
-		return _instance;
-	}
-	
 	public void updateHitCount(int p_no) throws Exception{
 			productDao.increaseClickCount(p_no);
 	}

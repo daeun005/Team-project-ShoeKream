@@ -13,7 +13,7 @@ if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
 
-ProductService productService = new ProductService();
+ProductService productService = ProductService.getInstance();
 Product product = productService.productDetail(Integer.parseInt(p_noStr));
 if (product == null) {
 	out.println("<script>");
@@ -24,13 +24,7 @@ if (product == null) {
 }
 
 //조회수 증가
-Integer p_no = null;
-try{
-	p_no=Integer.parseInt(request.getParameter("p_no"));
-}catch(Exception e){
-	
-}
-ProductService.getInstance().updateHitCount(p_no);
+ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
