@@ -74,14 +74,18 @@ ProductService.getInstance().updateHitCount(p_no);
 	function productList() {
 		location.href = 'product_list.jsp';
 	}
+	
+	function qty_change(){
+		document.getElementById("p_qty").value = document.getElementById("cart_qty").value;
+	}
 </script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
 	<form name="product_detail_form">
 		<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-		<input type="hidden" name="p_qty" value="1"> <input
-			type="hidden" name="buyType" value="direct">
+		<input type="hidden" id="p_qty" name="p_qty" value=""> 
+		<input type="hidden" name="buyType" value="direct">
 	</form>
 	<!-- container start-->
 	<div id="container">
@@ -151,7 +155,7 @@ ProductService.getInstance().updateHitCount(p_no);
 											<!-- 
 											 <input type=text name="cart_qty" value=1 size=4 class=TXTFLD>  
 											-->
-											<select name="cart_qty">
+											<select id="cart_qty" name="cart_qty" onchange="qty_change();">
 												<option value="1">1
 												<option value="2">2
 												<option value="3">3
