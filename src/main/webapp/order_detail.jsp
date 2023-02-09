@@ -39,7 +39,11 @@ form > table tr td{
 */
 </style>
 <script type="text/javascript">
-	
+function order_delete_action(){
+	document.order_delete_all_form.action='order_delete_action.jsp';
+	document.order_delete_all_form.method='POST';
+	document.order_delete_all_form.submit();
+}
 </script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -69,7 +73,7 @@ form > table tr td{
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
-								<input type="hidden" name="o_no" value="18">
+								<input type="hidden" name="o_no" value="<%= thisOrder.getO_no()%>">
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
 									<caption style="text-align: left;">주문상세정보</caption>
 									<tr>
