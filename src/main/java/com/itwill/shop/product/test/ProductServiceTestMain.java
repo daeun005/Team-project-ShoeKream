@@ -31,6 +31,11 @@ public class ProductServiceTestMain {
 		 * 상품 검색 후 결과 값 출력
 		 */
 		System.out.println(productService.productFindByName("ne"));
+		/*
+		 * 조회수 3번째로 높은 상품 보기(1,2생략)
+		 */
+		System.out.println(productService.findPopular3());
 	}
+	
 
 }

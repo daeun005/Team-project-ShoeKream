@@ -68,5 +68,15 @@ public class ProductService {
 	public void updateHitCount(int p_no) throws Exception{
 			productDao.increaseClickCount(p_no);
 	}
+	
+	public List<Product> findPopular1() throws Exception{
+		return productDao.selectPopular1();
+	}
+	public List<Product> findPopular2() throws Exception{
+		return productDao.selectPopular2();
+	}
+	public List<Product> findPopular3() throws Exception{
+		return productDao.selectPopular3();
+	}
 
 }
