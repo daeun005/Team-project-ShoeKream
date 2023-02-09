@@ -131,7 +131,7 @@ ProductService.getInstance().updateHitCount(p_no);
 								</tr>
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1>
-										<img border=0 src='image/<%=product.getP_image()%>' width=200 height=200></td>
+										<img border=0 src='image/product_image/<%=product.getP_image()%>' width=200 height=200></td>
 
 									<td width=20% height=200 align=left>
 											<font size=2>카테고리</font><br><br>
