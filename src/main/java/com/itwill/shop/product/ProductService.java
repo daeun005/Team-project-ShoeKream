@@ -6,7 +6,7 @@ public class ProductService {
 	private static ProductService _instance;
 
 	private ProductDao productDao;
-	private ProductService() throws Exception {
+	public ProductService() throws Exception {
 		productDao = new ProductDao();
 	}
 	public static ProductService getInstance() throws Exception{
