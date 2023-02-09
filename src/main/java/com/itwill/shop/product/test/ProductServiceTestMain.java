@@ -6,7 +6,7 @@ import com.itwill.shop.product.ProductService;
 public class ProductServiceTestMain {
 
 	public static void main(String[] args) throws Exception {
-		ProductService productService = new ProductService();
+		ProductService productService = ProductService.getInstance();
 		/*
 		 * 전체 상품 보기
 		 */

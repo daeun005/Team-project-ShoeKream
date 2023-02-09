@@ -8,7 +8,7 @@ public class CartServiceTestMain {
 
 	public static void main(String[] args) throws Exception {
 		CartService cartService = new CartService();
-		ProductService productService = new ProductService();
+		ProductService productService = ProductService.getInstance();
 		
 		Cart addCart = new Cart(0, "cream3", 1, productService.productDetail(3));
 		System.out.println("1-1. addCart_insertCart");
