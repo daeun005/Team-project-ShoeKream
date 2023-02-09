@@ -5,12 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Properties;
 
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+import com.itwill.shop.common.DataSourceFactory;
 
 
 /*
@@ -19,25 +17,11 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
  */
 public class BoardDao {
 	private DataSource dataSource;
-
-	public BoardDao()  throws Exception{
-		InitialContext ic = new InitialContext();
-		dataSource = (DataSource)ic.lookup("java:/comp/env/jdbc/OracleDB");
-
-	}
 	
-	/*
+	
 	public BoardDao() throws Exception{
-		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/jdbc.properties"));
-		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setDriverClassName(properties.getProperty("driverClassName"));
-		basicDataSource.setUrl(properties.getProperty("url"));
-		basicDataSource.setUsername(properties.getProperty("username"));
-		basicDataSource.setPassword(properties.getProperty("password"));
-		dataSource = basicDataSource;
+		dataSource=DataSourceFactory.getDataSource();
 	}
-*/
 	/**
 	 * 새로운 게시물을 추가하는 메써드.
 	 * @throws Exception 
