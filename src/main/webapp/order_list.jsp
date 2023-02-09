@@ -159,7 +159,9 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									<%} %>
 									<!-- order end -->
 								</table>
+								
 							</form> <br />
+							<hr>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp;
@@ -170,7 +172,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									</td>
 									
 								</tr>
-							</table></td>
+							</table><hr></td>
 					</tr>
 				</table>
 			</div>

@@ -69,23 +69,21 @@ function order_delete_action(){
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUserId %>님의 주문 상세 조회</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUser.getUser_name() %>님의 주문 상세 조회</b></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
 								<input type="hidden" name="o_no" value="<%= thisOrder.getO_no()%>">
-								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
+								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
 									<caption style="text-align: left;">주문상세정보</caption>
 									<tr>
-										<td width=15% height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>주문번호</font></td>
-										<td width=20% height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>주문일</font></td>
-										<td width=20% height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>주문자</font></td>
-										<td width=30% height=25 bgcolor="E6ECDE" align=center class=t1><font
-											>배송지</font></td>	
-										<td width=15% height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>비 고</font></td>
 									</tr>
 									
@@ -94,6 +92,33 @@ function order_delete_action(){
 										<td width=15% height=26 align=center bgcolor="ffffff" class=t1><%= thisOrder.getO_no() %></td>
 										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(thisOrder.getO_date()) %></td>
 										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= sUserId %></td>
+										<td width=15% height=26 align=center bgcolor="ffffff" class=t1>
+												<input type="submit" value="삭제">
+										</td>
+									</tr>
+								</table>
+								<br>
+								
+								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
+									<caption style="text-align: left;">배송 정보</caption>
+									<tr>
+										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
+											>받는이</font></td>
+										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
+											>연락처</font></td>
+										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
+											>이메일</font></td>
+										<td width=30% height=25 bgcolor="f4f4f4" align=center class=t1><font
+											>배송지</font></td>	
+										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
+											>비 고</font></td>
+									</tr>
+									
+									
+									<tr>
+										<td width=15% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_name() %></td>
+										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_phone() %></td>
+										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_email() %></td>
 										<%
 										String address = null;
 										if(deliveryInfo.size() != 0) { 
@@ -107,21 +132,20 @@ function order_delete_action(){
 											}
 										} %>
 										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%= address%></td>
-										<td width=15% height=26 align=center bgcolor="ffffff" class=t1>
-												<input type="submit" value="삭제">
-										</td>
+										<td width=20% height=26 align=center bgcolor="ffffff" class=t1></td>
 									</tr>
 								</table>
+								
 									
 								<br/>	
-								<table align=center  width=80% border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
+								<table align=center  width=80% border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>상품 이미지</td>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>상품명</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>수 량</td>
-										<td width=166 height=25  align=center bgcolor="E6ECDE" class=t1>가 격</td>
-										<td width=50 height=25  align=center bgcolor="E6ECDE" class=t1>비 고</td>
+										<td width=290 height=25 align=center bgcolor="f4f4f4" class=t1>상품 이미지</td>
+										<td width=290 height=25 align=center bgcolor="f4f4f4" class=t1>상품명</td>
+										<td width=112 height=25 align=center bgcolor="f4f4f4" class=t1>수 량</td>
+										<td width=166 height=25  align=center bgcolor="f4f4f4" class=t1>가 격</td>
+										<td width=50 height=25  align=center bgcolor="f4f4f4" class=t1>비 고</td>
 									</tr>
 									
 									<!-- order item start -->
@@ -162,6 +186,7 @@ function order_delete_action(){
 									</tr>
 								</table>
 							</form> <br />
+							<hr>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center> 
@@ -171,7 +196,7 @@ function order_delete_action(){
 										class=m1>계속 쇼핑하기</a>
 									</td>
 								</tr>
-							</table></td>
+							</table><hr></td>
 					</tr>
 				</table>
 			</div>
