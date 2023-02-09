@@ -105,7 +105,7 @@ function add_cart_popup_window(f){
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top"/>
+												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
 											</form><br> <font
 											color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
