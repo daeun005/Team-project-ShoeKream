@@ -28,7 +28,7 @@
 			<a href="user_view_update.jsp" class="">개인정보 수정</a>
 			</li>
 			<li class="mypage_item">
-			<a href="user_remove_action.jsp" class="" onClick="userRemove()" >회원탈퇴</a>
+			<a href="user_remove_form.jsp" class="" >회원탈퇴</a>
 			</li>
 	</li>
 	<li><span class="mypage_title"><a href="user_logout_action.jsp">로그아웃</a></span></li>

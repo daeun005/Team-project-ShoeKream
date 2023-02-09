@@ -4,9 +4,10 @@
 <%@include file="login_check.jspf" %>    
 <%
 if(request.getMethod().equalsIgnoreCase("GET")){
-	response.sendRedirect("user_main.jsp");
+	response.sendRedirect("user_view.jsp");
 	return;	
 }
+
 try{
 	UserService userService=new UserService();
 	int removeRowCount=userService.remove(sUserId);

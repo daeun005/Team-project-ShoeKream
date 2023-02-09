@@ -43,7 +43,7 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 				<table style="padding-left: 10px" border=0 cellpadding=0
 					cellspacing=0>
 					<tr>
-						<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보보기</b></td>
+						<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>배송주소록</b></td>
 					</tr>
 				</table>
 				<!-- view Form  -->
