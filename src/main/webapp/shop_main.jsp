@@ -50,7 +50,8 @@ List<Product> popular3 = productService.findPopular3();
 						<td><br />
 				<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>인기상품</b></td>
+									<td bgcolor="f4f4f4" height="50">&nbsp;&nbsp;>
+									<font style="font-family: S-CoreDream-3Light;" size=5>인기상품</font></td>
 								</tr>
 				</table>
 
