@@ -21,12 +21,7 @@ List<Product> popular3 = productService.findPopular3();
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css"> 
 <link rel=stylesheet href="css/shop.css" type="text/css"> 
-<style type="text/css">
-@font-face {
-    font-family: 'GongGothicMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff');
-}
-</style> 
+
 <style type="text/css" media="screen">
 </style>
 </head>
@@ -68,6 +63,10 @@ List<Product> popular3 = productService.findPopular3();
 			
 			for (int i=0;i<popular1.size();i++) {
 				Product product1 = popular1.get(i);
+				Product product2 = popular2.get(i);
+				Product product3 = popular3.get(i);
+
+
 									%>
 									<!--상품시작 -->
 									<%
@@ -81,7 +80,7 @@ List<Product> popular3 = productService.findPopular3();
 										<td  align="left" width="50%"  bgcolor="ffffff">
 											<font style="font-family: GongGothicMedium;" size=6>BEST 1</font><br><br>
 											<font style="font-family: '\S-CoreDream-3Light;" size=5><%=product1.getP_name()%></font><br><br>
-											<form align="left" style="display: inline;">
+											<form align="left" style="display: inline; margin:0">
 												<input type="hidden" name="p_no" value="<%=product1.getP_no()%>">
 									<!-- 
 												<input type="hidden" name="cart_qty" value="1">
@@ -91,18 +90,12 @@ List<Product> popular3 = productService.findPopular3();
 											</form><br> 
 
 									</tr>
-									<%
-										Product product2 = new Product();
-								    %>
 									<tr  align="center" width="50%"  bgcolor="ffffff">
 										<td>
 											<a href="product_detail.jsp?p_no=<%=product2.getP_no()%>">
 											<img width="300px" height="300px" src="image/product_image/<%=product2.getP_image()%>" border="0"></a>
 										</td>
 
-									<%
-										Product product3 = new Product();
-								    %>
 										<td>
 											<a href="product_detail.jsp?p_no=<%=product3.getP_no()%>">
 											<img width="300px" height="300px" src="image/product_image/<%=product3.getP_image()%>" border="0"></a>
