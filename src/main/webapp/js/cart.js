@@ -73,7 +73,7 @@ function cart_item_all_select(e){
 		}
 	}else{
 		for (let i = 0; i < cart_item_no_check_list.length; i++) {
-			cart_item_no_check_list.item(i).checked = alse;
+			cart_item_no_check_list.item(i).checked = false;
 		}
 	}
 }
