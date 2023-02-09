@@ -404,8 +404,10 @@ public class BoardDao {
 		return count;
 	}
 	
+	/******************************* 추가 기능 구현 *************************************/
+	
 	/*
-	 * 특정 회원의 게시글 카운트 (((((((((((((((( ok )))))))))))))))))
+	 * 특정 회원의 게시글 카운트
 	 */
 	public int boardCountByUserId(String userId) throws Exception {
 		Connection con = null;
@@ -436,7 +438,7 @@ public class BoardDao {
 		return count;
 	}
 	
-	/**
+	/*
 	 * 회원의 게시물 리스트를 반환
 	 */
 	public List<Board> findBoardListByUserId(String userId) throws Exception{
@@ -461,6 +463,56 @@ public class BoardDao {
 				board.setBoard_step(rs.getInt("board_step"));
 				board.setBoard_depth(rs.getInt("board_depth"));
 				board.setUser_id(rs.getString("user_id"));
+
+				boards.add(board);
+			}
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		return boards;
+	}
+	
+	/*
+	 * 게시글 제목으로 검색
+	 */
+	/**
+	public final static String BOARD_SELECT_BY_TITLE = "select * from 
+	(select rownum idx, s.* from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id\"\r\n"
+			+ "	+ \"from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ? and board_title like ?";
+	 */
+	public List<Board> searchByTitle(int start, int last, String keyword) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> boards = new ArrayList<Board>();
+
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_TITLE);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, last);
+			pstmt.setString(3, keyword);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoard_no(rs.getInt(2));
+				board.setBoard_title(rs.getString(3));
+				board.setBoard_regDate(rs.getDate(4));
+				board.setBoard_readCount(rs.getInt(5));
+				board.setBoard_group_no(rs.getInt(6));
+				board.setBoard_step(rs.getInt(7));
+				board.setBoard_depth(rs.getInt(8));
+				board.setUser_id(rs.getString(9));
 
 				boards.add(board);
 			}
