@@ -78,5 +78,29 @@ public class ProductService {
 	public List<Product> findPopular3() throws Exception{
 		return productDao.selectPopular3();
 	}
+	/*
+	 * 가격 내림차순 정렬
+	 */
+	public List<Product> priceSortDesc() throws Exception{
+		return productDao.priceSortDesc();
+	}
+	/*
+	 * 가격 오름차순 정렬
+	 */
+	public List<Product> priceSortAsc() throws Exception{
+		return productDao.priceSortAsc();
+	}
+	/*
+	 * 조회수 내림차순 정렬
+	 */
+	public List<Product> clickSortDesc() throws Exception{
+		return productDao.priceSortDesc();
+	}
+	/*
+	 * 조회수 오름차순 정렬
+	 */
+	public List<Product> clickSortAsc() throws Exception{
+		return productDao.priceSortAsc();
+	}
 
 }

@@ -24,4 +24,9 @@ public class ProductSQL {
 	public static final String PRODUCT_SELECT_POPULAR_3 = 
 			"select * from product where p_click_count = "
 					+ "(select MAX(p_click_count) from (SELECT ROWNUM AS RN, p_click_count FROM (SELECT p_click_count FROM product ORDER BY p_click_count DESC)) WHERE RN = 3)";
+	
+	public static final String PRODUCT_DESC_PRICE = "select * from product order by p_price desc";
+	public static final String PRODUCT_ASC_PRICE = "select * from product order by p_price asc";
+	public static final String PRODUCT_DESC_CLICK = "select * from product order by p_click_count desc";
+	public static final String PRODUCT_ASC_CLICK = "select * from product order by p_click_count asc";
 }
