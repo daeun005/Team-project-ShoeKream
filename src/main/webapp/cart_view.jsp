@@ -92,13 +92,21 @@
 											</form>
 										</td>
 <!-- qty form end -->
+
+
+
 										<td width=146 height=26 align=center bgcolor="ffffff" class=t1><%=new DecimalFormat("#,##0").format(cart.getProduct().getP_price() * cart.getCart_qty())%></td>
 										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
 
-											<form id="cart_delete_item_form_<%=cart.getCart_no()%>">
-												<input type="hidden" name="cart_no"	value="<%=cart.getCart_no()%>"> 
-												<a href="cart_delete_item_action('cart_delete_item_form_<%=cart.getCart_no()%>');">
-													<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 28 28" class="icon--close">
+	
+												<form action="cart_delete_item_action.jsp" method="post">
+												<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
+												<input  type="image" src='image/delete.png' >
+											</form>
+												
+												
+													<!-- <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 28 28" class="icon--close"> -->
+													
 													<g fill="none" fill-rule="evenodd"> 
 													<path d="M0 0H28V28H0z"></path> 
 													<g fill="#9B9BA0" transform="translate(6 6)" class="icon--close__group">
@@ -117,7 +125,7 @@
 										<td width=640 colspan=6 height=26 class=t1 bgcolor="ffffff">
 											<p align=right>
 												<br /> 
-												<font color='red'>총주문금액 : <span id="tot_order_price"><%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
+												<font color='red'>총주문금액 : <span id="tot_order_price"> <%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
 											</p>
 										</td>
 									</tr>
@@ -128,11 +136,12 @@
 
 							<table style="padding-left: 10px" border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td align=center>&nbsp;&nbsp; <a href="product_list.jsp" class=m1>계속 쇼핑하기</a>&nbsp;&nbsp; 
+									<td align=center>&nbsp;&nbsp; 
+									
+										<a href="product_list.jsp" class=m1>계속 쇼핑하기</a>&nbsp;&nbsp; 
 										<% if (cartList.size() >= 1) {%> 
-										<a href="cart_view_form_select_submit();" class=m1>
-										 	총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</a>&nbsp;&nbsp;
-											<a href="cart_delete();" class=m1>장바구니 비우기</a>&nbsp;&nbsp;
+										<a href="javascript:cart_view_form_select_submit();" class=m1>총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</a>&nbsp;&nbsp;
+											<a href="javascript:cart_delete();" class=m1>장바구니 비우기</a>&nbsp;&nbsp;
 											<%}%>
 									</td>
 								</tr>
