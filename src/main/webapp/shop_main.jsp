@@ -79,7 +79,7 @@ List<Product> popular3 = productService.findPopular3();
 										</td>
 										<td  align="left" width="50%"  bgcolor="ffffff">
 											<font style="font-family: GongGothicMedium;" size=6>BEST 1</font><br><br>
-											<font style="font-family: '\S-CoreDream-3Light;" size=5><%=product1.getP_name()%></font><br><br>
+											<font style="font-family: S-CoreDream-3Light;" size=5><b>폰트테스트2: <%=product1.getP_name()%></b></font><br><br>
 											<form align="left" style="display: inline; margin:0">
 												<input type="hidden" name="p_no" value="<%=product1.getP_no()%>">
 									<!-- 
