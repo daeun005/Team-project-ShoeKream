@@ -8,8 +8,8 @@
 	
 <%
 boolean isLogin = false;
-String sUserId=(String)session.getAttribute("s_u_id");
-if (session.getAttribute("s_u_id") != null) {
+String sUserId=(String)session.getAttribute("sUserId");
+if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
 String category_noStr=request.getParameter("category_no");
