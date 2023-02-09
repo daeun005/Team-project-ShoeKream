@@ -73,30 +73,37 @@ form > table tr td{
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="BBBBBB" >
 									<caption style="text-align: left;">주문상세정보</caption>
 									<tr>
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=15% height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>주문번호</font></td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=20% height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>주문일</font></td>
-										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=20% height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>주문자</font></td>
 										<td width=30% height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>배송지</font></td>	
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1><font
+										<td width=15% height=25 bgcolor="E6ECDE" align=center class=t1><font
 											>비 고</font></td>
 									</tr>
 									
 									
 									<tr>
-										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%= thisOrder.getO_no() %></td>
-										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(thisOrder.getO_date()) %></td>
-										<td width=166 height=26 align=center bgcolor="ffffff" class=t1><%= sUserId %></td>
+										<td width=15% height=26 align=center bgcolor="ffffff" class=t1><%= thisOrder.getO_no() %></td>
+										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(thisOrder.getO_date()) %></td>
+										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= sUserId %></td>
 										<%
 										String address = null;
 										if(deliveryInfo.size() != 0) { 
+											if(deliveryInfo.size() == 0) { 
+												// 폼에서 전달받은 배송지 정보를 넣을 곳
+												// 조건은 임시로 설정함 수정할 것
+												
+											}else {
+											// 샘플데이터라 오더 정보만 있고 배송지를 선택해서 주문한 경우가 아님 -> 회원의 배송지 리스트 중 첫번째 항목을 가져옴(기본배송지)
 											address = deliveryInfo.get(0).getD_address();
+											}
 										} %>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1><%= address%></td>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
+										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%= address%></td>
+										<td width=15% height=26 align=center bgcolor="ffffff" class=t1>
 												<input type="submit" value="삭제">
 										</td>
 									</tr>
