@@ -7,11 +7,11 @@
     		response.sendRedirect("shop_main.jsp");
     		return;
     	}
-        String d_user_name=request.getParameter("d_user_name");
-        String d_user_phone=request.getParameter("d_user_phone");
-        String d_user_address=request.getParameter("d_user_address");
-		DeliveryService deliveryService = new DeliveryService();
-		deliveryService.insertDelivery(d_user_address, d_user_phone, d_user_name, sUserId);
+    String d_user_name=request.getParameter("d_user_name");
+    String d_user_phone=request.getParameter("d_user_phone");
+    String d_user_address=request.getParameter("d_user_address");
+	DeliveryService deliveryService = new DeliveryService();
+	deliveryService.insertDelivery(d_user_address, d_user_phone, d_user_name, sUserId);
 		
-    	response.sendRedirect("user_view_delivery.jsp");
-    %>
+   	response.sendRedirect("user_view_delivery.jsp");
+%>

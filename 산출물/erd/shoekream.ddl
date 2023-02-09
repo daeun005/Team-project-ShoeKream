@@ -90,11 +90,17 @@ DROP SEQUENCE board_board_depth_SEQ;
 CREATE SEQUENCE board_board_depth_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 CREATE TABLE delivery(
+        d_no                                NUMBER(10)           NULL,
 		d_address                     		VARCHAR2(100)		 NULL ,
 		d_phone                       		VARCHAR2(20)		 NULL ,
 		d_name                        		VARCHAR2(20)		 NULL ,
 		user_Id                       		VARCHAR2(20)		 NULL 
 );
+
+DROP SEQUENCE delivery_d_no_SEQ;
+
+CREATE SEQUENCE delivery_d_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
+
 
 
 CREATE TABLE product_reply(
@@ -131,6 +137,7 @@ ALTER TABLE cart ADD CONSTRAINT IDX_cart_FK1 FOREIGN KEY (user_Id) REFERENCES us
 ALTER TABLE board ADD CONSTRAINT IDX_board_PK PRIMARY KEY (board_no);
 ALTER TABLE board ADD CONSTRAINT IDX_board_FK0 FOREIGN KEY (user_Id) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
 
+ALTER TABLE delivery ADD CONSTRAINT IDX_delivery_PK PRIMARY KEY (d_no);
 ALTER TABLE delivery ADD CONSTRAINT IDX_delivery_FK0 FOREIGN KEY (user_Id) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
 
 ALTER TABLE product_reply ADD CONSTRAINT IDX_product_reply_PK PRIMARY KEY (pr_no);

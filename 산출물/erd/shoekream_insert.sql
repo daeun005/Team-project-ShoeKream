@@ -96,11 +96,11 @@ insert into cart(cart_no,user_Id,cart_qty,p_no) values (cart_cart_no_SEQ.nextval
 insert into cart(cart_no,user_Id,cart_qty,p_no) values (cart_cart_no_SEQ.nextval,'cream3',5,5);
 
 /**********************delivery insert************************/
-insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream1_home','1111-1111','집','cream1');
-insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream1_office','1111-2222','회사','cream1');
-insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream2_home','2222-1111','집','cream2');
-insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream2_office','2222-2222','회사','cream2');
-insert into delivery(d_address,d_phone,d_name,user_Id) values ('cream3_home','3333-1111','집','cream3');
+insert into delivery(d_no,d_address,d_phone,d_name,user_Id) values (delivery_d_no_SEQ.nextval,'cream1_home','1111-1111','집','cream1');
+insert into delivery(d_no,d_address,d_phone,d_name,user_Id) values (delivery_d_no_SEQ.nextval,'cream1_office','1111-2222','회사','cream1');
+insert into delivery(d_no,d_address,d_phone,d_name,user_Id) values (delivery_d_no_SEQ.nextval,'cream2_home','2222-1111','집','cream2');
+insert into delivery(d_no,d_address,d_phone,d_name,user_Id) values (delivery_d_no_SEQ.nextval,'cream2_office','2222-2222','회사','cream2');
+insert into delivery(d_no,d_address,d_phone,d_name,user_Id) values (delivery_d_no_SEQ.nextval,'cream3_home','3333-1111','집','cream3');
 
 /**********************orders insert************************/
 insert into orders(o_no,o_desc,o_date,o_price,user_Id) values (orders_o_no_SEQ.nextval,'shoes1외1종',sysdate-2,300000,'cream1');

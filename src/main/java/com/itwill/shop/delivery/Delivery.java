@@ -1,7 +1,7 @@
 package com.itwill.shop.delivery;
 
 public class Delivery {
-
+	private int d_no;
 	private String d_address;
 	private String d_phone;
 	private String d_name;
@@ -12,19 +12,19 @@ public class Delivery {
 	}
 
 	
-	public Delivery(String d_address, String d_phone, String d_name, String user_id) {
+	public Delivery(int d_no, String d_address, String d_phone, String d_name, String user_id) {
 		super();
+		this.d_no = d_no;
 		this.d_address = d_address;
 		this.d_phone = d_phone;
 		this.d_name = d_name;
 		this.user_id = user_id;
 	}
-
-
-	public String toString() {
-		return "delivery [d_address=" + d_address + ", d_phone=" + d_phone + ", d_name=" + d_name + ", user_id="
-				+ user_id + "]";
+	
+	public int getD_no() {
+		return d_no;
 	}
+
 
 	public String getD_address() {
 		return d_address;
@@ -58,4 +58,12 @@ public class Delivery {
 		this.user_id = user_id;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Delivery [d_no=" + d_no + ", d_address=" + d_address + ", d_phone=" + d_phone + ", d_name=" + d_name
+				+ ", user_id=" + user_id + "]";
+	}
+	
+	
 }

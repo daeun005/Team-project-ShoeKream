@@ -74,6 +74,7 @@ public class DeliveryDao {
 	
 		while(rs.next()){
 			deliverieList.add(new Delivery(
+					rs.getInt("d_no"),
 					rs.getString("d_address"),
 					rs.getString("d_phone"),
 					rs.getString("d_name"),
@@ -102,6 +103,7 @@ public class DeliveryDao {
 	
 		if(rs.next()){
 			delivery= new Delivery(
+					rs.getInt("d_no"),
 					rs.getString("d_address"),
 					rs.getString("d_phone"),
 					rs.getString("d_name"),
@@ -140,14 +142,14 @@ public class DeliveryDao {
 	 * 주문창에서 배송정보 지우기
 	 */
 	
-	public int deleteDelivery (String user_id) throws Exception {
+	public int deleteDelivery (int d_no) throws Exception {
 		int rowCount = 0;
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		try {
 		con = datasource.getConnection();
-		pstmt = con.prepareStatement(DeliverySQL.DELIVERY_DELETE_BY_USER_ID);
-		pstmt.setString(1, user_id);
+		pstmt = con.prepareStatement(DeliverySQL.DELIVERY_DELETE_BY_D_NO);
+		pstmt.setInt(1, d_no);
 		rowCount = pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.getMessage();

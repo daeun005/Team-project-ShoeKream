@@ -23,8 +23,8 @@ public class DeliveryService {
 		}
 		
 		//배송정보 삭제
-		public int deleteDelivery(String user_id) throws Exception {
-			return deliveryDao.deleteDelivery(user_id);
+		public int deleteDelivery(int d_no) throws Exception {
+			return deliveryDao.deleteDelivery(d_no);
 		}
 		
 		

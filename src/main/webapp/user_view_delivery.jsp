@@ -9,7 +9,6 @@
 <%
 DeliveryService deliveryService = new DeliveryService();
 List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
-List<Cart> cartItemList = new ArrayList<Cart>();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -61,12 +60,12 @@ List<Cart> cartItemList = new ArrayList<Cart>();
 						</tr>
 						<%for(Delivery deliveryAddress : deliveryList) {%>
 						<tr>
-							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_name()%></td>
-							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_phone()%></td>
-							<td width=150 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_address()%></td>
+							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_name()%></td>
+							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_phone()%></td>
+							<td width=150 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_address()%></td>
 							<td width=150 height=30 align=center bgcolor="ffffff" class=t1>
 								<form action="user_view_delivery_delete_address_action.jsp" method="post">
-									<input type="hidden" name="delivery_addres" value="<%=deliveryAddress.getD_address()%>">
+									<input type="hidden" name="delivery_address" value="<%=deliveryAddress.getD_no()%>">
 									<input type="image" src='image/delete.png' >
 								</form>
 						<%} %>
@@ -77,9 +76,7 @@ List<Cart> cartItemList = new ArrayList<Cart>();
 				<br />
 				<div>
 					<input type="button" value="배송지 추가" onClick="deliveryAddAction();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" value="수정" onClick="userModifyAction();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					</td> <input type="button" value="돌아가기" onClick="returnUserView()">
-					</td>
+					<input type="button" value="돌아가기" onClick="returnUserView()">
 				</div>
 			</div>
 			<!-- content end -->
