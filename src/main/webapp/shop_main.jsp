@@ -80,14 +80,14 @@ List<Product> popular3 = productService.findPopular3();
 										</td>
 										<td  align="left" width="50%"  bgcolor="ffffff">
 											<font style="font-family: GongGothicMedium;" size=6>BEST 1</font><br><br>
-											<font size=5><%=product1.getP_name()%></font><br>
+											<font style="font-family: GongGothicMedium;" size=5><%=product1.getP_name()%></font><br><br>
 											<form align="left" style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product1.getP_no()%>">
 									<!-- 
 												<input type="hidden" name="cart_qty" value="1">
 												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
 									 -->
-											<font color="#FF0000">￦&nbsp;&nbsp;<%=new DecimalFormat("#,##0").format(product1.getP_price())%></font></td>
+											<font style="font-family: GongGothicMedium;" size=4>￦&nbsp;&nbsp;<%=new DecimalFormat("#,##0").format(product1.getP_price())%></font></td>
 											</form><br> 
 
 									</tr>
