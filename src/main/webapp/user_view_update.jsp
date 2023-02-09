@@ -32,10 +32,6 @@
 			</div>
 			
 			<div id="user_view">
-				<table border=0 cellpadding=0 cellspacing=0>
-					<tr>
-						<td>
-							<!--contents--> <br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
@@ -88,16 +84,10 @@
 								</table>
 							</form>
 							<br/><br/>
-							<table align=center >
-								<tr>
-									<td><input type="button" value="수정" onClick="userModifyAction();">&nbsp;</td>
-									<td><input type="button" value="돌아가기" onClick="">&nbsp;</td>
-								</tr>
-							</table>
-
-						</td>
-					</tr>
-				</table>
+							<div>
+								<input type="button" value="수정"   onClick="userModifyAction();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<input type="button" value="돌아가기" onClick="returnUserView()"></td>
+							</div>
 			</div>
 				<!-- content end -->
 			</div>

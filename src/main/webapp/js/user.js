@@ -57,11 +57,6 @@ function pwCheck() {
 		return true;
 	}
 }
-function openIdCheck(){
-		var left = Math.ceil(( window.screen.width)/5);
-		var top = Math.ceil(( window.screen.height)/5); 
-		let idCheckWindow = window.open("user_id_check_form.jsp","checkForm","width=430,height=200,top="+top+",left="+left+",resizable = no,location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
-}
 
 function main() {
 	f.action = "shop_main.jsp";
@@ -105,10 +100,8 @@ function userModifyAction() {
 	document.f.submit();
 }
 
-function userModify() {
-	document.f.action = "user_modify_form.jsp";
-	document.f.method = "POST";
-	document.f.submit();
+function returnUserView() {
+	location.href="user_view.jsp";
 }
 function userRemove() {
 	if (confirm("정말 삭제하시겠습니까?")) {

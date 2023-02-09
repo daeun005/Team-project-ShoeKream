@@ -45,7 +45,7 @@ div#user_content  {
 	margin-top: 2%;	
 }
 div#user_view  {
-	margin-top: 1%;	
+	margin-top: 0;	
 }
 div#user_navigation {
 	float: left;
@@ -259,32 +259,42 @@ span.info-title{
     font-size: 14px;
     letter-spacing: -.7px;
     vertical-align: top;
+    text-align: center;
 }
-i.icon-cart{
+img.icon-cart{
+	width:30px;
+	height:30px;
     margin-right: 4px;
-    background: url(../image/top_cart.png) no-repeat 0 0;
-    vertical-align: -7px;
-    background-position: -27px 0;
+    background: url(../image/top_cart.png);
+    background-repeat: no-repeat;
+    vertical-align: -10px;
 }
-i.icon-order{
-    background: url(../image/order.png) no-repeat 0 0;
-    background-position: center;
-	background-size: 60%;
-	background-repeat: no-repeat;
-	background-color: #ffffff;
-	opacity: 1;
-}
-i.icon-board{
+img.icon-order{
+	width:30px;
+	height:30px;
     margin-right: 4px;
-    background: url(../image/board.png) no-repeat 0 0;
-    vertical-align: -7px;
-    background-position: -27px 0;
+    background: url(../image/order.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    vertical-align: -10px;
 }
-i.icon-reply{
+img.icon-board{
+	width:30px;
+	height:30px;
     margin-right: 4px;
-    background: url(../image/reply.png) no-repeat 0 0;
-    vertical-align: -7px;
-    background-position: -27px 0;
+    background: url(../image/board.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    vertical-align: -10px;
+}
+img.icon-reply{
+	width:30px;
+	height:30px;
+    margin-right: 4px;
+    background: url(../image/reply.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    vertical-align: -10px;
 }
 
 .member-grade-box .right-box .shopping-info .info-item .info-data .unit {
@@ -307,5 +317,9 @@ i.icon-reply{
     font-size: 21px;
     font-weight: 700;
     vertical-align: top;
+}
+
+img{
+	border: none;
 }
     

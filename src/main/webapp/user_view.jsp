@@ -32,10 +32,6 @@
 			</div>
 			
 			<div id="user_view">
-				<table border=0 cellpadding=0 cellspacing=0>
-					<tr>
-						<td>
-							<!--contents--> <br />
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
@@ -74,9 +70,6 @@
 								</table>
 							</form> <br />
 
-						</td>
-					</tr>
-				</table>
 			</div>
 				<!-- content end -->
 			</div>
