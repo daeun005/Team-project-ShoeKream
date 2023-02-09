@@ -65,7 +65,7 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 							<td width=150 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_address()%></td>
 							<td width=150 height=30 align=center bgcolor="ffffff" class=t1>
 								<form action="user_view_delivery_delete_address_action.jsp" method="post">
-									<input type="hidden" name="delivery_address" value="<%=deliveryAddress.getD_no()%>">
+									<input type="hidden" name="delivery_no" value="<%=deliveryAddress.getD_no()%>">
 									<input type="image" src='image/delete.png' >
 								</form>
 						<%} %>

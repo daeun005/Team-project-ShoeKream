@@ -7,8 +7,8 @@
     		response.sendRedirect("product_list.jsp");
     		return;
     	}
-	String d_address=request.getParameter("delivery_address");
+	String d_no=request.getParameter("delivery_no");
 	DeliveryService deliveryService = new DeliveryService();
-	deliveryService.deleteDelivery(d_address);
+	deliveryService.deleteDelivery(Integer.parseInt(d_no));
    	response.sendRedirect("user_view_delivery.jsp");
     %>
