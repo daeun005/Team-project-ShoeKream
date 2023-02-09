@@ -29,12 +29,9 @@ public class ProductDaoTestMain {
 		List <Product> findProduct =productDao.productFindByName("sn");
 		System.out.println(findProduct);
 		
-		System.out.println("조회수 1순위");
-		System.out.println(productDao.selectPopular1());
-		System.out.println("조회수 2순위");
-		System.out.println(productDao.selectPopular2());
-		System.out.println("조회수 3순위");
-		System.out.println(productDao.selectPopular3());
+		
+		System.out.println("조회수 상위 3개");
+		System.out.println(productDao.selectPopular());
 		
 		
 	}

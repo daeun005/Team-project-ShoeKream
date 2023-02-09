@@ -8,60 +8,69 @@ form,div#f {
 	margin-right: 0px;
 	text-align: center;
 }
+/*
+font-size: 12px; ==> 14px 변경 
+color: #333333; ==> ffffff 변경 start
+*/
 a:link {
 	
-	color: #333333;
-	font-size: 12px;
+	color: #ffffff;
+	font-size: 14px;
 	text-decoration: none;
 }
 a:visited {
-	color: #333333;
-	font-size: 12px;
+	color: #ffffff;
+	font-size: 14px;
 	text-decoration: none;
 }
 A:active {
-	color: #333333;
-	font-size: 12px;
+	color: #f4f4f4;
+	font-size: 14px;
 	text-decoration: none;
 }
 A:hover {
-	color: #BEA12C;
-	font-size: 12px;
+	color: yellow;
+	font-size: 14px;
 	/*
 	text-decoration: underline;
 	*/
 }
 
 a.user:link {
-	color: #333333;
-	font-size: 12px;
+	color: #ffffff;
+	font-size: 14px;
 	text-decoration: underline;
 }
 a.user:visited {
-	color: #333333;
-	font-size: 12px;
+	color: #ffffff;
+	font-size: 14px;
 	text-decoration: underline;
 }
 a.user:active {
-	color: #333333;
-	font-size: 12px;
+	color: #ffffff;
+	font-size: 14px;
 	text-decoration: underline;
 }
+
 input,textarea,select{
 	font-size: 8pt;
 	color: #333333;
 }
 
 td {
-	font-size: 12px;
+	font-size: 14px;
 	color: #333333;
 	line-height: 18px;
 }
 .title {
-	font-size: 12pt;
+	font-size: 14pt;
 	color: #000000;
 	line-height: 22px;
 }
+/*
+font-size: 12px; ==> 14px 변경 
+color: #333333; ==> ffffff 변경 start
+*/
 
 /* Form css */
 .text {
@@ -102,10 +111,16 @@ td {
     font-style: normal;
 }
 
-
 @font-face {
      font-family: 'S-CoreDream-3Light';
      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'S-CoreDream-5Medium';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
      font-weight: normal;
      font-style: normal;
 }

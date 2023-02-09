@@ -246,105 +246,41 @@ public class ProductDao {
 			}
 		}
 	}
+	/*
+	 * 조회수 상위 3개
+	 */
+	public List<Product> selectPopular() throws Exception{
+		List<Product> productList=new ArrayList<Product>();
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			con=dataSource.getConnection();
+			pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_POPULAR);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Product product = new Product(
+						rs.getInt("p_no"),
+						rs.getString("p_name"),
+						rs.getInt("p_price"),
+						rs.getString("p_image"),
+						rs.getString("p_desc"),
+						rs.getInt("p_click_count"),
+						rs.getInt("category_no"));
+				productList.add(product);
+			}
+		}finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (con != null)
+				con.close();
+		}
+		return productList;
+	}	
 	
-	//조회수 1순위
-		public List<Product> selectPopular1() throws Exception{
-			List<Product> productList=new ArrayList<Product>();
-			
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			try {
-				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_POPULAR_1);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					Product product = new Product(
-							  rs.getInt("p_no"),
-							  rs.getString("p_name"),
-							  rs.getInt("p_price"),
-							  rs.getString("p_image"),
-							  rs.getString("p_desc"),
-							  rs.getInt("p_click_count"),
-							  rs.getInt("category_no"));
-					productList.add(product);
-				}
-			}finally {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-			}
-			return productList;
-		}
-		
-		//조회수 2순위
-		public List<Product> selectPopular2() throws Exception{
-			List<Product> productList=new ArrayList<Product>();
-			
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			try {
-				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_POPULAR_2);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					Product product = new Product(
-							rs.getInt("p_no"),
-							rs.getString("p_name"),
-							rs.getInt("p_price"),
-							rs.getString("p_image"),
-							rs.getString("p_desc"),
-							rs.getInt("p_click_count"),
-							rs.getInt("category_no"));
-					productList.add(product);
-				}
-			}finally {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-			}
-			return productList;
-		}
-		
-		//조회수 3순위
-		public List<Product> selectPopular3() throws Exception{
-			List<Product> productList=new ArrayList<Product>();
-			
-			Connection con=null;
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			try {
-				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_POPULAR_3);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					Product product = new Product(
-							rs.getInt("p_no"),
-							rs.getString("p_name"),
-							rs.getInt("p_price"),
-							rs.getString("p_image"),
-							rs.getString("p_desc"),
-							rs.getInt("p_click_count"),
-							rs.getInt("category_no"));
-					productList.add(product);
-				}
-			}finally {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (con != null)
-					con.close();
-			}
-			return productList;
-		}
 		/*
 		 * 가격 내림차순
 		 */
@@ -481,4 +417,6 @@ public class ProductDao {
 			}
 			return productList;
 		}
+		
+		
 }

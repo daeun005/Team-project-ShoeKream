@@ -68,16 +68,13 @@ public class ProductService {
 	public void updateHitCount(int p_no) throws Exception{
 			productDao.increaseClickCount(p_no);
 	}
-	
-	public List<Product> findPopular1() throws Exception{
-		return productDao.selectPopular1();
+	/*
+	 * 조회수 상위 3개 출력
+	 */
+	public List<Product> findPopular() throws Exception{
+		return productDao.selectPopular();
 	}
-	public List<Product> findPopular2() throws Exception{
-		return productDao.selectPopular2();
-	}
-	public List<Product> findPopular3() throws Exception{
-		return productDao.selectPopular3();
-	}
+
 	/*
 	 * 가격 내림차순 정렬
 	 */
@@ -102,5 +99,6 @@ public class ProductService {
 	public List<Product> clickSortAsc() throws Exception{
 		return productDao.priceSortAsc();
 	}
+	
 
 }

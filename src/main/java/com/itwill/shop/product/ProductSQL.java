@@ -14,16 +14,9 @@ public class ProductSQL {
 	//조회수 증가
 	public static final String PRODUCT_INCREASE_CLICK_COUNT = "update product set p_click_count = p_click_count + 1 where p_no = ?";
 	
-	//조회수 순위대로 출력
-	public static final String PRODUCT_SELECT_POPULAR_1 = 
-			"select * from product where p_click_count = "
-			+ "(select MAX(p_click_count) from (SELECT ROWNUM AS RN, p_click_count FROM (SELECT p_click_count FROM product ORDER BY p_click_count DESC)) WHERE RN = 1)";
-	public static final String PRODUCT_SELECT_POPULAR_2 = 
-			"select * from product where p_click_count = "
-					+ "(select MAX(p_click_count) from (SELECT ROWNUM AS RN, p_click_count FROM (SELECT p_click_count FROM product ORDER BY p_click_count DESC)) WHERE RN = 2)";
-	public static final String PRODUCT_SELECT_POPULAR_3 = 
-			"select * from product where p_click_count = "
-					+ "(select MAX(p_click_count) from (SELECT ROWNUM AS RN, p_click_count FROM (SELECT p_click_count FROM product ORDER BY p_click_count DESC)) WHERE RN = 3)";
+	//조회수 순위대로 3개 출력
+	public static final String PRODUCT_SELECT_POPULAR = 
+			"select * from (select * from product order by p_click_count desc) where rownum <= 3";
 	
 	public static final String PRODUCT_DESC_PRICE = "select * from product order by p_price desc";
 	public static final String PRODUCT_ASC_PRICE = "select * from product order by p_price asc";

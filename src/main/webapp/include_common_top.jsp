@@ -17,6 +17,7 @@
 <div id=top_navigation>
 <h1>
 <p>
+<font  style="font-family: S-CoreDream-3Light; color="ffffff">
 	<%
 		if(sUserId==null){
 	%>
@@ -43,7 +44,7 @@
 		<span><a href=""></a></span>
 		<span><a href="board_list.jsp">게시판리스트</a></span>
 		<span><a href="board_write.jsp">게시판쓰기</a></span>
-		
+</font>		
 </p>
 </h1>
 </div>

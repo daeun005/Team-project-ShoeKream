@@ -26,15 +26,16 @@ public class ProductServiceTestMain {
 		/*
 		 * 상품 정보 추가
 		 */
-//		System.out.println(productService.productInsert(new Product(10,"shoes2",2000000,"shoes1.jpg","기타등등등",0,1)));
+		System.out.println(productService.productInsert(new Product(10,"shoes2",2000000,"shoes1.jpg","기타등등등",0,1)));
 		/*
 		 * 상품 검색 후 결과 값 출력
 		 */
 		System.out.println(productService.productFindByName("ne"));
 		/*
-		 * 조회수 3번째로 높은 상품 보기(1,2생략)
+		 * 조회수 상위 3개 보기
 		 */
-		System.out.println(productService.findPopular3());
+		System.out.println(productService.findPopular());
+		
 	}
 	
 

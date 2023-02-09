@@ -7,9 +7,7 @@
 <%
 
 ProductService productService = ProductService.getInstance();
-List<Product> popular1 = productService.findPopular1();
-List<Product> popular2 = productService.findPopular2();
-List<Product> popular3 = productService.findPopular3();
+List<Product> popularList = productService.findPopular();
 
 %>    
     
@@ -22,13 +20,14 @@ List<Product> popular3 = productService.findPopular3();
 <link rel=stylesheet href="css/menu.css" type="text/css"> 
 <link rel=stylesheet href="css/shop.css" type="text/css"> 
 
+
+
 <style type="text/css" media="screen">
 </style>
 </head>
-<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
-	marginwidth=0 marginheight=0>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0	marginwidth=0 marginheight=0>
 	<!-- container start-->
-<div id="container">
+<div id="container" height=100%>
 		<!-- header start -->
 	<div id="header">
 			<jsp:include page="include_common_top.jsp"/>
@@ -40,106 +39,77 @@ List<Product> popular3 = productService.findPopular3();
 			<!-- include_content.jsp start-->
 		<div id="content">
 			
-<!-- 수정 start -->			
-<!--
-&nbsp;&nbsp;&nbsp;
--->
-			
+<!-- 수정 start &nbsp;&nbsp;&nbsp;-->			
+<!-- ver.1 start-->
 			<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
 				<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="50">&nbsp;&nbsp;>
-									<font style="font-family: S-CoreDream-3Light;" size=5>인기상품</font></td>
+									<td bgcolor="f4f4f4" height="50">
+									<font style="font-family: S-CoreDream-3Light;" size=5>인기상품 ver.1</font></td>
 								</tr>
 				</table>
-
 			<div id="f">
-				<table width="100%" align="center" border="0" cellpadding="10" cellspacing="1" bgcolor="BBBBBB">
+				<table width="100%" align="center" border="0" cellpadding="10" cellspacing="0" bgcolor="f4f4f4">
+						<tr>
+							<td><img src="image/icons/crown.png" width=40px></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><font style="font-family: GongGothicMedium;" size=6>BEST 1</font></td>
+							<td><font style="font-family: GongGothicMedium;" size=6>BEST 2</font></td>
+							<td><font style="font-family: GongGothicMedium;" size=6>BEST 3</font></td>
+						</tr>
+						<tr>
 									<%
-									int product_size=popular1.size();
-									int product_column_size=4;
-									int product_line_count = 1;
-			
-			for (int i=0;i<popular1.size();i++) {
-				Product product1 = popular1.get(i);
-				Product product2 = popular2.get(i);
-				Product product3 = popular3.get(i);
-
-
+			for (int i=0; i<popularList.size(); i++) {
+				Product product = popularList.get(i);
 									%>
-									<!--상품시작 -->
-									<%
-									%>
-									<tr>
+							<td align="center" width="100%" >
+								<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
+								<img width=250px; height=250px; src="image/product_image/<%=product.getP_image()%>" border="0"></a>
+							</td>
 							
-										<td align="center" width="50%"  bgcolor="ffffff">
-											<a href="product_detail.jsp?p_no=<%=product1.getP_no()%>">
-											<img width="300px" height="300px" src="image/product_image/<%=product1.getP_image()%>" border="0"></a>
-										</td>
-										<td  align="left" width="50%"  bgcolor="ffffff">
-											<font style="font-family: GongGothicMedium;" size=6>BEST 1</font><br><br>
-											<font style="font-family: S-CoreDream-3Light;" size=5><b>폰트테스트2: <%=product1.getP_name()%></b></font><br><br>
-											<form align="left" style="display: inline; margin:0">
-												<input type="hidden" name="p_no" value="<%=product1.getP_no()%>">
+						<%} %>
+						</tr>
+						<tr>
+						<%
+			for (int i=0; i<popularList.size(); i++) {
+				Product product = popularList.get(i);
+									%>
+							<td  align="left" width="100%"  bgcolor="ffffff">
+								<font style="font-family: S-CoreDream-5Medium;" size=5>폰트테스트1: <%=product.getP_name()%></font><br><br>
+								<font style="font-family: GongGothicMedium;" size=5>폰트테스트2: <%=product.getP_name()%></font><br><br>
+								<form align="left" style="display: inline; margin:0">
+								<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 									<!-- 
 												<input type="hidden" name="cart_qty" value="1">
 												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
 									 -->
-											<font style="font-family: GongGothicMedium;" size=4>￦&nbsp;&nbsp;<%=new DecimalFormat("#,##0").format(product1.getP_price())%></font></td>
-											</form><br> 
+						 		</form><br>
+								<font style="font-family: GongGothicMedium;" size=4>￦&nbsp;&nbsp;<%=new DecimalFormat("#,##0").format(product.getP_price())%></font><br><br>
+								<img src="image/icons/heart.png" width=25px>
+								<font style="font-family: GongGothicMedium; vertical-align:top;" size=4 >&nbsp;&nbsp;<%=product.getP_click_count()%></font>
+							</td>	
+					   <%}%>
+						</tr>
 
-									</tr>
-									<tr  align="center" width="50%"  bgcolor="ffffff">
-										<td>
-											<a href="product_detail.jsp?p_no=<%=product2.getP_no()%>">
-											<img width="300px" height="300px" src="image/product_image/<%=product2.getP_image()%>" border="0"></a>
-										</td>
-
-										<td>
-											<a href="product_detail.jsp?p_no=<%=product3.getP_no()%>">
-											<img width="300px" height="300px" src="image/product_image/<%=product3.getP_image()%>" border="0"></a>
-										</td>
-									</tr>
-									<tr>
-									</tr>
-
-									
 								   <!--상품 끝 -->
-								   <%}%>
-								  	
 				</table>
 			</div> <br /></td>
 					</tr>
 			</table>
-			
-			
-<!-- 수정 end -->			
-			
-			
-<!-- 원본
-				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-					codebase="http://active.macromedia.com/flash4/cabs/swflash.cab#version=4,0,0,0"
-					width="540px" height="350px">
-					<param name="movie" value="image/FI_main.swf">
-					<param name="play" value="true">
-					<param name="loop" value="true">
-					<param name="quality" value="high">
-					<embed src="image/enter.png" scale="exactfit" play="true"
-						loop="true" quality="high" style="margin: 10px;"
-						pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
-						width="540px" height="350px"></embed>
-				</object>
-				
-				
--->			
+<!-- ver.1 end -->	
+
+		
 		</div>
 			<!-- include_content.jsp end-->
 			<!-- content end -->
 	</div>
 		<!--wrapper end-->
-		<div id="footer">
+		<div id="footer" class="footer_main">
 			<jsp:include page="include_common_bottom.jsp"/>
 		</div>
 </div>
