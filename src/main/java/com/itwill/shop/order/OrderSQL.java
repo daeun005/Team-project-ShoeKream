@@ -10,9 +10,9 @@ public class OrderSQL {
 	public static final String ORDERS_DELETE_BY_O_NO= 
 										"delete from orders where o_no = ?";
 	public static final String ORDERS_SELECTE_BY_USER_ID= 
-										"select * from orders where user_id = ?";
+										"select * from orders where user_id = ? order by o_date desc";
 	public static final String ORDERS_SELECTE_WITH_ORDER_ITEM_BY_USER_ID= 
-										"select * from orders o join order_item oi on o.o_no = oi.o_no join product p on oi.p_no = p.p_no where o.user_id = ?";
+										"select * from orders o join order_item oi on o.o_no = oi.o_no join product p on oi.p_no = p.p_no where o.user_id = ? order by o.o_date desc";
 	public static final String ORDERS_SELECTE_WITH_ORDER_ITEM_BY_O_NO= 
 										"select * from orders o join order_item oi on o.o_no = oi.o_no join product p on oi.p_no = p.p_no where o.o_no = ?";
 }
