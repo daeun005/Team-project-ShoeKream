@@ -30,7 +30,7 @@ if(cart_item_noStr_array==null)
 
 CartService cartService = new CartService();
 UserService userService = new UserService();
-ProductService productService = new ProductService();
+ProductService productService = ProductService.getInstance();
 DeliveryService deliveryService = new DeliveryService();
 
 List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);

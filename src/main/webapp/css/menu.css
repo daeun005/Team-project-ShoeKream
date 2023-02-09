@@ -22,11 +22,13 @@ div#header #menu {
 #menu {
 	margin: 0 20% 0 20%;
 	align-items: flex-end;
+	
 }
 #menu ul {
 	list-style-type: none;
 	margin: 0;
 	background-color: #fff;
+	vertical-align: baseline;
 }
 
 #menu ul:after {

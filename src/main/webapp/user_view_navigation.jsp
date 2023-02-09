@@ -22,7 +22,7 @@
 	<li>
 		<span class="mypage_title">개인정보</span>
 			<li class="mypage_item">
-			<a href="user_view.jsp" class="">배송주소록 관리</a>
+			<a href="user_view_delivery.jsp" class="">배송주소록 관리</a>
 			</li>
 			<li class="mypage_item">
 			<a href="user_view_update.jsp" class="">개인정보 수정</a>

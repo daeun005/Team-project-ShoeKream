@@ -48,7 +48,7 @@ List<Cart> cartItemList = new ArrayList<Cart>();
 					</tr>
 				</table>
 				<!-- view Form  -->
-				<form name="f" method="post">
+				<form name="delivery_f" method="post">
 					<table align=center width=80% border="0" cellpadding="0"
 						cellspacing="1" bgcolor="BBBBBB">
 						<caption style="text-align: left;">배송지 정보</caption>
@@ -56,21 +56,27 @@ List<Cart> cartItemList = new ArrayList<Cart>();
 							<td height=25 align=center bgcolor="E6ECDE" class=t1>받으시는
 								분</td>
 							<td height=25 align=center bgcolor="E6ECDE" class=t1>연락처</td>
-							<td height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
+							<td height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
 							<td width=10 height=25 align=center bgcolor="E6ECDE" class=t1></td>
 						</tr>
+						<%for(Delivery deliveryAddress : deliveryList) {%>
 						<tr>
-							<td width=130 height=26 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_name()%></td>
-							<td width=130 height=26 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_phone()%></td>
-							<td width=150 height=26 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_email()%></td>
-							<td width=150 height=26 align=center bgcolor="ffffff" class=t1>
-								<input type="checkbox" id="delivery_checkbox" checked="checked" onchange=""></td>
+							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_name()%></td>
+							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_phone()%></td>
+							<td width=150 height=30 align=center bgcolor="ffffff" class=t1><%=sUser.getUser_address()%></td>
+							<td width=150 height=30 align=center bgcolor="ffffff" class=t1>
+								<form action="user_view_delivery_delete_address_action.jsp" method="post">
+									<input type="hidden" name="delivery_addres" value="<%=deliveryAddress.getD_address()%>">
+									<input type="image" src='image/delete.png' >
+								</form>
+						<%} %>
 							</td>
 					</table>
 				</form>
 				<br />
 				<br />
 				<div>
+					<input type="button" value="배송지 추가" onClick="deliveryAddAction();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="button" value="수정" onClick="userModifyAction();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					</td> <input type="button" value="돌아가기" onClick="returnUserView()">
 					</td>

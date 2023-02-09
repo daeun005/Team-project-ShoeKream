@@ -1,3 +1,4 @@
+<%@page import="com.itwill.shop.delivery.Delivery"%>
 <%@page import="com.itwill.shop.delivery.DeliveryService"%>
 <%@page import="com.itwill.shop.user.UserService"%>
 <%@page import="com.itwill.shop.order.OrderService"%>
@@ -23,6 +24,8 @@
 								DeliveryService deliveryService = new DeliveryService();
                             	OrderService orderService=new OrderService();
                             	CartService cartService=new CartService();
+                            	Delivery findDelivery = deliveryService.select(request.getParameter("deliveryCheck"));
+                            	System.out.println(findDelivery.getD_address());
                             	
                             	if(buyType.equals("cart")){
                             		orderService.cartOrder(sUserId);

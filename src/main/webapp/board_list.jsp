@@ -38,7 +38,16 @@ if(pageno==null||pageno.equals("")){
 BoardListPageMakerDto boardListPage 
 	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
 String sUserId = (String)session.getAttribute("sUserId");
+
+// search Type
+String searchType = null;
+searchType = request.getParameter("title");
+// search keyword
+String keyword = null;
+keyword = request.getParameter("keyword");
+
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,11 +55,20 @@ String sUserId = (String)session.getAttribute("sUserId");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+
 <script type="text/javascript">
 	function boardCreate() {
 		location.href = "board_write.jsp";
 	}
+	
+	function search() {
+		let searchType = document.getElementById("searchType").value;
+		let keyword = document.getElementById("keyword").value;
+		
+		location.href = "";
+	}
 </script>
+
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
@@ -109,8 +127,8 @@ String sUserId = (String)session.getAttribute("sUserId");
 										<td width=70 align=center bgcolor="E6ECDE">본횟수</td>
 									</tr>
 									<%
-										for (Board board : boardListPage.itemList) {
-									%>
+										if(keyword == null) {
+											for (Board board : boardListPage.itemList) { %>
 									<tr>
 										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
@@ -125,9 +143,15 @@ String sUserId = (String)session.getAttribute("sUserId");
 										<td width=70 align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%>
 										</td>
 									</tr>
-									<%
-										}
-									%>
+											<% } 
+											/*
+											else if(){
+												// 제목 선택 + 검색버튼 --> 제목 검색결과 보여주기
+											} else if() {
+												// 글쓴이 선택 + 검색버튼 --> 글쓴이 검색결과 보여주기
+											}
+											*/
+											%>
 								</table>
 								<!-- /list -->
 							</form> <br>
@@ -158,17 +182,24 @@ String sUserId = (String)session.getAttribute("sUserId");
 										
 									</td>
 								</tr>
-							</table> <!-- button -->
+							</table>
+							<%} %>
+							<!-- button -->
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
-									<td><select>
-									<option>제목</option>
-									<option>글쓴이</option>
-									</select></td>
-									<td align="center"><input type="text" value=""></td>
-									<td> <input type="button" value="검색" onclick="boardCreate();" /> </td>
-									<td align="right" width= 60px>
-									<input type="button" value="게시물 생성" onclick="boardCreate();" />
+									<!-- search -->
+									<!-- searchType select start -->
+									<td>
+									<select id = 'searchType' name = 'searchType' onchange = "selectBoxCahnge(this.value);">
+									<option value = "title">제목</option>
+									<option value = "user_id">글쓴이</option>
+									</select>
+									</td>
+									<!-- searchType select end -->
+									<td align="center"><input type="text" id="keyword" name = "keyword"></td>
+									<td> <input type="button" id = "btnSearch" value="검색" onclick="search()" /> </td>
+									<!-- search -->
+									<td align="right" width= 60px><input type="button" value="게시물 생성" onclick="boardCreate();" />
 									</td>
 								</tr>
 							</table></td>

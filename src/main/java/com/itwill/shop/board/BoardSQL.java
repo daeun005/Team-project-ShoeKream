@@ -73,4 +73,7 @@ public class BoardSQL {
 			+ "from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id"
 			+ "from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ?"
 			+ " order by board_readcount desc";
+	
+	public final static String BOARD_SELECT_BY_TITLE = "select * from (select rownum idx, s.* from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id\"\r\n"
+			+ "			+ \"from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ? and board_title like ?";
 }

@@ -107,4 +107,17 @@ td {
 	opacity: 1;
 }
 
-    
+div#add{
+	font-size: x-large;
+}
+div.delivery{
+	margin-bottom: 5px;
+	margin-left: 20px;
+	padding: 0;
+	align-items: baseline;
+	font-size: large;
+}
+.delivery_add_f{
+	text-align: left;
+}
+

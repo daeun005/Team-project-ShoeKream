@@ -100,6 +100,10 @@ function userModifyAction() {
 	document.f.submit();
 }
 
+function deliveryAddAction(){
+	window.open('user_view_delivery_add_form.jsp','checkForm','width=500,height=300,resizable = no,scrollbar = no');
+}
+
 function returnUserView() {
 	location.href="user_view.jsp";
 }
