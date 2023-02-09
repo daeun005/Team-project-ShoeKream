@@ -49,8 +49,6 @@ if (buyType.equals("cart")) {
 }
 
 
-
-
 %>
 
 
@@ -70,6 +68,7 @@ form > table tr td{
 */
 </style>
 <script type="text/javascript">
+
 	function order_create_form_submit() {
 		document.order_create_form.method = 'POST';
 		document.order_create_form.action = 'order_create_action.jsp';
@@ -82,16 +81,7 @@ form > table tr td{
 		document.address_modify.action = 'address_update_action.jsp';
 		document.address_modify.submit();
 	}
-	
-	
-	function addressUpdateAction() {
-		if(window.confirm('주소를 변경하시겠습니까? 변경하시면 기본배송지로 설정됩니다')){
-			let address1 = prompt("배송지를 입력하세요");
-			
-			$('input[name=address]').attr('value',address1);
-		alert("주소가 변경되었습니다.");
-	}
-	}
+
 	
 </script>
 </head>
@@ -208,34 +198,21 @@ form > table tr td{
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">배송지 정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>받으시는 분</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>연락처</td>
-										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>배송지</td>
+										<td width=150 height=25 align=center bgcolor="E6ECDE" class=t1>받으시는 분</td>
+										<td width=150 height=25 align=center bgcolor="E6ECDE" class=t1>연락처</td>
+										<td width=200 height=25 align=center bgcolor="E6ECDE" class=t1>배송지</td>
+										<td width=100 height=25 align=center bgcolor="E6ECDE" class=t1>배송지선택</td>
 									</tr>
-									<tr>
-											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=user.getUser_name()%></td>
-											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=user.getUser_phone()%></td>
-											<td width=150 height=26 align=center bgcolor="ffffff" class=t1 ><%=user.getUser_email()%></td>
-											<td width=150 height=26 align=center bgcolor="ffffff" class=t1>
-			                                 <select name="d_address">
-				                                  <option value="0">배송지 선택</option>
-				                                	 <% for(Delivery delivery : deliveryList) { %>
-				                                    <%int i = 0; %>
-				                                	 <option value="<%=i++%>" 
-					                             	 <% if(delivery.getD_address()==delivery.getD_address()){%>
-					                              	selected
-					                             	 <%}%>>
-			                                 		<%=delivery.getD_address() %></option>
-			                                  <%} %>   
-                                   
-                                    
-                        
-                              
-                              
-                              </select>
-                              </td>
-											
+											<% for(Delivery delivery : deliveryList) { %>
+											<tr>
+											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_name()%></td>
+											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_phone()%></td>
+											<td width=150 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_address()%></td>
+											<td width=50 height=26 align=center bgcolor="ffffff" class=t1 >
+											<input type="radio" name="deliveryCheck" value =<%=delivery.getD_address()%>>
+											</td>
+											</tr>
+											<%}%>
 								</table>
 							
 							</form>
@@ -243,7 +220,7 @@ form > table tr td{
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center>&nbsp;&nbsp; <a
-										href="javascript:order_create_form_submit();" class=m1>구매/결재하기</a>
+										href="javascript:order_create_form_submit();" class=m1>구매/결제하기</a>
 										&nbsp;&nbsp;<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
 									</td>
 								</tr>
