@@ -15,7 +15,7 @@ if (session.getAttribute("sUserId") != null) {
 String category_noStr=request.getParameter("category_no");
 if(category_noStr==null)category_noStr="0";
 
-ProductService productService = new ProductService();
+ProductService productService = ProductService.getInstance();
 List<Product> productList = null;
 if(category_noStr.equals("0")){
 	productList=productService.productList();
