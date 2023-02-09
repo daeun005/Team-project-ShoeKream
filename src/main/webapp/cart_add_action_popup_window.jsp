@@ -22,8 +22,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel=stylesheet href="css/styles.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
+<link rel=stylesheet href="css/cart.css" type="text/css">
+
+<title> 장바구니</title>
 <script type="text/javascript">
 </script>
 </head>
@@ -34,13 +39,16 @@
 	<strong>장바구니에 상품이 담겼습니다.</strong>
 	<div  style="margin-top: 5px;margin-left: auto;margin-right: auto;padding: 5px" >
 		<div  style="margin: 0 auto;padding: 0px 20px">
-			<button onclick="window.close();opener.location.reload();" style="font-size: 6pt">
+		
+		
+			<button class="button" onclick="window.close();opener.location.reload();"  style="font-size: 6pt" >
 				계속 쇼핑
 			</button>
 
-			<button onclick="window.close();opener.location.href='cart_view.jsp';" style="font-size: 6pt">
+			<button class="button"  onclick="window.close();opener.location.href='cart_view.jsp';" style="font-size: 6pt">
 				장바구니
 			</button>
+			
 		</div>
 	</div>
 </div>
