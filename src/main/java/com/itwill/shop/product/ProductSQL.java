@@ -12,6 +12,7 @@ public class ProductSQL {
 	
 	//dto 미구현
 	public static final String PRODUCT_SELECT_POPULAR_1 = "select * from product where p_click_count = (select MAX(p_click_count) from product);";
-	
+	//상품이름으로 검색해서 결과 값 받기
+	public static final String PRODUCT_BY_NAME = "select*from product where p_name like '%'||?||'%'";
 	
 }

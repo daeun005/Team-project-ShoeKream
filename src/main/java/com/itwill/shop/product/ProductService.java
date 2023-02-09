@@ -44,6 +44,13 @@ public class ProductService {
 	 public int productInsert(Product product) throws Exception{
 		 return productDao.insert(product);
 	 }
+	 /***************************************************/
+	 /*
+	  * 상품 이름으로 검색 출력 하기.
+	  */
+	 public List <Product> productFindByName(String p_name) throws Exception {
+		 return productDao.productFindByName(p_name);
+	 }
 	 
 	 /***************************************************/
 	 
