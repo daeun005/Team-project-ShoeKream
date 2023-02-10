@@ -16,25 +16,20 @@
 			t = String.format("%s...", t.substring(0, 15));
 		}
 		//답글공백삽입
-		
 		for (int i = 0; i < board.getBoard_depth(); i++) {
 			title.append("&nbsp;&nbsp;");
 		}
-		
 		if (board.getBoard_depth() > 0) {
 			title.append("<img border='0' src='image/re.gif'/>");
 		}
-		
 		title.append(t.replace(" ", "&nbsp;"));
-		
 		return title.toString();
 	}
 	%>
 
 <%
-
 String type = request.getParameter("typesel");
-	//1.요청페이지번호	
+// 요청페이지번호	
 String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
@@ -46,19 +41,8 @@ searchType = request.getParameter("searchType");
 // search keyword
 String keyword = null;
 keyword = request.getParameter("keyword");
-//System.out.print(keyword);
 
-/*  UserService userService = new UserService();
-List<User> userList = userService.findUserList();
-BoardListPageMakerDto boardListPage = null;
-for(int i=0; i<userList.size(); i++){
-	if(keyword.equals(userList.get(i).getUser_id())) {
-		boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
-	}else {
-		boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
-	} */
-//} 
-// 전체 게시물조회
+// 검색 결과 게시물조회
 BoardListPageMakerDto boardListPage = null;
 if(type.equals("title")) {
 	boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
@@ -67,7 +51,7 @@ if(type.equals("title")) {
 } 
 String sUserId = (String)session.getAttribute("sUserId");
 
-if(keyword.equals("") || keyword == null) {
+if(keyword.equals("") || keyword == null || searchType.equals("")) {
 	response.sendRedirect("board_list.jsp");
 	return;
 }
@@ -91,7 +75,6 @@ if(keyword.equals("") || keyword == null) {
 		searchform.method = 'POST';
 		searchform.submit();
 	}
-	
 </script>
 
 </head>
@@ -136,7 +119,7 @@ if(keyword.equals("") || keyword == null) {
 								<span><a href="board_list_sort_desc.jsp">조회수 높은 순</a></span>
 							</div>
 							
-							<!-- list -->
+							<!-- board list start -->
 							<form name="f" method="post" action="">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="f4f4f4">
@@ -147,48 +130,37 @@ if(keyword.equals("") || keyword == null) {
 										<td width=10% align=center bgcolor="f4f4f4">글쓴날</td>
 										<td width=15% align=center bgcolor="f4f4f4">조회수</td>
 									</tr>
-									<%
-										for (Board board : boardListPage.itemList) { %>
+									
+									<% for (Board board : boardListPage.itemList) { %>
 									<tr>
 										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
 										<%=this.getTitleString(board)%></a></td>
 										<td width=20% align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
 										<td width=10% align=center bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<%=board.getBoard_regDate().toString().substring(0, 10)%>
-										</td>
+											<%=board.getBoard_regDate().toString().substring(0, 10)%></td>
 										<td width=15% align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%></td>
 									</tr>
 									<% } %>
 								</table>
-								
-								<!-- /list -->
 							</form> <br>
+								<!-- board list end -->
+								
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="center">
-							     
-										
-										 <%if(boardListPage.pageMaker.getPrevPage()>0) {%>    
+										<%if(boardListPage.pageMaker.getPrevPage()>0) {%>    
 											<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
-										 <%}%>
-										
-										<%
-											for (int i = boardListPage.pageMaker.getBlockBegin(); i <= boardListPage.pageMaker.getBlockEnd(); i++) {
-										 	if (boardListPage.pageMaker.getCurPage() == i) {
-										%>
-										 <font color='red'><strong><%=i%></strong></font>&nbsp;
+										<%}%>
+										<% for (int i = boardListPage.pageMaker.getBlockBegin(); i <= boardListPage.pageMaker.getBlockEnd(); i++) {
+											if (boardListPage.pageMaker.getCurPage() == i) { %>
+										<font color='red'><strong><%=i%></strong></font>&nbsp;
 										<%} else {%>
 										<a href="./board_list.jsp?pageno=<%=i%>"><strong><%=i%></strong></a>&nbsp;
-										<%
-										   }
-										  }%>
-										  
-										  
-										 <%if(boardListPage.pageMaker.getNextPage() <= boardListPage.pageMaker.getTotPage()){%>
-										  <a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getNextPage()%>">▶&nbsp;</a>
-										 <%}%>
-										
+										<% } 
+										 	}%>
+										<%if(boardListPage.pageMaker.getNextPage() <= boardListPage.pageMaker.getTotPage()){%>
+										<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getNextPage()%>">▶&nbsp;</a><%}%>
 									</td>
 								</tr>
 							</table>
