@@ -32,6 +32,8 @@
 	%>
 
 <%
+
+String type = request.getParameter("typesel");
 	//1.요청페이지번호	
 String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
@@ -46,24 +48,23 @@ String keyword = null;
 keyword = request.getParameter("keyword");
 //System.out.print(keyword);
 
-UserService userService = new UserService();
+/*  UserService userService = new UserService();
 List<User> userList = userService.findUserList();
 BoardListPageMakerDto boardListPage = null;
 for(int i=0; i<userList.size(); i++){
 	if(keyword.equals(userList.get(i).getUser_id())) {
-		 boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
-		 System.out.print(userList.get(i).getUser_id());
+		boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
 	}else {
 		boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
-		}
-}
+	} */
+//} 
 // 전체 게시물조회
-
-/* if(keyword.equals("")) {
-BoardListPageMakerDto boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
+BoardListPageMakerDto boardListPage = null;
+if(type.equals("title")) {
+	boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
 }else {
-	
-} */
+	boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
+} 
 String sUserId = (String)session.getAttribute("sUserId");
 
 if(keyword.equals("") || keyword == null) {
@@ -198,7 +199,7 @@ if(keyword.equals("") || keyword == null) {
 									<!-- search start -->
 									<td></td>
 									<td><form id = "searchform" method = "post">
-									<select id = 'searchType' name = 'searchType' style= height:30px; onchange = "selectBoxCahnge(this.value);">
+									<select id = 'searchType' name = 'searchType' style= height:30px;">
 										<option selected value = "">선택</option>
 										<option value = "title">제목</option>
 										<option value = "id">글쓴이</option>

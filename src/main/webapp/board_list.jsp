@@ -29,6 +29,8 @@
 	%>
 
 <%
+
+String type = request.getParameter("type");
 	//1.요청페이지번호	
 String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
@@ -62,11 +64,23 @@ keyword = request.getParameter("keyword");
 	}
 
 	function search() {
-		searchform.action = 'board_search_list.jsp';
-		searchform.method = 'POST';
-		searchform.submit();
+		console.log(searchform);
+		//location.href = "board_search_list.jsp";
+		board_searchform.action = 'board_search_list.jsp';
+		board_searchform.method = 'POST';
+		board_searchform.submit();
 	}
 	
+	<%-- function selectBoxCahnge() {
+		if(<%=type.equals("title")%>) {
+			
+		}
+	}
+	 --%>
+	function typechange() {
+		document.getElementById('typesel').value= document.getElementById('searchType').options[document.getElementById('searchType').selectedIndex].value;
+		console.log(document.getElementById('typesel').value);
+	}
 </script>
 
 </head>
@@ -173,12 +187,13 @@ keyword = request.getParameter("keyword");
 								<tr>
 									<!-- search start -->
 									<td></td>
-									<td><form id = "searchform" method = "post">
-									<select id = 'searchType' name = 'searchType' style= height:30px; onchange = "selectBoxCahnge(this.value);">
+									<td><form id = "board_searchform" method = "post">
+									<select id = 'searchType' name = 'searchType' style= height:30px; onchange = "typechange();">
 										<option selected value = "">선택</option>
 										<option value = "title">제목</option>
 										<option value = "id">글쓴이</option>
 									</select>
+									<input type = 'hidden' name = 'typesel' id = 'typesel' value = ''>
 									<input type='text' name='keyword' value = "" style= "width:400px; height:25px;">
 									<input type="button" name='searchbtn' style= height:30px; value='검색' onclick = "search();">
 									</form></td>
