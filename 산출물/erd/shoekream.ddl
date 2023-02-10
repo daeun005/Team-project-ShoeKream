@@ -39,7 +39,8 @@ CREATE TABLE orders(
 		o_desc                        		VARCHAR2(100)		 NULL ,
 		o_date                        		DATE		 DEFAULT sysdate		 NULL ,
 		o_price                       		NUMBER(10)		 NULL ,
-		user_Id                       		VARCHAR2(20)		 NULL 
+		user_Id                       		VARCHAR2(20)		 NULL, 
+        d_no                                NUMBER(10)           NULL
 );
 
 DROP SEQUENCE orders_o_no_SEQ;
@@ -125,6 +126,7 @@ ALTER TABLE product ADD CONSTRAINT IDX_product_FK0 FOREIGN KEY (category_no) REF
 
 ALTER TABLE orders ADD CONSTRAINT IDX_orders_PK PRIMARY KEY (o_no);
 ALTER TABLE orders ADD CONSTRAINT IDX_orders_FK0 FOREIGN KEY (user_Id) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
+ALTER TABLE orders ADD CONSTRAINT IDX_orders_FK1 FOREIGN KEY (d_no) REFERENCES delivery (d_no) ON DELETE CASCADE;
 
 ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_PK PRIMARY KEY (oi_no);
 ALTER TABLE order_item ADD CONSTRAINT IDX_order_item_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
