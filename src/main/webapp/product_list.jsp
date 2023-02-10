@@ -13,15 +13,40 @@ if (session.getAttribute("s_u_id") != null) {
 	isLogin = true;
 }
 String category_noStr=request.getParameter("category_no");
+String sort_select=request.getParameter("sort_select");
 if(category_noStr==null)category_noStr="0";
 
 ProductService productService = new ProductService();
 List<Product> productList = null;
 if(category_noStr.equals("0")){
 	productList=productService.productList();
+	if(sort_select==null) {
+		sort_select="";
+	}else {
+		if(sort_select.equals("price_sort_asc")){
+			productList=productService.priceSortAsc();
+		}else if(sort_select.equals("price_sort_desc")){
+			productList=productService.priceSortDesc();
+		}else if(sort_select.equals("click_sord_desc"))
+			productList=productService.clickSortDesc();
+	}
 }else{
 	productList=productService.productCategory(Integer.parseInt(category_noStr));
+	if(sort_select==null) {
+		sort_select="";
+	}else {
+		if(sort_select.equals("price_sort_asc")){
+			productList=productService.priceSortCateAsc(Integer.parseInt(category_noStr));
+		}else if(sort_select.equals("price_sort_desc")){
+			productList=productService.priceSortCateDesc(Integer.parseInt(category_noStr));
+		}else if(sort_select.equals("click_sord_desc"))
+			productList=productService.clickSortCateDesc(Integer.parseInt(category_noStr));
+	}
 }
+
+	
+
+
 %>
 
 <!DOCTYPE html>
@@ -47,10 +72,15 @@ function add_cart_popup_window(f){
 	}
 }
 
-function product_sort(){
-	document.product_alignment_action_form.method='POST';
-	document.product_alignment_action_form.action='product_alignment_action.jsp';
-	document.product_alignment_action_form.submit();
+
+function product_alignment_action_form_submit(){
+	let type = document.getElementById('sort_option');
+	let url = location.search;
+	document.getElementById('sort_select').value = type.options[type.selectedIndex].value;
+	if(document.getElementById('sort_select').value!==null){
+		url = url.split('&',1)+"&sort_select="+document.getElementById('sort_select').value;
+	}
+	location.href="product_list.jsp"+url;
 }
 </script> 
 <style type="text/css" media="screen">
@@ -81,16 +111,14 @@ function product_sort(){
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>상품리스트</b></td>
 								</tr>
 							</table>
-							<form name = "product_alignment_action_form" action="product_alignment_action.jsp" method="get">
 							<br><b>정렬</b>&nbsp;
-							<select name="sort_option" onchange="product_alignment_action_form.submit();">
-								<option value="select">선택
+							<select id="sort_option" onchange="product_alignment_action_form_submit();">
+								<option value="normal">선택
 								<option value="price_sort_asc">가격 오름차순
 								<option value="price_sort_desc">가격 내림차순
-						   <!-- <option value="click_sort_asc">조회수 오름차순
-								<option value="click_sort_desc">조회수 내림차순 -->
+						   		<option value="click_sort_desc">조회수 순 
 							</select> <br><br> 
-							</form>
+						    <input id="sort_select" name="sort_select" type="hidden" value="">
 							<div id="f">
 								<table width="100%" align="center" border="0" cellpadding="10" cellspacing="1" bgcolor="ffffff">
 									<%

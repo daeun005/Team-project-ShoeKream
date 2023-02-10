@@ -100,5 +100,16 @@ public class ProductService {
 		return productDao.priceSortAsc();
 	}
 	
+	public List<Product> clickSortCateDesc(int category_no) throws Exception{
+		return productDao.clickSortCateDesc(category_no);
+	}
+	
+	public List<Product> priceSortCateDesc(int category_no) throws Exception{
+		return productDao.priceSortCateDesc(category_no);
+	}
+	
+	public List<Product> priceSortCateAsc(int category_no) throws Exception{
+		return productDao.priceSortCateAsc(category_no);
+	}
 
 }

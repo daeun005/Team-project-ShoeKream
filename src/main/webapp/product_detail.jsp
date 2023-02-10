@@ -143,7 +143,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 									
 									<td width=30% height=200 class=t1>
 											<form name="add_cart_form" method="post" action="cart_add_action.jsp">
-																							<input type="hidden" name=p_no value="<%=product.getP_no()%>">
+												<input type="hidden" name=p_no value="<%=product.getP_no()%>">
 											
 											<font size=2>수량</font> 
 											<!-- 

@@ -386,7 +386,7 @@ public class ProductDao {
 		/*
 		 * 조회수 오름차순
 		 */
-		public List<Product> clickSortAsc() throws Exception{
+		public List<Product> clickSortCateDesc(int category_no) throws Exception{
 			List<Product> productList=new ArrayList<Product>();
 			
 			Connection con=null;
@@ -394,7 +394,74 @@ public class ProductDao {
 			ResultSet rs=null;
 			try {
 				con=dataSource.getConnection();
-				pstmt=con.prepareStatement(ProductSQL.PRODUCT_ASC_CLICK);
+				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_DESC_CLICK);
+				pstmt.setInt(1, category_no);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Product product = new Product(
+							  rs.getInt("p_no"),
+							  rs.getString("p_name"),
+							  rs.getInt("p_price"),
+							  rs.getString("p_image"),
+							  rs.getString("p_desc"),
+							  rs.getInt("p_click_count"),
+							  rs.getInt("category_no"));
+					productList.add(product);
+				}
+			}finally {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			}
+			return productList;
+		}
+		
+		public List<Product> priceSortCateDesc(int category_no) throws Exception{
+			List<Product> productList=new ArrayList<Product>();
+			
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				con=dataSource.getConnection();
+				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_DESC_PRICE);
+				pstmt.setInt(1, category_no);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					Product product = new Product(
+							  rs.getInt("p_no"),
+							  rs.getString("p_name"),
+							  rs.getInt("p_price"),
+							  rs.getString("p_image"),
+							  rs.getString("p_desc"),
+							  rs.getInt("p_click_count"),
+							  rs.getInt("category_no"));
+					productList.add(product);
+				}
+			}finally {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (con != null)
+					con.close();
+			}
+			return productList;
+		}
+		
+		public List<Product> priceSortCateAsc(int category_no) throws Exception{
+			List<Product> productList=new ArrayList<Product>();
+			
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				con=dataSource.getConnection();
+				pstmt=con.prepareStatement(ProductSQL.PRODUCT_SELECT_BY_CATEGORY_ASC_PRICE);
+				pstmt.setInt(1, category_no);
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					Product product = new Product(

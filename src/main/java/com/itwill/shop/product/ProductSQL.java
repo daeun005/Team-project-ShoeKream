@@ -20,6 +20,8 @@ public class ProductSQL {
 	
 	public static final String PRODUCT_DESC_PRICE = "select * from product order by p_price desc";
 	public static final String PRODUCT_ASC_PRICE = "select * from product order by p_price asc";
+	public final static String PRODUCT_SELECT_BY_CATEGORY_DESC_PRICE = "select * from product where category_no=? order by p_price desc";
+	public final static String PRODUCT_SELECT_BY_CATEGORY_ASC_PRICE = "select * from product where category_no=? order by p_price asc";
 	public static final String PRODUCT_DESC_CLICK = "select * from product order by p_click_count desc";
-	public static final String PRODUCT_ASC_CLICK = "select * from product order by p_click_count asc";
+	public final static String PRODUCT_SELECT_BY_CATEGORY_DESC_CLICK = "select * from product where category_no=? order by p_click_count asc";
 }
