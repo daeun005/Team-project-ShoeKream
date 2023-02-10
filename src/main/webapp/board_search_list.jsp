@@ -49,6 +49,7 @@ if(type.equals("title")) {
 }else {
 	boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
 } 
+
 String sUserId = (String)session.getAttribute("sUserId");
 
 if(keyword.equals("") || keyword == null || searchType.equals("")) {
@@ -101,7 +102,7 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판-리스트</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판</b>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
@@ -113,11 +114,6 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 									</td>
 								</tr>
 							</table>
-							<div class="" style="text-align:left;">
-								<span><a href="board_list.jsp">&nbsp;기본 정렬</a></span>
-								<span> | </span>
-								<span><a href="board_list_sort_desc.jsp">조회수 높은 순</a></span>
-							</div>
 							
 							<!-- board list start -->
 							<form name="f" method="post" action="">
@@ -144,23 +140,11 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 									<% } %>
 								</table>
 							</form> <br>
-								<!-- board list end -->
+							<!-- board list end -->
 								
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="center">
-										<%if(boardListPage.pageMaker.getPrevPage()>0) {%>    
-											<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
-										<%}%>
-										<% for (int i = boardListPage.pageMaker.getBlockBegin(); i <= boardListPage.pageMaker.getBlockEnd(); i++) {
-											if (boardListPage.pageMaker.getCurPage() == i) { %>
-										<font color='red'><strong><%=i%></strong></font>&nbsp;
-										<%} else {%>
-										<a href="./board_list.jsp?pageno=<%=i%>"><strong><%=i%></strong></a>&nbsp;
-										<% } 
-										 	}%>
-										<%if(boardListPage.pageMaker.getNextPage() <= boardListPage.pageMaker.getTotPage()){%>
-										<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getNextPage()%>">▶&nbsp;</a><%}%>
 									</td>
 								</tr>
 							</table>
