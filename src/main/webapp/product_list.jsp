@@ -8,25 +8,20 @@
 	
 <%
 boolean isLogin = false;
-String sUserId=(String)session.getAttribute("sUserId");
-if (session.getAttribute("sUserId") != null) {
+String sUserId=(String)session.getAttribute("s_u_id");
+if (session.getAttribute("s_u_id") != null) {
 	isLogin = true;
 }
 String category_noStr=request.getParameter("category_no");
 if(category_noStr==null)category_noStr="0";
 
-ProductService productService = ProductService.getInstance();
+ProductService productService = new ProductService();
 List<Product> productList = null;
 if(category_noStr.equals("0")){
 	productList=productService.productList();
 }else{
 	productList=productService.productCategory(Integer.parseInt(category_noStr));
 }
-
-
-
-
-
 %>
 
 <!DOCTYPE html>
@@ -51,12 +46,12 @@ function add_cart_popup_window(f){
 		f.submit();
 	}
 }
-function product_sort(){
-	document.cart_view_form.method='POST';
-	document.cart_view_form.action='product_alignment_action.jsp';
-	document.cart_view_form.submit();
-}
 
+function product_sort(){
+	document.product_alignment_action_form.method='POST';
+	document.product_alignment_action_form.action='product_alignment_action.jsp';
+	document.product_alignment_action_form.submit();
+}
 </script> 
 <style type="text/css" media="screen">
 </style>
@@ -88,14 +83,14 @@ function product_sort(){
 											상품리스트</b></td>
 								</tr>
 							</table>
-							<form action="product_alignment_action" method="post">
+							<form name = "product_alignment_action_form" action="product_alignment_action.jsp" method="get">
 							<br><b>정렬</b>&nbsp;
-							<select name="sort_option" onchange="product_sort();">
+							<select name="sort_option" onchange="product_alignment_action_form.submit();">
 								<option value="select">선택
 								<option value="price_sort_asc">가격 오름차순
 								<option value="price_sort_desc">가격 내림차순
-								<option value="click_sort_asc">조회수 오름차순
-								<option value="click_sort_desc">조회수 내림차순
+						   <!-- <option value="click_sort_asc">조회수 오름차순
+								<option value="click_sort_desc">조회수 내림차순 -->
 							</select> <br><br> 
 							</form>
 							<div id="f">
@@ -116,15 +111,16 @@ function product_sort(){
 									%>
 									<tr>
 									<%} %>
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_name=<%=product.getP_name()%>"><img width="88px" height="65px"
-												src="image/product_image/<%=product.getP_image()%>" border="0"></a><br />
+										<td align="center" width="25%"  bgcolor="ffffff">
+										<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
+										<img width="88px" height="65px" src="image/product_image/<%=product.getP_image()%>" border="0">
+										</a><br />
 												
 											<br /> <b><%=product.getP_name()%></b>
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
+												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top"/>
 											</form><br> <font
 											color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
