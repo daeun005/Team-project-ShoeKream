@@ -14,17 +14,17 @@ color: #333333; ==> ffffff 변경 start
 */
 a:link {
 	
-	color: #ffffff;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: none;
 }
 a:visited {
-	color: #ffffff;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: none;
 }
 A:active {
-	color: #f4f4f4;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: none;
 }
@@ -37,17 +37,17 @@ A:hover {
 }
 
 a.user:link {
-	color: #ffffff;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: underline;
 }
 a.user:visited {
-	color: #ffffff;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: underline;
 }
 a.user:active {
-	color: #ffffff;
+	color: #333333;
 	font-size: 14px;
 	text-decoration: underline;
 }
