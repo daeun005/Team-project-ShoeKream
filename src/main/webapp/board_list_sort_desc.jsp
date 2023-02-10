@@ -36,10 +36,10 @@ if(pageno==null||pageno.equals("")){
 }	
 // 전체 게시물조회
 BoardListPageMakerDto boardListPage 
-	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
+	= BoardService.getInstance().sortByReadCount(Integer.parseInt(pageno));
 String sUserId = (String)session.getAttribute("sUserId");
 
-// 조회수 내림차순 정렬s
+// 조회수 내림차순 정렬
 String sortDesc = request.getParameter("sort");
 BoardListPageMakerDto boardListpageByReadCount = BoardService.getInstance().sortByReadCount(Integer.parseInt(pageno));
 
@@ -64,21 +64,6 @@ keyword = request.getParameter("keyword");
 <script type="text/javascript">
 	function boardCreate() {
 		location.href = "board_write.jsp";
-	}
-	
-	function search() {
-		let searchType = document.getElementById("searchType").value;
-		let keyword = document.getElementById("keyword").value;
-		
-		location.href = "";
-	}
-	
-	function sort() {
-		let sortType = document.getElementById("sort").value;
-		document.sort_form.method='POST';
-		document.sort_form.action='product_sort_action.jsp';
-		document.sort_form.submit();
-		} 
 	}
 </script>
 
@@ -130,7 +115,6 @@ keyword = request.getParameter("keyword");
 									bgcolor="BBBBBB">
 
 									<tr>
-										
 										<td width=280 align=center bgcolor="E6ECDE">제목</td>
 										<td width=120 align=center bgcolor="E6ECDE">글쓴이</td>
 										<td width=120 align=center bgcolor="E6ECDE">글쓴날</td>
@@ -145,7 +129,8 @@ keyword = request.getParameter("keyword");
 										<%=this.getTitleString(board)%>
 										</a>
 										</td>
-										<td width=120 align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
+										<td width=120 align=center bgcolor="ffffff"><%=board.getUser_id()%>
+										</td>
 										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<%=board.getBoard_regDate().toString().substring(0, 10)%>
 										</td>
