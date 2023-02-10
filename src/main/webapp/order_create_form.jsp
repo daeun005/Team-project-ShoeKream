@@ -73,8 +73,19 @@ form > table tr td{
 		document.order_create_form.method = 'POST';
 		document.order_create_form.action = 'order_create_action.jsp';
 		document.order_create_form.submit();
+		
 	}
-
+	
+	function d_click() {
+		 const d_clickList
+		  = document.getElementsByName('d_no');
+		  d_clickList.forEach((node) => {
+		    if(node.checked)  {
+		      document.getElementById('d_checked_no').value
+		        = node.value;
+		    }
+		  })
+	}
 	
 </script>
 </head>
@@ -91,6 +102,9 @@ form > table tr td{
 		<%
 		}
 		%>
+		<input type="hidden" id="d_checked_no" name="d_checked_no" value="">
+		
+		
 	</form>
 	<!-- container start-->
 	<div id="container">
@@ -123,7 +137,6 @@ form > table tr td{
 											주문/결제폼</b></td>
 								</tr>
 							</table> <!--form-->
-							<form>
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
@@ -202,13 +215,12 @@ form > table tr td{
 											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_phone()%></td>
 											<td width=150 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_address()%></td>
 											<td width=50 height=26 align=center bgcolor="ffffff" class=t1 >
-												<input type="radio" onchange ="onchange();" name="d_no" value="<%=delivery.getD_no()%>">
+												<input type="radio" onclick ="d_click(event);" name="d_no" value="<%=delivery.getD_no()%>">
 											</td>
 											</tr>
 											<%}%>
 								</table>
 							
-							</form>
 							<br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
