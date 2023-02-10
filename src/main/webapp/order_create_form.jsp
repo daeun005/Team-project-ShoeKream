@@ -74,13 +74,6 @@ form > table tr td{
 		document.order_create_form.action = 'order_create_action.jsp';
 		document.order_create_form.submit();
 	}
-	
-	function promptAddress(){
-		
-		document.address_modify.method = 'POST';
-		document.address_modify.action = 'address_update_action.jsp';
-		document.address_modify.submit();
-	}
 
 	
 </script>
@@ -209,7 +202,7 @@ form > table tr td{
 											<td width=130 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_phone()%></td>
 											<td width=150 height=26 align=center bgcolor="ffffff" class=t1 ><%=delivery.getD_address()%></td>
 											<td width=50 height=26 align=center bgcolor="ffffff" class=t1 >
-											<input type="radio" name="deliveryCheck" value =<%=delivery.getD_address()%>>
+												<input type="radio" onchange ="onchange();" name="d_no" value="<%=delivery.getD_no()%>">
 											</td>
 											</tr>
 											<%}%>

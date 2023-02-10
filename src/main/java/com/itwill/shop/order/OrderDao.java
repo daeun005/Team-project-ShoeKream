@@ -9,6 +9,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.itwill.shop.common.DataSourceFactory;
+import com.itwill.shop.delivery.Delivery;
 import com.itwill.shop.product.Product;
 
 public class OrderDao {
@@ -32,6 +33,7 @@ public class OrderDao {
 			pstmt1.setString(1, order.getO_desc());
 			pstmt1.setInt(2, order.getO_price());
 			pstmt1.setString(3, order.getUser_id());
+			pstmt1.setInt(4, order.getDelivery().getD_no());
 			
 			rowCount = pstmt1.executeUpdate();
 			
@@ -124,7 +126,8 @@ public class OrderDao {
 								rs.getString("user_id"), 
 								rs.getDate("o_date"), 
 								rs.getInt("o_price"), 
-								rs.getString("user_id")
+								rs.getString("user_id"),
+								new Delivery(rs.getInt("d_no"),"","","","")
 								));
 			}
 			
@@ -158,7 +161,7 @@ public class OrderDao {
 			pstmt1.setString(1, user_id);
 			rs1 = pstmt1.executeQuery();
 			while(rs1.next()) {
-				orderList.add(new Order(rs1.getInt("o_no"), rs1.getString("o_desc"), rs1.getDate("o_date"), rs1.getInt("o_price"), rs1.getString("user_id")));
+				orderList.add(new Order(rs1.getInt("o_no"), rs1.getString("o_desc"), rs1.getDate("o_date"), rs1.getInt("o_price"), rs1.getString("user_id"),new Delivery(rs1.getInt("d_no"),"","","","")));
 			}
 			pstmt2 = con.prepareStatement(OrderSQL.ORDERS_SELECTE_WITH_ORDER_ITEM_BY_O_NO);
 			for (int i = 0; i < orderList.size(); i++) {
@@ -172,7 +175,9 @@ public class OrderDao {
 													rs2.getString("o_desc"), 
 													rs2.getDate("o_date"), 
 													rs2.getInt("o_price"), 
-													rs2.getString("user_id"));
+													rs2.getString("user_id"),
+													new Delivery(rs2.getInt("d_no"),"","","","")
+													);
 					do {
 						orderWithOrderItem.getOrderItemList().add(new OrderItem(
 																	rs2.getInt("oi_no"), rs2.getInt("oi_qty"), rs2.getInt("o_no"), 
@@ -220,7 +225,8 @@ public class OrderDao {
 							rs.getString("o_desc"), 
 							rs.getDate("o_date"), 
 							rs.getInt("o_price"), 
-							rs.getString("user_id"));
+							rs.getString("user_id"),
+							new Delivery(rs.getInt("d_no"),"","","",""));
 			}
 			do {
 				order.getOrderItemList().add(new OrderItem(rs.getInt("oi_no"), rs.getInt("oi_qty"), rs.getInt("o_no"), 
@@ -248,4 +254,41 @@ public class OrderDao {
 		}		
 		return order;
 	}
+	
+	//배송지 조회
+	public Delivery findByOrderNo(int o_no) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Delivery delivery = new Delivery();
+		
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(OrderSQL.ORDERS_SELECTE_WITH_D_NO);
+			pstmt.setInt(1, o_no);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				delivery = new Delivery(
+								rs.getInt("d_no"), 
+								rs.getString("d_address"), 
+								rs.getString("d_phone"), 
+								rs.getString("d_name"), 
+								rs.getString("user_id")
+								);
+			}
+			
+		} finally {
+			if(rs != null) {
+				rs.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(con != null) {
+				con.close();
+			}
+		}
+		return delivery;
+	}
+	
 }
