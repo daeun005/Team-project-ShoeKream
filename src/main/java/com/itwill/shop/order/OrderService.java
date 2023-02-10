@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.itwill.shop.cart.Cart;
 import com.itwill.shop.cart.CartDao;
+import com.itwill.shop.delivery.Delivery;
 import com.itwill.shop.product.Product;
 import com.itwill.shop.product.ProductDao;
 
@@ -27,20 +28,20 @@ public class OrderService {
 	 * 새로운 order를 먼저 생성하고,
 	 * order에 setOrderItemList() 메소드를 사
 	 */
-	public int directOrder(String user_id, int p_no, int oi_qty) throws Exception {
+	public int directOrder(String user_id, int p_no, int oi_qty,int d_no) throws Exception {
 		Product product = productDao.selectByNo(p_no);
 		OrderItem orderItem = new OrderItem(0, oi_qty, 0, product);
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		orderItemList.add(orderItem);
 		
-		Order order = new Order(0, orderItem.getProduct().getP_name(), null, orderItemList.get(0).getOi_qty() * orderItemList.get(0).getProduct().getP_price(), user_id);
+		Order order = new Order(0, orderItem.getProduct().getP_name(), null, orderItemList.get(0).getOi_qty() * orderItemList.get(0).getProduct().getP_price(), user_id, new Delivery(d_no, null, null, null, null));
 		order.setOrderItemList(orderItemList);
 		
 		return orderDao.insert(order);
 	}
 	
 	/*************** 카트에서 전체 상품 주문하기  ***************/
-	public int cartOrder(String user_id) throws Exception {
+	public int cartOrder(String user_id,int d_no) throws Exception {
 		List<Cart> cartList = cartDao.findByUserId(user_id);
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		
@@ -61,7 +62,7 @@ public class OrderService {
 			o_desc = orderItemList.get(0).getProduct().getP_name() + " 외 " + (oi_tot_qty - 1) + "건";
 		}
 		
-		Order order = new Order(0, o_desc, null, o_tot_price, user_id);
+		Order order = new Order(0, o_desc, null, o_tot_price, user_id,new Delivery(d_no, null, null, null, null));
 		order.setOrderItemList(orderItemList);
 		
 		cartDao.deleteByUserId(user_id);
@@ -70,7 +71,7 @@ public class OrderService {
 	}
 	
 	/***************** 카트에서 선택 상품 주문하기 *******************/
-	public int cartSelectOrder(String user_id, String[] cart_item_noStr_array) throws Exception {
+	public int cartSelectOrder(String user_id, String[] cart_item_noStr_array,int d_no) throws Exception {
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		String o_desc = null;
 		int o_tot_price = 0;
@@ -90,7 +91,7 @@ public class OrderService {
 			o_desc = orderItemList.get(0).getProduct().getP_name() + " 외 " + (oi_tot_qty - 1) + "건";
 		}
 		
-		Order order = new Order(0, o_desc, null, o_tot_price, user_id);
+		Order order = new Order(0, o_desc, null, o_tot_price, user_id,new Delivery(d_no, null, null, null, null));
 		order.setOrderItemList(orderItemList);
 		
 		for(int i =0;i<cart_item_noStr_array.length;i++) {

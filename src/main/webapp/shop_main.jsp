@@ -67,7 +67,7 @@ List<Product> popularList = productService.findPopular();
 			for (int i=0; i<popularList.size(); i++) {
 				Product product = popularList.get(i);
 									%>
-							<td align="center" width="100%" >
+							<td align="center" width="33%" >
 								<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
 								<img width=250px; height=250px; src="image/product_image/<%=product.getP_image()%>" border="0"></a>
 							</td>
@@ -79,9 +79,9 @@ List<Product> popularList = productService.findPopular();
 			for (int i=0; i<popularList.size(); i++) {
 				Product product = popularList.get(i);
 									%>
-							<td  align="left" width="100%"  bgcolor="ffffff">
-								<font style="font-family: S-CoreDream-5Medium;" size=5>폰트테스트1: <%=product.getP_name()%></font><br><br>
-								<font style="font-family: GongGothicMedium;" size=5>폰트테스트2: <%=product.getP_name()%></font><br><br>
+							<td  align="left" width="30%"  bgcolor="ffffff">
+								<font style="font-family: S-CoreDream-5Medium;" size=5><%=product.getP_name()%></font><br><br>
+								<font style="font-family: GongGothicMedium;" size=5><%=product.getP_name()%></font><br><br>
 								<form align="left" style="display: inline; margin:0">
 								<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 									<!-- 

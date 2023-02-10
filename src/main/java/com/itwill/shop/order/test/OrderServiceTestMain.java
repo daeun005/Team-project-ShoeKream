@@ -8,14 +8,14 @@ public class OrderServiceTestMain {
 		OrderService orderService = new OrderService();
 		
 		System.out.println("---------- 1. cart order(all) ------------");
-		System.out.println(orderService.cartOrder("cream3"));
+//		System.out.println(orderService.cartOrder("cream1",2));
 		
 		System.out.println("---------- 2. cart order(select) ------------");
-		String[] cart_item_array = {"1", "2"};
-		System.out.println(orderService.cartSelectOrder("cream1", cart_item_array));
+		String[] cart_item_array = {"28", "29"};
+		System.out.println(orderService.cartSelectOrder("cream1", cart_item_array,2));
 		
 		System.out.println("---------  3. direct order -------------");
-		System.out.println(orderService.directOrder("cream2", 1, 1));
+		System.out.println(orderService.directOrder("cream2", 1, 1, 4));
 
 		System.out.println("------------ 4. find by userId -----------");
 		System.out.println(orderService.findByUserId("cream2"));
