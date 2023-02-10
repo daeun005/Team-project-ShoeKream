@@ -131,6 +131,9 @@ public class OrderService {
 		return orderDao.findWithOrderItemByOrderNo(o_no);
 	}
 	
+	public Delivery findWithOrderItemByDno(int o_no) throws Exception {
+		return orderDao.findByOrderNo(o_no);
+	}
 }
 
 

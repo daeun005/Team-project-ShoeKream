@@ -19,6 +19,7 @@ List<Delivery> deliveryInfo = deliveryService.selectDelivery(sUserId);
 String o_noStr = request.getParameter("o_no");
 Order thisOrder = orderService.findWithOrderItemByOrderNo(Integer.parseInt(o_noStr));
 
+Delivery thisDelivery = orderService.findWithOrderItemByDno(Integer.parseInt(o_noStr));
 // 화폐단위 구분을 위해 numberFormat 설정
 NumberFormat numberFormat = NumberFormat.getInstance();
 %>
@@ -102,12 +103,10 @@ function order_delete_action(){
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
 									<caption style="text-align: left;">배송 정보</caption>
 									<tr>
-										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
+										<td width=25% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>받는이</font></td>
-										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
+										<td width=30% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>연락처</font></td>
-										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
-											>이메일</font></td>
 										<td width=30% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>배송지</font></td>	
 										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
@@ -116,23 +115,10 @@ function order_delete_action(){
 									
 									
 									<tr>
-										<td width=15% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_name() %></td>
-										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_phone() %></td>
-										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= sUser.getUser_email() %></td>
-										<%
-										String address = null;
-										if(deliveryInfo.size() != 0) { 
-											if(deliveryInfo.size() == 0) { 
-												// 폼에서 전달받은 배송지 정보를 넣을 곳
-												// 조건은 임시로 설정함 수정할 것
-												
-											}else {
-											// 샘플데이터라 오더 정보만 있고 배송지를 선택해서 주문한 경우가 아님 -> 회원의 배송지 리스트 중 첫번째 항목을 가져옴(기본배송지)
-											address = deliveryInfo.get(0).getD_address();
-											}
-										} %>
-										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%= address%></td>
-										<td width=20% height=26 align=center bgcolor="ffffff" class=t1></td>
+										<td width=25% height=26 align=center bgcolor="ffffff" class=t1><%= thisDelivery.getD_name() %></td>
+										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= thisDelivery.getD_phone() %></td>
+										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= thisDelivery.getD_address() %></td>
+										<td width=15% height=26 align=center bgcolor="ffffff" class=t1></td>
 									</tr>
 								</table>
 								
