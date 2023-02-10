@@ -80,8 +80,8 @@ List<Product> popularList = productService.findPopular();
 				Product product = popularList.get(i);
 									%>
 							<td  align="left" width="30%"  bgcolor="ffffff">
-								<font style="font-family: S-CoreDream-5Medium;" size=5>폰트테스트1: <%=product.getP_name()%></font><br><br>
-								<font style="font-family: GongGothicMedium;" size=5>폰트테스트2: <%=product.getP_name()%></font><br><br>
+								<font style="font-family: S-CoreDream-5Medium;" size=5><%=product.getP_name()%></font><br><br>
+								<font style="font-family: GongGothicMedium;" size=5><%=product.getP_name()%></font><br><br>
 								<form align="left" style="display: inline; margin:0">
 								<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 									<!-- 
