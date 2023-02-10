@@ -22,6 +22,11 @@ if(category_noStr.equals("0")){
 }else{
 	productList=productService.productCategory(Integer.parseInt(category_noStr));
 }
+
+
+
+
+
 %>
 
 <!DOCTYPE html>
@@ -76,11 +81,9 @@ function product_sort(){
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
-								cellspacing=0>
+							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
-											상품리스트</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>상품리스트</b></td>
 								</tr>
 							</table>
 							<form action="product_alignment_action" method="post">
@@ -94,8 +97,7 @@ function product_sort(){
 							</select> <br><br> 
 							</form>
 							<div id="f">
-								<table width="100%" align="center" border="0" cellpadding="10"
-									cellspacing="1" bgcolor="BBBBBB">
+								<table width="100%" align="center" border="0" cellpadding="10" cellspacing="1" bgcolor="ffffff">
 									<%
 									int product_size=productList.size();
 									int product_column_size=4;
@@ -112,7 +114,7 @@ function product_sort(){
 									<tr>
 									<%} %>
 										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="88px" height="65px"
+											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px" height="200px"
 												src="image/product_image/<%=product.getP_image()%>" border="0"></a><br />
 												
 											<br /> <b><%=product.getP_name()%></b>
