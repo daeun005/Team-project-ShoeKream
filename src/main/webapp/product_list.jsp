@@ -108,16 +108,11 @@ function product_sort(){
 									%>
 									<tr>
 									<%} %>
-<<<<<<< HEAD
-										<td align="center" width="25%"  bgcolor="ffffff">
-										<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
-										<img width="88px" height="65px" src="image/product_image/<%=product.getP_image()%>" border="0">
-										</a><br />
-=======
+
 										<td align="center" width="25%"  bgcolor="ffffff"><a
 											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px" height="200px"
 												src="image/product_image/<%=product.getP_image()%>" border="0"></a><br />
->>>>>>> branch 'master' of https://github.com/2022-11-JAVA-DEVELOPER/web-project-team1-shoekream.git
+
 												
 											<br /> <b><%=product.getP_name()%></b>
 											<form style="display: inline;">
