@@ -1,3 +1,5 @@
+<%@page import="com.itwill.shop.delivery.DeliveryService"%>
+<%@page import="com.itwill.shop.delivery.Delivery"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.itwill.shop.user.exception.ExistedUserException"%>
 <%@page import="com.itwill.shop.user.UserService"%>
@@ -20,7 +22,9 @@
 	try{
 		newUser=new User(user_id,user_password,user_name,user_phone,user_email,user_address);
 		UserService userService=new UserService();
+		DeliveryService deliveryService = new DeliveryService();
 		int rowCount = userService.create(newUser);
+		deliveryService.insertDelivery(newUser.getUser_address(), newUser.getUser_phone(), newUser.getUser_phone(), newUser.getUser_id());
 		response.sendRedirect("user_login_form.jsp");
 	}catch(ExistedUserException e){
 		/*************************case1[redirect]**************
