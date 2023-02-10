@@ -18,21 +18,21 @@
                             	String buyType=request.getParameter("buyType");
                             	String p_noStr=request.getParameter("p_no");
                             	String p_qtyStr=request.getParameter("p_qty");
-                            	String D_address=request.getParameter("d_address");
+                            	String delivery_no=request.getParameter("d_no");
+                            	System.out.print(request.getParameter("d_no"));
                             	String[] cart_item_no_strArray=request.getParameterValues("cart_item_no");
+                            	int d_no = Integer.parseInt(delivery_no);
                             	
-								DeliveryService deliveryService = new DeliveryService();
                             	OrderService orderService=new OrderService();
                             	CartService cartService=new CartService();
-                            	Delivery findDelivery = deliveryService.select(request.getParameter("deliveryCheck"));
-                            	System.out.println(findDelivery.getD_address());
+                            	
                             	
                             	if(buyType.equals("cart")){
-                            		orderService.cartOrder(sUserId);
+                            		orderService.cartOrder(sUserId,d_no);
                             	}else if(buyType.equals("cart_select")){
-                            		orderService.cartSelectOrder(sUserId, cart_item_no_strArray);
+                            		orderService.cartSelectOrder(sUserId, cart_item_no_strArray,d_no);
                                 }else if(buyType.equals("direct")){
-                            		orderService.directOrder(sUserId, Integer.parseInt(p_noStr),Integer.parseInt(p_qtyStr));
+                            		orderService.directOrder(sUserId, Integer.parseInt(p_noStr),Integer.parseInt(p_qtyStr),d_no);
                             	}
                             	response.sendRedirect("order_list.jsp");
     %>

@@ -3,6 +3,7 @@ package com.itwill.shop.order.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itwill.shop.delivery.Delivery;
 import com.itwill.shop.order.*;
 import com.itwill.shop.product.*;
 
@@ -17,7 +18,7 @@ public class OrderDaoTestMain {
 		// 직접 주문
 		ProductDao productDao = new ProductDao();
 		Product product1 = productDao.selectByNo(1);
-		System.out.println(orderDao.insert(new Order(0, product1.getP_name(), null, product1.getP_price(), "cream3")));
+		System.out.println(orderDao.insert(new Order(0, product1.getP_name(), null, product1.getP_price(), "cream3", new Delivery(5, "", "", "", ""))));
 		
 		// 직접 주문 여러건
 		Product product2 = productDao.selectByNo(6);
@@ -27,8 +28,8 @@ public class OrderDaoTestMain {
 		orderItemList1.add(new OrderItem(0, 3, 0, product2));
 		orderItemList1.add(new OrderItem(0, 2, 0, product3));
 		
-		System.out.println(orderDao.insert(new Order(0, product2.getP_name() + "외 1건", null, 100000, "cream3")));
-		orderDao.findWithOrderItemByOrderNo(6);
+		System.out.println(orderDao.insert(new Order(0, product2.getP_name() + "외 1건", null, 100000, "cream3",new Delivery(5, "", "", "", ""))));
+		System.out.println(orderDao.findWithOrderItemByOrderNo(5));
 		
 //		System.out.println("------ delete by user_id -------");
 //		/*

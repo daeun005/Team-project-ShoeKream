@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.itwill.shop.board.Board;
 import com.itwill.shop.board.BoardDao;
+import com.itwill.shop.board.BoardListPageMakerDto;
+import com.itwill.shop.board.BoardService;
 
 public class BoardServiceTestMain {
 
@@ -14,6 +16,9 @@ public class BoardServiceTestMain {
 		List<Board> searchResultList = new ArrayList<Board>();
 		searchResultList = boardDao.searchByTitle(1, 10, "테스트");
 		System.out.println(searchResultList);
+		
+		BoardListPageMakerDto temp = new BoardListPageMakerDto();
+		temp = BoardService.getInstance().sortByReadCount(1);
 
 	}
 

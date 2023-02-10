@@ -36,7 +36,7 @@ insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(24, 'Gucci GG Marmont Leather Mid-Heel Sandal Black', 400000, 'Shoes04.png','기타 상세 정보 등...', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(25, 'Gucci Horsebit Mid-Heel Slingback Black', 500000, 'Shoes05.png','기타 상세 정보 등...', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(26, 'Gucci Leather Mid-Heel Pumps Black', 600000, 'Shoes06.png','기타 상세 정보 등...', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(27, 'Marni Jacquard Marnigram Trompe Loeil Pumps Black Lily White', 700000, 'Shoes07.png','기타 상세 정보 등...', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(27, 'Marni Jacquard Marnigram Trompe Loeil Pumps', 700000, 'Shoes07.png','기타 상세 정보 등...', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(28, 'Prada Brushed Leather Singback Pumps Black', 800000, 'Shoes08.png','기타 상세 정보 등...', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(29, 'Prada Heeled Brushed Leather Lace-Up Shoes Black', 800000, 'Shoes09.png','기타 상세 정보 등...', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(210, 'Balenciaga Trooper Derby Shoes Black', 800000, 'Shoes10.png','기타 상세 정보 등...', 0,2);
@@ -61,7 +61,7 @@ insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no
 
 
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(41, 'Dior Dway Mule Embroidered Cotton Deep Blue', 100000, 'Slippers01.png','기타 상세 정보 등...', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(42, 'Hermes Oran Sandal Calfskin & Gold Piqures Ecrues', 200000, 'Slippers02.png','기타 상세 정보 등...', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(42, 'Hermes Oran Sandal Calfskin Gold Piqures Ecrues', 200000, 'Slippers02.png','기타 상세 정보 등...', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(43, 'Oofos OOlala OOmega White', 300000, 'Slippers03.png','기타 상세 정보 등...', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(44, 'Polo Ralph Lauren Kayleigh Scuff Bear Snuff', 400000, 'Slippers04.png','기타 상세 정보 등...', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(45, 'UGG Coquette Slipper Chestnut', 500000, 'Slippers05.png','기타 상세 정보 등...', 0,4);
@@ -69,7 +69,7 @@ insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(47, 'Adidas Yeezy Slide Resin 2022', 700000, 'Slippers07.png','기타 상세 정보 등...', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(48, 'Birkenstock Boston Soft Footbed', 800000, 'Slippers08.png','기타 상세 정보 등...', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(49, 'Fear of God x Birkenstock Los Feliz Suede Taupe', 800000, 'Slippers09.png','기타 상세 정보 등...', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(410, 'Hermes Izmir Sandal Calfskin & Noir', 800000, 'Slippers10.png','기타 상세 정보 등...', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(410, 'Hermes Izmir Sandal Calfskin Noir', 800000, 'Slippers10.png','기타 상세 정보 등...', 0,4);
 
 
 
