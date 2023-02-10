@@ -39,7 +39,7 @@ if(category_noStr.equals("0")){
 			productList=productService.priceSortCateAsc(Integer.parseInt(category_noStr));
 		}else if(sort_select.equals("price_sort_desc")){
 			productList=productService.priceSortCateDesc(Integer.parseInt(category_noStr));
-		}else if(sort_select.equals("click_sord_desc"))
+		}else if(sort_select.equals("click_sort_desc"))
 			productList=productService.clickSortCateDesc(Integer.parseInt(category_noStr));
 	}
 }
