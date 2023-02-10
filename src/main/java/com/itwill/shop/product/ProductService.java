@@ -56,8 +56,8 @@ public class ProductService {
 	 /*
 	  * 상품 이름으로 검색 출력 하기.
 	  */
-	 public List <Product> productFindByName(String p_name) throws Exception {
-		 return productDao.productFindByName(p_name);
+	 public List <Product> productFindByName(String keyword) throws Exception {
+		 return productDao.productFindByName(keyword);
 	 }
 	 
 	 /***************************************************/

@@ -192,12 +192,12 @@ public class ProductDao {
 	 * 상품 이름으로 검색 출력 하기.
 	 */
 	
-	public List <Product> productFindByName(String p_name) throws Exception {
+	public List <Product> productFindByName(String keyword) throws Exception {
 
 		List <Product> productList = new ArrayList<>();
 		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_BY_NAME);
-		pstmt.setString(1, p_name);
+		PreparedStatement pstmt = con.prepareStatement(ProductSQL.PRODUCT_FIND_BY_NAME);
+		pstmt.setString(1, keyword);
 		ResultSet rs = pstmt.executeQuery();
 
 		if(rs.next()) {

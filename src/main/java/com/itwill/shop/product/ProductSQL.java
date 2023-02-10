@@ -9,7 +9,7 @@ public class ProductSQL {
 	public final static String PRODUCT_SELECT_BY_CATEGORY = "select * from product where category_no=?";
 	
 	//상품이름으로 검색해서 결과 값 받기
-	public static final String PRODUCT_BY_NAME = "select*from product where p_name like '%'||?||'%'";
+	public static final String PRODUCT_FIND_BY_NAME = "select * from product where upper(p_name) like upper('%'||?||'%')";
 
 	//조회수 증가
 	public static final String PRODUCT_INCREASE_CLICK_COUNT = "update product set p_click_count = p_click_count + 1 where p_no = ?";
