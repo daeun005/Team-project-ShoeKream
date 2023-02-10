@@ -9,7 +9,7 @@
 <%
 boolean isLogin = false;
 String sUserId=(String)session.getAttribute("s_u_id");
-if (session.getAttribute("s_u_id") != null) {
+if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
 String category_noStr=request.getParameter("category_no");
@@ -32,6 +32,7 @@ if(category_noStr.equals("0")){
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <script type="text/javascript">
+
 function add_cart_popup_window(f){
 	if (<%=!isLogin%>) {
 		alert('로그인 하세요');
@@ -47,11 +48,15 @@ function add_cart_popup_window(f){
 	}
 }
 
+
 function product_sort(){
 	document.product_alignment_action_form.method='POST';
 	document.product_alignment_action_form.action='product_alignment_action.jsp';
 	document.product_alignment_action_form.submit();
 }
+
+
+
 </script> 
 <style type="text/css" media="screen">
 </style>
@@ -120,9 +125,8 @@ function product_sort(){
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top"/>
-											</form><br> <font
-											color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
+												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top">
+											</form><br> <font color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
 									<%if(i%product_column_size==3){%>
 									</tr>
@@ -137,8 +141,7 @@ function product_sort(){
 				</table>
 				
 				<div class="moveTopBtn" onClick="javascript:window.scrollTo(0,0)" alt="맨위로" >
-				<img src = "image/up.png" width="50px" height="50px" >
-				</div>
+				<img src = "image/up.png" width="50px" height="50px" ></div>
 				
 			</div>
 			<!-- include_content.jsp end-->
