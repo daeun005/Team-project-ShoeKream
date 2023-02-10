@@ -8,4 +8,10 @@ import com.itwill.shop.board.util.PageMaker;
 public class BoardListPageMakerDto {
 	public List<Board> itemList; 		// 리스트 데이터 콜렉션
 	public PageMaker pageMaker;
+	@Override
+	public String toString() {
+		return "BoardListPageMakerDto [itemList=" + itemList + ", pageMaker=" + pageMaker + "]\n";
+	}
+	
+	
 }

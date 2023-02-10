@@ -104,10 +104,7 @@ public class BoardService {
 		return boardDao.findBoardListByUserId(userId);
 	}
 	
-	/*
-	 * 게시물리스트
-	 */
-	public BoardListPageMakerDto searchByTitle(int currentPage, String keyword) throws Exception{
+	public BoardListPageMakerDto pagefindBoardListByUserId(int currentPage, String userId) throws Exception {
 		//1.전체글의 갯수
 		int totalRecordCount = boardDao.getBoardCount();
 		
@@ -116,8 +113,8 @@ public class BoardService {
 	
 		//3.게시물데이타 얻기
 		List<Board> boardList=
-				boardDao.findBoardList(pageMaker.getPageBegin(),
-											pageMaker.getPageEnd());
+				boardDao.findBoardListByUserId(pageMaker.getPageBegin(),
+											pageMaker.getPageEnd(), userId);
 		
 		BoardListPageMakerDto pageMakerBoardList=new BoardListPageMakerDto();
 		pageMakerBoardList.itemList=boardList;
@@ -125,6 +122,25 @@ public class BoardService {
 		return pageMakerBoardList;
 	}
 	
+	/*
+	 * 게시물 검색
+	 */
+	public BoardListPageMakerDto searchByTitle(int currentPage, String keyword) throws Exception{
+		//1.전체글의 갯수
+		int totalRecordCount = boardDao.getBoardCount();
+		
+		//2.paging계산(PageMaker 유틸클래스)
+		PageMaker pageMaker = new PageMaker(totalRecordCount, currentPage);
+	
+		//3.게시물데이타 얻기
+		List<Board> boardList= boardDao.searchByTitle(pageMaker.getPageBegin(),pageMaker.getPageEnd(), keyword);
+		
+		BoardListPageMakerDto pageMakerBoardList = new BoardListPageMakerDto();
+		
+		pageMakerBoardList.itemList = boardList;
+		pageMakerBoardList.pageMaker = pageMaker;
+		return pageMakerBoardList;
+	}
 	
 	/*
 	 * 게시글 조회수 desc

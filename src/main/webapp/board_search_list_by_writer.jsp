@@ -34,10 +34,6 @@ String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
 }	
-// 전체 게시물조회
-BoardListPageMakerDto boardListPage 
-	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
-String sUserId = (String)session.getAttribute("sUserId");
 
 // search Type
 String searchType = null;
@@ -46,6 +42,16 @@ searchType = request.getParameter("searchType");
 String keyword = null;
 keyword = request.getParameter("keyword");
 
+
+// 전체 게시물조회
+String sUserId = (String)session.getAttribute("sUserId");
+
+BoardListPageMakerDto boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
+System.out.print(boardListPage);
+if(keyword.equals("") || keyword == null) {
+	response.sendRedirect("board_list.jsp");
+	return;
+}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -123,7 +129,8 @@ keyword = request.getParameter("keyword");
 										<td width=15% align=center bgcolor="f4f4f4">조회수</td>
 									</tr>
 									<%
-										for (Board board : boardListPage.itemList) { %>
+										if(keyword == null) {
+											for (Board board : boardListPage.itemList) { %>
 									<tr>
 										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
@@ -134,9 +141,16 @@ keyword = request.getParameter("keyword");
 										</td>
 										<td width=15% align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%></td>
 									</tr>
-									<% } %>
+											<% } 
+											/*
+											else if(){
+												// 제목 선택 + 검색버튼 --> 제목 검색결과 보여주기
+											} else if() {
+												// 글쓴이 선택 + 검색버튼 --> 글쓴이 검색결과 보여주기
+											}
+											*/
+											%>
 								</table>
-									
 								<!-- /list -->
 							</form> <br>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
@@ -167,12 +181,15 @@ keyword = request.getParameter("keyword");
 									</td>
 								</tr>
 							</table>
+							<%} %>
 							<!-- button -->
 							
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<!-- search start -->
-									<td></td>
+									<td>
+									
+									</td>
 									<td><form id = "searchform" method = "post">
 									<select id = 'searchType' name = 'searchType' style= height:30px; onchange = "selectBoxCahnge(this.value);">
 										<option selected value = "">선택</option>

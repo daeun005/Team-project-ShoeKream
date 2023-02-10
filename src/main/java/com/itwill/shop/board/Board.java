@@ -67,6 +67,12 @@ public class Board {
 	public void setBoard_depth(int board_depth) {
 		this.board_depth = board_depth;
 	}
-	
+	@Override
+	public String toString() {
+		return "Board [board_no=" + board_no + ", board_title=" + board_title + ", user_id=" + user_id
+				+ ", board_content=" + board_content + ", board_regDate=" + board_regDate + ", board_readCount="
+				+ board_readCount + ", board_group_no=" + board_group_no + ", board_step=" + board_step
+				+ ", board_depth=" + board_depth + "]";
+	}
 	
 }

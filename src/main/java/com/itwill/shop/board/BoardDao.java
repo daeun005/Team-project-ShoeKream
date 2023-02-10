@@ -441,6 +441,46 @@ public class BoardDao {
 	/*
 	 * 회원의 게시물 리스트를 반환
 	 */
+	public List<Board> findBoardListByUserId(int start, int last, String userId) throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Board> boards = new ArrayList<Board>();
+
+		try {
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_USERID_FOR_USERPAGE);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBoard_no(rs.getInt("board_no"));
+				board.setBoard_title(rs.getString("board_title"));
+				board.setBoard_regDate(rs.getDate("board_regdate"));
+				board.setBoard_readCount(rs.getInt("board_readCount"));
+				board.setBoard_group_no(rs.getInt("board_group_no"));
+				board.setBoard_step(rs.getInt("board_step"));
+				board.setBoard_depth(rs.getInt("board_depth"));
+				board.setUser_id(rs.getString("user_id"));
+
+				boards.add(board);
+			}
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception ex) {
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (Exception ex) {
+				}
+		}
+		return boards;
+	}
+	
 	public List<Board> findBoardListByUserId(String userId) throws Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -484,11 +524,6 @@ public class BoardDao {
 	/*
 	 * 게시글 제목으로 검색
 	 */
-	/**
-	public final static String BOARD_SELECT_BY_TITLE = "select * from 
-	(select rownum idx, s.* from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id\"\r\n"
-			+ "	+ \"from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ? and board_title like ?";
-	 */
 	public List<Board> searchByTitle(int start, int last, String keyword) throws Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -500,7 +535,7 @@ public class BoardDao {
 			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_TITLE);
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, last);
-			pstmt.setString(3, keyword);
+			pstmt.setString(3, "%" + keyword + "%");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

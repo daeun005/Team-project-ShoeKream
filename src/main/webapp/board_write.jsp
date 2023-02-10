@@ -68,19 +68,19 @@
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><input type="text" style="width: 150px"
 											name="title"></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">작성자</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="22">작성자</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><input type="text" style="width: 150px"
 											name="writer" value="<%=sUserId %>" readonly></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE">내용</td>
+										<td width=100 align=center bgcolor="f4f4f4">내용</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><textarea name="content" class="textarea"
 												style="width: 350px" rows="14"></textarea></td>

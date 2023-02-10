@@ -1,9 +1,12 @@
+<%@page import="com.itwill.shop.user.User"%>
+<%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.board.BoardListPageMakerDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="com.itwill.shop.board.Board"%>
 <%@page import="com.itwill.shop.board.BoardService"%>
 <%@page import="com.itwill.shop.board.PageInputDto"%>
+<%@page import ="com.itwill.shop.user.UserService"%>
 <%!public String getTitleString(Board board) {
 		StringBuilder title = new StringBuilder(128);
 		String t = board.getBoard_title();
@@ -34,10 +37,6 @@ String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
 }	
-// 전체 게시물조회
-BoardListPageMakerDto boardListPage 
-	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
-String sUserId = (String)session.getAttribute("sUserId");
 
 // search Type
 String searchType = null;
@@ -45,7 +44,32 @@ searchType = request.getParameter("searchType");
 // search keyword
 String keyword = null;
 keyword = request.getParameter("keyword");
+//System.out.print(keyword);
 
+UserService userService = new UserService();
+List<User> userList = userService.findUserList();
+BoardListPageMakerDto boardListPage = null;
+for(int i=0; i<userList.size(); i++){
+	if(keyword.equals(userList.get(i).getUser_id())) {
+		 boardListPage = BoardService.getInstance().pagefindBoardListByUserId(Integer.parseInt(pageno), keyword);
+		 System.out.print(userList.get(i).getUser_id());
+	}else {
+		boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
+		}
+}
+// 전체 게시물조회
+
+/* if(keyword.equals("")) {
+BoardListPageMakerDto boardListPage = BoardService.getInstance().searchByTitle(Integer.parseInt(pageno), keyword);
+}else {
+	
+} */
+String sUserId = (String)session.getAttribute("sUserId");
+
+if(keyword.equals("") || keyword == null) {
+	response.sendRedirect("board_list.jsp");
+	return;
+}
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -136,7 +160,7 @@ keyword = request.getParameter("keyword");
 									</tr>
 									<% } %>
 								</table>
-									
+								
 								<!-- /list -->
 							</form> <br>
 							<table border="0" cellpadding="0" cellspacing="1" width="590">

@@ -93,18 +93,18 @@
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">글쓴이</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="22">글쓴이</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><%=board.getUser_id()%></td>
 									</tr>
 
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">제목</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="22">제목</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px"
 											align="left"><%=board.getBoard_title()%></td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">내용</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="22">내용</td>
 										<td width=490 bgcolor="ffffff" height="180px"
 											style="padding-left: 10px" align="left"><%=board.getBoard_content().replace("\n","<br/>")%><br />
 
