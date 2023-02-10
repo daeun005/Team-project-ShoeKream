@@ -146,7 +146,7 @@ function order_delete_action(){
 										<%= orderItem.getProduct().getP_image() %>
 										</td>
 										<td width=290 height=50 align=center  bgcolor="ffffff" class=t1>
-										<a href='product_detail.jsp?p_no= <%= orderItem.getProduct().getP_no() %>'><%= orderItem.getProduct().getP_name() %></a>
+										<a href='product_detail.jsp?p_no=<%= orderItem.getProduct().getP_no() %>'><%= orderItem.getProduct().getP_name() %></a>
 										</td>
 										
 										<td width=110 height=26 align=center  bgcolor="ffffff" class=t1><%= orderItem.getOi_qty() %></td>

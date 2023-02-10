@@ -9,7 +9,7 @@
 <%
 boolean isLogin = false;
 String sUserId=(String)session.getAttribute("s_u_id");
-if (session.getAttribute("s_u_id") != null) {
+if (session.getAttribute("sUserId") != null) {
 	isLogin = true;
 }
 String category_noStr=request.getParameter("category_no");
@@ -57,6 +57,7 @@ if(category_noStr.equals("0")){
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
 <script type="text/javascript">
+
 function add_cart_popup_window(f){
 	if (<%=!isLogin%>) {
 		alert('로그인 하세요');
@@ -72,7 +73,6 @@ function add_cart_popup_window(f){
 	}
 }
 
-
 function product_alignment_action_form_submit(){
 	let type = document.getElementById('sort_option');
 	let url = location.search;
@@ -81,7 +81,6 @@ function product_alignment_action_form_submit(){
 		url = url.split('&',1)+"&sort_select="+document.getElementById('sort_select').value;
 	}
 	location.href="product_list.jsp"+url;
-}
 </script> 
 <style type="text/css" media="screen">
 </style>
@@ -146,20 +145,24 @@ function product_alignment_action_form_submit(){
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top"/>
-											</form><br> <font
-											color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
+												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top">
+											</form><br> <font color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
 										</font></td>
 									<%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	
 									
 								   <!--상품 끝 -->
-								   <%}%>	
+								   <%}%>
 								</table>
+								
 							</div> <br /></td>
 					</tr>
 				</table>
+				
+				<div class="moveTopBtn" onClick="javascript:window.scrollTo(0,0)" alt="맨위로" >
+				<img src = "image/up.png" width="50px" height="50px" ></div>
+				
 			</div>
 			<!-- include_content.jsp end-->
 			<!-- content end -->

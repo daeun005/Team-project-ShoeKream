@@ -98,7 +98,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 													<!--상품시작 -->
 													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
 														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="50px"
-															height="50px" src="image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
+															height="50px" src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
 														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> <%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
 													</td>
 													<!--상품 끝 -->

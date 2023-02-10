@@ -26,9 +26,9 @@ public class ProductDaoTestMain {
 //		System.out.println(productDao.productFindByName("s"));
 		
 		//상품 이름으로 출력 후 검색 결과 보기.
-//		List <Product> findProduct =productDao.productFindByName("sn");
-//		System.out.println(findProduct);
-//		
+		List<Product> findProduct = productDao.productFindByName("leather");
+		System.out.println(findProduct);
+		
 //		
 //		System.out.println("조회수 상위 3개");
 //		System.out.println(productDao.selectPopular());
@@ -38,6 +38,7 @@ public class ProductDaoTestMain {
 						9, "Maison Mihara Yasuhiro Sneakers Black White", 800000, "Sneakers09.png","기타 상세 정보 등...", 0,1
 						);
 		System.out.println(productDao.update(updateProduct));
+		
 		
 		/*
 		1, "Golden Goose Superstar White Silver Heel", 380000, "Sneakers01.png","기타 상세 정보 등...", 0,1
