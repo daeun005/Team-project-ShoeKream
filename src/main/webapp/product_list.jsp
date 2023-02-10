@@ -87,8 +87,10 @@ function product_sort(){
 								<option value="select">선택
 								<option value="price_sort_asc">가격 오름차순
 								<option value="price_sort_desc">가격 내림차순
+								
 						   <!-- <option value="click_sort_asc">조회수 오름차순
 								<option value="click_sort_desc">조회수 내림차순 -->
+								
 							</select> <br><br> 
 							</form>
 							<div id="f">
@@ -127,11 +129,17 @@ function product_sort(){
 									<%} %>	
 									
 								   <!--상품 끝 -->
-								   <%}%>	
+								   <%}%>
 								</table>
+								
 							</div> <br /></td>
 					</tr>
 				</table>
+				
+				<div class="moveTopBtn" onClick="javascript:window.scrollTo(0,0)" alt="맨위로" >
+				<img src = "image/up.png" width="50px" height="50px" >
+				</div>
+				
 			</div>
 			<!-- include_content.jsp end-->
 			<!-- content end -->
