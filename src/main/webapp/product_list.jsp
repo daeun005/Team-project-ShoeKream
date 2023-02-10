@@ -81,6 +81,7 @@ function product_alignment_action_form_submit(){
 		url = url.split('&',1)+"&sort_select="+document.getElementById('sort_select').value;
 	}
 	location.href="product_list.jsp"+url;
+}
 </script> 
 <style type="text/css" media="screen">
 </style>
