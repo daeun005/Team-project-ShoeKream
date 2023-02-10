@@ -27,7 +27,7 @@ if(p_noStr==null)p_noStr="";
 if(p_qtyStr==null)p_qtyStr="";
 if(cart_item_noStr_array==null)
 	cart_item_noStr_array=new String[]{};
-
+System.out.println(p_qtyStr);
 CartService cartService = new CartService();
 UserService userService = new UserService();
 ProductService productService = new ProductService();
