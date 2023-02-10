@@ -12,16 +12,26 @@ int cart_item_count=0;
 	}
 %>
 <script type="text/javascript">
+/*
 function p_search(){
-	if(document.getElementById("p_search_input").value==""){
+	if(document.getElementById("keyword").value==""){
 		alert('검색어를 입력하세요');
 		return;
 	}else{
-		document.top_f.action="";
-		document.top_f.method="POST";
+		document.top_f.action="product_search_action.jsp";
+		document.top_f.method="GET";
 		document.top_f.submit;
 	}
 }
+*/
+
+function product_search(){
+	searchform.action = "product_search_list.jsp";
+	searchform.method = 'GET';
+	searchform.submit();
+}
+
+
 </script>		
 <div id="menu">
 	<ul>
@@ -38,12 +48,10 @@ function p_search(){
 			
 		<%} %>
 		<li id="p_search">
-			<img src="image/search.png" style="cursor:pointer" onclick="p_search()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<img src="image/search.png" style="cursor:pointer" onclick="product_search();"></li>
 		<li>
-			<form id="top_f" name="top_f" action="POST">
-				<input id="p_search_input" name="p_serch_input" style="width:300px;height:30px;font-size:18px;" type="text" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+			<form id="searchform" method="POST">
+				<input type="text" id="keyword" name="keyword" style="width:200px;height:30px;font-size:18px;"  value="">
 			</form>
 		</li>
 		
