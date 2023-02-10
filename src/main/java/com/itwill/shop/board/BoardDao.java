@@ -572,7 +572,6 @@ public class BoardDao {
 				} catch (Exception ex) {
 				}
 		}
-		System.out.println(boards);
 		return boards;
 	}
 }

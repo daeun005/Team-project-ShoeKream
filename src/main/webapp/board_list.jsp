@@ -39,11 +39,6 @@ BoardListPageMakerDto boardListPage
 	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
 String sUserId = (String)session.getAttribute("sUserId");
 
-// 조회수 내림차순 정렬s
-String sortDesc = request.getParameter("sort");
-BoardListPageMakerDto boardListpageByReadCount = BoardService.getInstance().sortByReadCount(Integer.parseInt(pageno));
-
-
 // search Type
 String searchType = null;
 searchType = request.getParameter("title");
@@ -64,8 +59,6 @@ keyword = request.getParameter("keyword");
 <script type="text/javascript">
 	function boardCreate() {
 		location.href = "board_write.jsp";
-	}
-	
 	function search() {
 		let searchType = document.getElementById("searchType").value;
 		let keyword = document.getElementById("keyword").value;
@@ -110,16 +103,16 @@ keyword = request.getParameter("keyword");
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
-									<td height="20" class="t1" align="right" valign="bottom">♠
+									<td height="20" class="t1" align="right" valign="bottom">
 										총 <font color="#FF0000"><%=boardListPage.pageMaker.getTotCount()%></font>
 										건 | 현재페이지( <font color="#FF0000"><%=boardListPage.pageMaker.getCurPage()%></font>
 										/ <font color="#0000FF"><%=boardListPage.pageMaker.getTotPage()%></font>
 										)
 									</td>
 								</tr>
-							</table> <br />
-							<div class="info-item">
-								<span><a href="board_list.jsp">최근 작성 순</a></span>
+							</table>
+							<div class="" style="text-align:left;">
+								<span><a href="board_list.jsp">&nbsp;기본 정렬</a></span>
 								<span> | </span>
 								<span><a href="board_list_sort_desc.jsp">조회수 높은 순</a></span>
 							</div>
@@ -127,30 +120,26 @@ keyword = request.getParameter("keyword");
 							<!-- list -->
 							<form name="f" method="post" action="">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
-									bgcolor="BBBBBB">
+									bgcolor="f4f4f4">
 
 									<tr>
-										
-										<td width=280 align=center bgcolor="E6ECDE">제목</td>
-										<td width=120 align=center bgcolor="E6ECDE">글쓴이</td>
-										<td width=120 align=center bgcolor="E6ECDE">글쓴날</td>
-										<td width=70 align=center bgcolor="E6ECDE">본횟수</td>
+										<td width=55% align=center bgcolor="f4f4f4">제목</td>
+										<td width=20% align=center bgcolor="f4f4f4">글쓴이</td>
+										<td width=10% align=center bgcolor="f4f4f4">글쓴날</td>
+										<td width=15% align=center bgcolor="f4f4f4">조회수</td>
 									</tr>
 									<%
 										if(keyword == null) {
 											for (Board board : boardListPage.itemList) { %>
 									<tr>
-										<td width=280 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
-										<%=this.getTitleString(board)%>
-										</a>
-										</td>
-										<td width=120 align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
-										<td width=120 bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<%=this.getTitleString(board)%></a></td>
+										<td width=20% align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
+										<td width=10% align=center bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<%=board.getBoard_regDate().toString().substring(0, 10)%>
 										</td>
-										<td width=70 align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%>
-										</td>
+										<td width=15% align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%></td>
 									</tr>
 											<% } 
 											/*
