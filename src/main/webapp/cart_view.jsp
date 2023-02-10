@@ -62,7 +62,8 @@
 											<font>수량</font></td>
 										<td width=146 height=25 align="center" bgcolor="E6ECDE"	class=t1>
 											<font>가격</font></td>
-										<td width=50 height=25 align="center" bgcolor="E6ECDE"	class=t1><font>삭제</font></td>
+										<td width=50 height=25 align="center" bgcolor="E6ECDE"	class=t1>
+											<font>삭제</font></td>
 									</tr>
 									<!-- cart item start -->
 									<%
@@ -75,7 +76,7 @@
 										 <input type="checkbox" name="cart_item_no_check" onchange="cart_item_all_select_checkbox_deselect();cart_item_select_count();" value="<%=cart.getCart_no()%>" checked="checked">
 										</td>
 										<td width=40 height=26 align=center bgcolor="ffffff" class=t1>
-											<img src='image/<%=cart.getProduct().getP_image()%>' width="34" height="28" />
+											<img src='image/product_image/<%=cart.getProduct().getP_image()%>' width="200px" height="200px" />
 										</td>
 										<td width=210 height=26 align=center bgcolor="ffffff" class=t1>
 											<a href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
