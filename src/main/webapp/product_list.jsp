@@ -44,8 +44,6 @@ if(category_noStr.equals("0")){
 	}
 }
 
-	
-
 
 %>
 
