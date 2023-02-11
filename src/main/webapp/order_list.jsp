@@ -1,4 +1,3 @@
-
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.order.OrderItem"%>
@@ -66,7 +65,8 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									
 									<!-- order start -->
 									<%
-									if(orderList!=null){
+									if(orderList.isEmpty() == false) {
+									//if(orderList!=null){
 									for (Order order : orderList) {
 										List<OrderItem> orderItemList = order.getOrderItemList();
 									%>
@@ -123,8 +123,6 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 													<%
 													}	
 													%>
-													
-													</tr>
 											</table>
 										</td>
 									<tr>
@@ -134,8 +132,10 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									<!-- order end -->
 									<%
 									// 주문 내역이 없을 경우 보여줄 내용
-									}}else {
+									}}else if(orderList.isEmpty() == true) {
 									%>
+									<tr><td height="200px"><br>
+									<span style="font-size: 20pt"><b>주문 내역이 없습니다.</b></span></td></tr>
 									<%} %>
 									<!-- order end -->
 								</table>
