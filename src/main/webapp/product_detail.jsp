@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.product.ProductComment"%>
 <%@page import="com.itwill.shop.product.Product"%>
 <%@page import="com.itwill.shop.product.ProductService"%>
@@ -22,7 +24,10 @@ if (product == null) {
 	out.println("location.href='product_list.jsp';");
 	out.println("</script>");
 	return;
+
 }
+
+List<String> sUserOrderProductList= (ArrayList)session.getAttribute("sUserOrderProductList");	
 
 //조회수 증가
 ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
@@ -87,18 +92,43 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 	}
 	
 	function comment_save() {
-		document.getElementById('p_no_check').value = <%=p_noStr%>;
-		document.getElementById('url_check').value = location.search;
-		comment_form.method='POST';
-		comment_form.action='product_comment_write_action.jsp';
-		comment_form.submit();
+		let orderProductList = <%=sUserOrderProductList%>;
+		if(orderProductList.includes(<%=p_noStr%>)){
+			if(document.getElementById('mark_value').value=="") {
+				alert("점수를 선택해주세요;");
+				return;
+			}
+			if(document.getElementById('cmt_able').value==""){
+				alert("후기를 작성해주세요");
+				return;
+			}
+			document.getElementById('p_no_check').value = <%=p_noStr%>;
+			document.getElementById('url_check').value = location.search;
+			document.getElementById('comment_form').method='POST';
+			document.getElementById('comment_form').action='product_comment_write_action.jsp';
+			document.getElementById('comment_form').submit();
+		}else{
+			aleart("상품구매 후 작성가능합니다.");
+			return;
+		}
 	}
 	
 	function clickCheck(target) {
 	    document.querySelectorAll('input[type=checkbox]')
 	        .forEach(el => el.checked = false);
 	    target.checked = true;
-	    document.getElementById('mark_check').value=target.value;
+	    document.getElementById('mark_value').value = target.value;
+	}
+	
+	function comment_remove(index) {
+		if(window.confirm('상품평을 삭제하시겠습니까?')){
+			let url = location.search;
+			document.getElementById('comment_pc_no'+index).value = url;
+			document.getElementById('comment_remove_form'+index).method='POST';
+			document.getElementById('comment_remove_form'+index).action='product_comment_remove_action.jsp';
+			document.getElementById('comment_remove_form'+index).submit();
+			console.log(document.getElementById('comment_remove_form'+index));
+		}
 	}
 	
 </script>
@@ -133,9 +163,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
 											상품상세보기</b></td>
 								</tr>
-							</table> <!-- 
-							<form name="f" method="post">
-							-->
+							</table> 
 							<table style="margin-left: 10px" border=0 width=80% height=376
 								align=center>
 
@@ -147,13 +175,20 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 										border=0 src='image/product_image/<%=product.getP_image()%>'
 										width=200 height=200></td>
 
-									<td width=20% height=200 align=left><font size=2>카테고리</font><br>
-										<br> <font size=2>상품명</font><br> <br> <font
-										size=2>가격</font><br> <br> <font size=2>설명</font><br>
-									<td width=20% height=200 align=left><font size=2><%=product.getCategory_no()%>(카테고리)</font><br>
-										<br> <font size=2><%=product.getP_name()%></font><br>
-										<br> <font size=2>￦ <%=product.getP_price()%></font><br>
-										<br> <font size=1><%=product.getP_desc()%></font></td>
+
+									<td width=20% height=200 align=left>
+											<font size=2>카테고리</font><br><br>
+											<font size=2>상품명</font><br><br>
+											<font size=2>가격</font><br><br>
+											<font size=2>컬러</font><br>
+									
+									<td width=20% height=200 align=left>
+											<font size=2><%=product.getCategory_no() %>(카테고리)</font><br><br>
+											<font size=2><%=product.getP_name()%></font><br><br>
+											<font size=2>￦ <%=product.getP_price()%></font><br><br>
+											<font size=1><%=product.getP_desc()%></font>
+									
+									</td>
 
 									<td width=30% height=200 class=t1>
 										<form name="add_cart_form" method="post"
@@ -185,8 +220,8 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 												onClick="order_create_form();"><br> <br> <input
 												type="button" class="w-btn w-btn-indigo" value="장바구니"
 												onClick="javascript:add_cart_popup_window(this.parentElement);">
+										</form>
 									</td>
-									</form>
 
 
 									</td>
@@ -194,9 +229,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 								<tr>
 									<td colspan=5 height=21><hr color=#556b2f></td>
 								</tr>
-							</table> <!-- 
-							</form>
-							--></td>
+							</table> </td>
 
 						<table border="0" cellpadding="0" cellspacing="1">
 							<tr>
@@ -210,16 +243,16 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 							<%
 							if (product.getComments().size() == 0) {
 							%>
-							<li id="comment" class="fdb_itm">
+							<li id="comment" class="fdb_itm" style="text-align: center;">
 								<div class="meta">
-									<img src="image/user_comment.png" style="margin-right: 5px"
-										class="writer"> </a> <span class="date"></span>
 								</div>
+								<input type="text" disable style="font-size: 40px; text-align:center; border: none;
+								  " value="등록된 후기가 없습니다.">
 								<div>
 									<div class="xe_content"></div>
 								</div>
 							</li>
-							<%} else {%>
+							<%}else {%>
 							<%for (ProductComment comment : product.getComments()) {%>
 							<li id="comment" class="fdb_itm">
 								<div class="meta">
@@ -232,15 +265,26 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 									</div>
 								</div>
 								<div style="margin-top: 10px">
+									<%if(comment.getWriter().equals(session.getAttribute("sUserId"))) { %>
+									<form id="comment_remove_form<%=comment.getPc_no() %>">
+									<span style="float: right; margin-right: 10px;">
+									<button id="comment_remove<%=comment.getPc_no() %>" type="button" value="" 
+									onclick="comment_remove(<%=comment.getPc_no() %>)">삭제
+									</button>
+									<input type="hidden" id="comment_pc_no<%=comment.getPc_no() %>" name="comment_pc_no<%=comment.getPc_no() %>" value="">
+									</span>
+									</form>	
 									<%for (int i = 0; i < comment.getPc_mark(); i++) {%>
 									<span class="mark"> <em><img class="mark_image"
 											src="image/heart_comment.png"> </em>
 									</span>
 									<%}%>
+									
 								</div>
 							</li>
 							<%}%>
 							<%}%>
+						<%}%>
 						</ul>
 						<%if(session.getAttribute("sUserId")==null) {%>
 						<div id="comment"></div>

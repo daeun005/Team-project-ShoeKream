@@ -13,32 +13,26 @@
 			t = String.format("%s...", t.substring(0, 15));
 		}
 		//답글공백삽입
-		
 		for (int i = 0; i < board.getBoard_depth(); i++) {
 			title.append("&nbsp;&nbsp;");
 		}
-		
 		if (board.getBoard_depth() > 0) {
 			title.append("<img border='0' src='image/re.gif'/>");
 		}
-		
 		title.append(t.replace(" ", "&nbsp;"));
-		
 		return title.toString();
 	}
 	%>
 
 <%
-
 String type = request.getParameter("type");
-	//1.요청페이지번호	
-String pageno=request.getParameter("pageno");
-if(pageno==null||pageno.equals("")){
+// 요청페이지번호	
+String pageno = request.getParameter("pageno");
+if(pageno == null || pageno.equals("")){
 	pageno="1";
 }	
 // 전체 게시물조회
-BoardListPageMakerDto boardListPage 
-	=BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
+BoardListPageMakerDto boardListPage = BoardService.getInstance().findBoardList(Integer.parseInt(pageno));
 String sUserId = (String)session.getAttribute("sUserId");
 
 // search Type
@@ -47,7 +41,6 @@ searchType = request.getParameter("searchType");
 // search keyword
 String keyword = null;
 keyword = request.getParameter("keyword");
-
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -65,21 +58,14 @@ keyword = request.getParameter("keyword");
 
 	function search() {
 		console.log(searchform);
-		//location.href = "board_search_list.jsp";
 		board_searchform.action = 'board_search_list.jsp';
 		board_searchform.method = 'POST';
 		board_searchform.submit();
 	}
 	
-	<%-- function selectBoxCahnge() {
-		if(<%=type.equals("title")%>) {
-			
-		}
-	}
-	 --%>
 	function typechange() {
 		document.getElementById('typesel').value= document.getElementById('searchType').options[document.getElementById('searchType').selectedIndex].value;
-		console.log(document.getElementById('typesel').value);
+		//console.log(document.getElementById('typesel').value);
 	}
 </script>
 
@@ -107,7 +93,7 @@ keyword = request.getParameter("keyword");
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판-리스트</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판</b>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
@@ -119,13 +105,8 @@ keyword = request.getParameter("keyword");
 									</td>
 								</tr>
 							</table>
-							<div class="" style="text-align:left;">
-								<span><a href="board_list.jsp">&nbsp;기본 정렬</a></span>
-								<span> | </span>
-								<span><a href="board_list_sort_desc.jsp">조회수 높은 순</a></span>
-							</div>
 							
-							<!-- list -->
+							<!-- board list start -->
 							<form name="f" method="post" action="">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="f4f4f4">
@@ -136,48 +117,38 @@ keyword = request.getParameter("keyword");
 										<td width=10% align=center bgcolor="f4f4f4">글쓴날</td>
 										<td width=15% align=center bgcolor="f4f4f4">조회수</td>
 									</tr>
-									<%
-										for (Board board : boardListPage.itemList) { %>
+									
+									<% for (Board board : boardListPage.itemList) { %>
 									<tr>
 										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left">
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
 										<%=this.getTitleString(board)%></a></td>
 										<td width=20% align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
 										<td width=10% align=center bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<%=board.getBoard_regDate().toString().substring(0, 10)%>
-										</td>
+											<%=board.getBoard_regDate().toString().substring(0, 10)%></td>
 										<td width=15% align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%></td>
 									</tr>
 									<% } %>
 								</table>
-									
-								<!-- /list -->
 							</form> <br>
+							<!-- board list end -->
+							
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align="center">
-							     
+										<% if(boardListPage.pageMaker.getPrevPage()>0) {%>    
+											<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;<%}%>
 										
-										 <%if(boardListPage.pageMaker.getPrevPage()>0) {%>    
-											<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getPrevPage()%>">◀</a>&nbsp;&nbsp;
-										 <%}%>
-										
-										<%
-											for (int i = boardListPage.pageMaker.getBlockBegin(); i <= boardListPage.pageMaker.getBlockEnd(); i++) {
+										<% for (int i = boardListPage.pageMaker.getBlockBegin(); i <= boardListPage.pageMaker.getBlockEnd(); i++) {
 										 	if (boardListPage.pageMaker.getCurPage() == i) {
 										%>
 										 <font color='red'><strong><%=i%></strong></font>&nbsp;
 										<%} else {%>
 										<a href="./board_list.jsp?pageno=<%=i%>"><strong><%=i%></strong></a>&nbsp;
-										<%
-										   }
+										<% }
 										  }%>
-										  
-										  
 										 <%if(boardListPage.pageMaker.getNextPage() <= boardListPage.pageMaker.getTotPage()){%>
-										  <a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getNextPage()%>">▶&nbsp;</a>
-										 <%}%>
-										
+										<a href="./board_list.jsp?pageno=<%=boardListPage.pageMaker.getNextPage()%>">▶&nbsp;</a><%}%>
 									</td>
 								</tr>
 							</table>

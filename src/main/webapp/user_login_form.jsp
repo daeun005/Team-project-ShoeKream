@@ -39,10 +39,11 @@ if(fuser==null){
 			f.password.focus();
 			return false;
 		}
-
+		document.getElementById('url_history').value = document.referrer
 		f.action = "user_login_action.jsp";
 		f.submit();
 	}
+	
 </script>
 </head>
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
@@ -89,6 +90,7 @@ if(fuser==null){
 										value="<%=fuser.getUser_password()%>"><div><font color="red"><%=msg2%></div></font></td>
 									</tr>
 								</table>
+								<input type="hidden" id="url_history" name="url_history" value="">
 							</form> <br />
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>

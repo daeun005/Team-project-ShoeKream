@@ -117,8 +117,8 @@ public class ProductService {
 		productDao.insertComment(comment);
 	}
 	//댓글 삭제
-	public void removeComment(int p_no) throws Exception {
-		productDao.deleteComment(p_no);
+	public void removeComment(int pc_no) throws Exception {
+		productDao.deleteComment(pc_no);
 	}
 	//댓글 수정
 	public void modifyComment(ProductComment comment) throws Exception {
