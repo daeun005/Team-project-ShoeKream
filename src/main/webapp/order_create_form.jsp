@@ -141,11 +141,10 @@ form > table tr td{
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">구매자정보</caption>
 									<tr>
-										<td width=290 height=25 align=center bgcolor="E6ECDE" class=t1>아이디</td>
-										<td width=112 height=25 align=center bgcolor="E6ECDE" class=t1>이름</td>
-										<td width=166 height=25 align=center bgcolor="E6ECDE" class=t1>이메일</td>
-										<td width=50 height=25 align=center bgcolor="E6ECDE" class=t1>비
-											고</td>
+										<td width=290 height=25 align=center bgcolor="f4f4f4" class=t1>아이디</td>
+										<td width=112 height=25 align=center bgcolor="f4f4f4" class=t1>이름</td>
+										<td width=166 height=25 align=center bgcolor="f4f4f4" class=t1>이메일</td>
+										<td width=50 height=25 align=center bgcolor="f4f4f4" class=t1>비고</td>
 									</tr>
 									<tr>
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1><%=user.getUser_id()%></td>
@@ -161,14 +160,10 @@ form > table tr td{
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">주문제품목록</caption>
 									<tr style="border: 0.1px solid">
-										<td width=290 height=25 bgcolor="E6ECDE" align=center class=t1>상품명
-											</td>
-										<td width=112 height=25 bgcolor="E6ECDE" align=center class=t1>수
-											량</td>
-										<td width=166 height=25 bgcolor="E6ECDE" align=center class=t1>가
-											격</td>
-										<td width=50 height=25 bgcolor="E6ECDE" align=center class=t1>비
-											고</td>
+										<td width=290 height=25 bgcolor="f4f4f4" align=center class=t1>상품명</td>
+										<td width=112 height=25 bgcolor="f4f4f4" align=center class=t1>수량</td>
+										<td width=166 height=25 bgcolor="f4f4f4" align=center class=t1>가격</td>
+										<td width=50 height=25 bgcolor="f4f4f4" align=center class=t1>비고</td>
 									</tr>
 									<%
 									int tot_price = 0;
@@ -178,8 +173,7 @@ form > table tr td{
 									<!-- cart item start -->
 									<tr>
 										<td width=290 height=26 align=center bgcolor="ffffff" class=t1>
-											<a
-											href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
+											<a href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
 										</td>
 										<td width=112 height=26 align=center bgcolor="ffffff" class=t1><%=cart.getCart_qty()%></td>
 										<td width=166 height=26 align=center bgcolor="ffffff" class=t1>
@@ -192,22 +186,20 @@ form > table tr td{
 									<tr>
 										<td width=640 colspan=4 height=26 bgcolor="ffffff" class=t1>
 											<p align=right style="padding-top: 10px">
-												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>
-													원
-												</font>
+												<font color=#FF0000>총 주문 금액 : <%=new DecimalFormat("#,###").format(tot_price)%>원</font>
 											</p>
 										</td>
 									</tr>
 								</table>
-								
+								<br>
 								<table align=center width=80% border="0" cellpadding="0"
 									cellspacing="1" bgcolor="BBBBBB">
 									<caption style="text-align: left;">배송지 정보</caption>
 									<tr>
-										<td width=150 height=25 align=center bgcolor="E6ECDE" class=t1>받으시는 분</td>
-										<td width=150 height=25 align=center bgcolor="E6ECDE" class=t1>연락처</td>
-										<td width=200 height=25 align=center bgcolor="E6ECDE" class=t1>배송지</td>
-										<td width=100 height=25 align=center bgcolor="E6ECDE" class=t1>배송지선택</td>
+										<td width=150 height=25 align=center bgcolor="f4f4f4" class=t1>받으시는 분</td>
+										<td width=150 height=25 align=center bgcolor="f4f4f4" class=t1>연락처</td>
+										<td width=200 height=25 align=center bgcolor="f4f4f4" class=t1>배송지</td>
+										<td width=100 height=25 align=center bgcolor="f4f4f4" class=t1>배송지선택</td>
 									</tr>
 											<% for(Delivery delivery : deliveryList) { %>
 											<tr>
@@ -224,6 +216,7 @@ form > table tr td{
 							<br />
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
+									<br>
 									<td align=center>&nbsp;&nbsp; <a
 										href="javascript:order_create_form_submit();" class=m1>구매/결제하기</a>
 										&nbsp;&nbsp;<a href=product_list.jsp class=m1>계속 쇼핑하기</a>
@@ -236,6 +229,7 @@ form > table tr td{
 			<!-- include_content.jsp end-->
 			<!-- content end -->
 		</div>
+		<br><br>
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->

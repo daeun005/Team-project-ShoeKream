@@ -60,8 +60,7 @@
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>게시판 -
-											게시판 쓰기</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>게시판 쓰기</b></td>
 								</tr>
 							</table> <br> <!-- write Form  -->
 							<form name="f" method="post">
@@ -89,9 +88,9 @@
 							</form> <br>
 							<table width=590 border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td align=center><input type="button" value="게시판 쓰기"
+									<td align=center><input type="button" value="등록"
 										onClick="boardCreate()"> &nbsp; <input type="button"
-										value="게시판 목록" onClick="boardList()"></td>
+										value="리스트" onClick="boardList()"></td>
 								</tr>
 							</table></td>
 					</tr>
@@ -100,6 +99,7 @@
 			<!-- include_content.jsp end-->
 			<!-- content end -->
 		</div>
+		<br><br>
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
