@@ -109,7 +109,7 @@ CREATE TABLE product_comment(
 		pc_content                    		VARCHAR2(200)		 NOT NULL,
 		pc_regdate                    		DATE		 DEFAULT sysdate		 NULL ,
 		pc_mark                       		NUMBER(10)		 NOT NULL,
-		p_no                          		NUMBER(10)		 NULL ,
+		p_no                          		NUMBER(10)		 NOT NULL ,
 		writer                       		VARCHAR2(20)		 NULL 
 );
 
