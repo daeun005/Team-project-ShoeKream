@@ -29,13 +29,14 @@
 	}
 	%>
 <%
-	//1.요청페이지번호	
+// 요청페이지번호	
 String pageno=request.getParameter("pageno");
 if(pageno==null||pageno.equals("")){
 	pageno="1";
 }	
-//게시물조회
+// 게시물조회
 List<Board> boardList = BoardService.getInstance().findBoardListByUserId(sUserId);
+int boardCount = BoardService.getInstance().boardCountByUserId(sUserId);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -72,16 +73,17 @@ List<Board> boardList = BoardService.getInstance().findBoardListByUserId(sUserId
 			<div id="content">
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
-						<td><br />
+						<td><br/>
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUser.getUser_name() %>님의 게시글 조회</b></td>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUser.getUser_name() %>님의 게시글 리스트 </b></td>
 								</tr>
-							</table> <!--form-->
+							</table>
+							<!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
-									<!-- <caption style="text-align: left;">게시글 리스트</caption> -->
+									<caption style="text-align: right;">총 <b><%= boardCount%></b> 건</caption>
 									<tr>
 										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>번호</font></td>
@@ -92,7 +94,7 @@ List<Board> boardList = BoardService.getInstance().findBoardListByUserId(sUserId
 										<td width=20% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>글쓴날</font></td>
 										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
-											>본횟수</font></td>
+											>조회수</font></td>
 									</tr>
 									<%
 										for (Board board : boardList) {
