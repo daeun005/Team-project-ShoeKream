@@ -63,18 +63,18 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 							<form name="f" method="post">
 								<table align=center width=80%  border="0" cellpadding="0"
 									cellspacing="1">
+									<caption style="text-align: right;">총 <b><%= orderList.size() %></b> 건</caption>
 									<!-- order start -->
 									<%
 									if(orderList!=null){
 									for (Order order : orderList) {
 										List<OrderItem> orderItemList = order.getOrderItemList();
-										
 									%>
 									<tr>
-										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
+										<td colspan="6" height=24 align=left bgcolor="f4f4f4" class=t1 >
 											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %></span>
 											<span style="font-size: 8pt">주문번호 <%= order.getO_no() %></span>
-											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt">상세보기</a>
+											<span><a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt">상세보기</a></span>
 										</td>
 									</tr>
 									<tr>
@@ -82,8 +82,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										</td>
 									</tr>
 									<tr>
-										<td width="5%"></td>
-										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
+										<td width="100%" colspan="8" bgcolor="ffffff" class=t1 >
 											<!--  -->
 											<table align="left" border="0" 
 												cellspacing="1" bgcolor="EEEEEE">
@@ -96,9 +95,9 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 														Product product = orderItem.getProduct();
 													%>
 													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"><a style="padding: 0px"
-														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="50px"
-															height="50px" src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
+													<td align="center" style="padding: 0px;width: 20%; height: 150px;" bgcolor="ffffff"><a style="padding: 0px"
+														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px"
+															height="200px" src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
 														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> <%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
 													</td>
 													<!--상품 끝 -->
@@ -107,7 +106,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 													for(int j=0;j<remainSize;j++){
 													%>
 													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
+													<td align="center" style="padding: 0px;width: 20%" bgcolor="ffffff">
 													</td>
 													<!--상품 끝 -->
 													<%
@@ -179,6 +178,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 			<!-- include_content.jsp end-->
 			<!-- content end -->
 		</div>
+		<br><br>
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
