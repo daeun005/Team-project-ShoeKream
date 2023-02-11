@@ -131,7 +131,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 											<font size=2>카테고리</font><br><br>
 											<font size=2>상품명</font><br><br>
 											<font size=2>가격</font><br><br>
-											<font size=2>설명</font><br>
+											<font size=2>컬러</font><br>
 									
 									<td width=20% height=200 align=left>
 											<font size=2><%=product.getCategory_no() %>(카테고리)</font><br><br>
