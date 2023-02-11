@@ -1,3 +1,6 @@
+<%@page import="com.itwill.shop.order.OrderItem"%>
+<%@page import="com.itwill.shop.order.OrderService"%>
+<%@page import="com.itwill.shop.order.Order"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.product.ProductComment"%>
@@ -6,6 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+
 String p_noStr = request.getParameter("p_no");
 if (p_noStr == null || p_noStr.equals("")) {
 	response.sendRedirect("product_list.jsp");
@@ -27,7 +31,15 @@ if (product == null) {
 
 }
 
-List<String> sUserOrderProductList= (ArrayList)session.getAttribute("sUserOrderProductList");	
+OrderService orderService = new OrderService();
+List<Integer> orderProductList = new ArrayList();
+List<Order> orderList = orderService.findWithOrderItemByUserId((String)session.getAttribute("sUserId"));	
+for(Order order : orderList){
+	for(OrderItem orderItem : order.getOrderItemList()){
+		orderProductList.add(orderItem.getProduct().getP_no());	
+	}
+}
+
 
 //조회수 증가
 ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
@@ -92,7 +104,8 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 	}
 	
 	function comment_save() {
-		let orderProductList = <%=sUserOrderProductList%>;
+		let orderProductList = <%=orderProductList%>;
+		console.log(orderProductList);
 		if(orderProductList.includes(<%=p_noStr%>)){
 			if(document.getElementById('mark_value').value=="") {
 				alert("점수를 선택해주세요;");
@@ -108,7 +121,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 			document.getElementById('comment_form').action='product_comment_write_action.jsp';
 			document.getElementById('comment_form').submit();
 		}else{
-			aleart("상품구매 후 작성가능합니다.");
+			alert("상품구매 후 작성가능합니다.");
 			return;
 		}
 	}
@@ -273,16 +286,15 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 									</button>
 									<input type="hidden" id="comment_pc_no<%=comment.getPc_no() %>" name="comment_pc_no<%=comment.getPc_no() %>" value="">
 									</span>
-									</form>	
+									</form>
+									<%}%>	
 									<%for (int i = 0; i < comment.getPc_mark(); i++) {%>
 									<span class="mark"> <em><img class="mark_image"
 											src="image/heart_comment.png"> </em>
 									</span>
 									<%}%>
-									
 								</div>
 							</li>
-							<%}%>
 							<%}%>
 						<%}%>
 						</ul>

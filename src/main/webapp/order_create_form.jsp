@@ -70,9 +70,14 @@ form > table tr td{
 <script type="text/javascript">
 
 	function order_create_form_submit() {
-		document.order_create_form.method = 'POST';
-		document.order_create_form.action = 'order_create_action.jsp';
-		document.order_create_form.submit();
+		if(document.order_create_form.d_checked_no.value==""){
+			alert("배송지를 선택해주세요");
+			return;
+		}else{
+			document.order_create_form.method = 'POST';
+			document.order_create_form.action = 'order_create_action.jsp';
+			document.order_create_form.submit();
+		}
 		
 	}
 	
