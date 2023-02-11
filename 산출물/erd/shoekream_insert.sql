@@ -20,57 +20,57 @@ insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(3, 'Nike Air Force 1 07 Low', 131000, 'Sneakers03.png','White', 0,1);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(4, 'Adidas Superstar Core', 109000, 'Sneakers04.png','Black White', 0,1);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(5, 'Asics Jog 100 S Sheet Rock', 74000, 'Sneakers05.png','2E Wide', 0,1);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(6, 'Converse x Ader Error Chuck 70 High White', 216000, 'Sneakers06.png','White', 0,1);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(6, 'Converse x Ader Error Chuck ', 216000, 'Sneakers06.png','White', 0,1);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(7, 'Jordan 1 High Golf', 210000, 'Sneakers07.png','White Black', 0,1);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(8, 'Jordan 1 Retro High OG Chicago 2022', 410000, 'Sneakers08.png','RED and BLACK', 0,1);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(9, 'Maison Mihara Yasuhiro Sneakers', 415000, 'Sneakers09.png','Black White', 0,1);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(9, 'Maison Mihara Yasuhiro ', 415000, 'Sneakers09.png','Black White', 0,1);
 
 
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(10, 'New Balance 2002R', 177000, 'Sneakers10.png','Grey', 0,1);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(11, 'Nike Air Force 1 07 WB Flax', 162000, 'Sneakers11.png','BROWN BLACK', 0,1);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(11, 'Nike Air Force 1', 162000, 'Sneakers11.png','BROWN BLACK', 0,1);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(12, 'Nike Dunk Low Retro', 124000, 'Sneakers12.png','Black', 0,1);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(13, 'Nike x Supreme Air Force 1 Low', 229000, 'Sneakers13.png','White', 0,1);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(13, 'Nike x Supreme Air Force', 229000, 'Sneakers13.png','White', 0,1);
 
 
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(21, 'Chanel Open Shoes Lambskin Patent', 1850000, 'Shoes01.png','Calfskin  Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(22, 'Chanel Open Shoes Suede Kidskin Patent', 1640000, 'Shoes02.png','Calfskin  Beige Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(23, 'Dior Jadior Slingback Pumps Technical Fabric', 1200000, 'Shoes03.png','Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(24, 'Gucci GG Marmont Leather Mid-Heel Sandal', 1168000, 'Shoes04.png','Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(21, 'Chanel Open Shoes Lambskin', 1850000, 'Shoes01.png','Calfskin  Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(22, 'Chanel Open Shoes Suede Kidskin', 1640000, 'Shoes02.png','Calfskin  Beige Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(23, 'Dior Jadior Slingback Pumps', 1200000, 'Shoes03.png','Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(24, 'Gucci GG Marmont Leather', 1168000, 'Shoes04.png','Black', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(25, 'Gucci Horsebit Mid-Heel Slingback', 1400000, 'Shoes05.png','Black', 0,2);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(26, 'Gucci Leather Mid-Heel Pumps', 970000, 'Shoes06.png','Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(27, 'Marni Jacquard Marnigram Trompe Loeil Pumps', 443000, 'Shoes07.png','Black Lily White', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(28, 'Prada Brushed Leather Singback Pumps', 901000, 'Shoes08.png','Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(29, 'Prada Heeled Brushed Leather Lace-Up Shoes', 800000, 'Shoes09.png','Black', 0,2);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(210, 'Balenciaga Trooper Derby Shoes ', 1230000, 'Shoes10.png','Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(27, 'Marni Jacquard Marnigram', 443000, 'Shoes07.png','Black Lily White', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(28, 'Prada Brushed Leather', 901000, 'Shoes08.png','Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(29, 'Prada Heeled Brushed', 800000, 'Shoes09.png','Black', 0,2);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(210, 'Balenciaga Trooper', 1230000, 'Shoes10.png','Black', 0,2);
 
 
 
 
 
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(31, 'Chanel Boots Caoutchouc', 28880000, 'Boots01.png','Black', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(32, 'Moon Boot Icon Low Nylon Boots ', 90000, 'Boots02.png','Black', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(33, 'UGG Classic Clear Mini Boots Natural ', 70000, 'Boots03.png','Black', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(34, 'UGG Classic Mini II Boots', 104000, 'Boots04.png','Chestnut', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(35, 'UGG Classic Short II Boots', 159000, 'Boots05.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(32, 'Moon Boot Icon Low Nylon  ', 90000, 'Boots02.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(33, 'UGG Classic Clear Mini  ', 70000, 'Boots03.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(34, 'UGG Classic Mini II', 104000, 'Boots04.png','Chestnut', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(35, 'UGG Classic Short II ', 159000, 'Boots05.png','Black', 0,3);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(36, 'Ader Error x Zara', 400000, 'Boots06.png','Brown', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(37, 'Balenciaga XL Army boots Full Eva', 1599000, 'Boots07.png','Black', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(38, 'Clarks Wallabee Boot Maple Suede', 210000, 'Boots08.png','Black', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(39, 'Crocs Classic Lined Neo Puff Boot Bone', 68000, 'Boots09.png','White', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(310, 'Crocs Classic Lined Neo Puff Boot', 59000, 'Boots10.png','White', 0,3);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(311, 'Timberland x Stussy World Hiker Boot',460000, 'Boots11.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(37, 'Balenciaga XL Army ', 1599000, 'Boots07.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(38, 'Clarks Wallabee ', 210000, 'Boots08.png','Black', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(39, 'Crocs Classic Lined Bone ', 68000, 'Boots09.png','White', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(310, 'Crocs Classic Lined White ', 59000, 'Boots10.png','White', 0,3);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(311, 'Timberland x Stussy ',460000, 'Boots11.png','Black', 0,3);
 
 
 
 
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(41, 'Dior Dway Mule Embroidered Cotton ', 847000, 'Slippers01.png','Deep Blue', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(42, 'Hermes Oran Sandal Calfskin Gold Piqures Ecrues', 839000, 'Slippers02.png','Gold  Siver', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(41, 'Dior Dway Mule Cotton', 847000, 'Slippers01.png','Deep Blue', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(42, 'Hermes Oran Sandal Calfskin Gold', 839000, 'Slippers02.png','Gold  Siver', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(43, 'Oofos OOlala OOmega', 105000, 'Slippers03.png','White', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(44, 'Polo Ralph Lauren Kayleigh Scuff Bear Snuff', 92000, 'Slippers04.png','SNUFF', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(44, 'Polo Ralph Lauren Kayleigh ', 92000, 'Slippers04.png','SNUFF', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(45, 'UGG Coquette Slipper Chestnut', 91000, 'Slippers05.png','SNUFF', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(46, 'Adidas Adilette 22 Carbon Aluminium', 55000, 'Slippers06.png','CARBON and ALUMINIUM', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(47, 'Adidas Yeezy Slide Resin 2022', 120000, 'Slippers07.png','RESIN', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(48, 'Birkenstock Boston Soft Footbed', 250000, 'Slippers08.png','TAUPE', 0,4);
-insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(49, 'Fear of God x Birkenstock Los Feliz Suede', 568000, 'Slippers09.png','Taupe', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(46, 'Adidas Adilette 22 Carbon ', 55000, 'Slippers06.png','CARBON and ALUMINIUM', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(47, 'Adidas Yeezy Resin 2022', 120000, 'Slippers07.png','RESIN', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(48, 'Birkenstock Boston Soft ', 250000, 'Slippers08.png','TAUPE', 0,4);
+insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(49, 'Fear of God x Birkenstock ', 568000, 'Slippers09.png','Taupe', 0,4);
 insert into product(p_no,p_name,p_price,p_image,p_desc,p_click_count,category_no) values(410, 'Hermes Izmir Sandal Calfskin', 989000, 'Slippers10.png','Noir', 0,4);
 
 
