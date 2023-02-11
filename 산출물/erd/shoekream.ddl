@@ -1,4 +1,4 @@
-DROP TABLE product_reply CASCADE CONSTRAINTS;
+DROP TABLE product_comment CASCADE CONSTRAINTS;
 DROP TABLE delivery CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE cart CASCADE CONSTRAINTS;
@@ -104,17 +104,18 @@ CREATE SEQUENCE delivery_d_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 
-CREATE TABLE product_reply(
-		pr_no                         		NUMBER(10)		 NULL ,
-		pr_content                    		VARCHAR2(200)		 NOT NULL,
-		pr_regdate                    		DATE		 DEFAULT sysdate		 NULL ,
-		pr_group_no                   		NUMBER(10)		 NOT NULL,
-		pr_step                       		NUMBER(10)		 NOT NULL,
-		pr_depth                      		NUMBER(10)		 DEFAULT 0		 NULL ,
+CREATE TABLE product_comment(
+        pc_no                               NUMBER(10)          NULL,
+		pc_content                    		VARCHAR2(200)		 NOT NULL,
+		pc_regdate                    		DATE		 DEFAULT sysdate		 NULL ,
+		pc_mark                       		NUMBER(10)		 NOT NULL,
 		p_no                          		NUMBER(10)		 NULL ,
-		user_Id                       		VARCHAR2(20)		 NULL 
+		writer                       		VARCHAR2(20)		 NULL 
 );
 
+DROP SEQUENCE product_comment_pc_no_SEQ;
+
+CREATE SEQUENCE product_comment_pc_no_SEQ NOMAXVALUE NOCACHE NOORDER NOCYCLE;
 
 
 ALTER TABLE userinfo ADD CONSTRAINT IDX_userinfo_PK PRIMARY KEY (user_Id);
@@ -142,7 +143,7 @@ ALTER TABLE board ADD CONSTRAINT IDX_board_FK0 FOREIGN KEY (user_Id) REFERENCES 
 ALTER TABLE delivery ADD CONSTRAINT IDX_delivery_PK PRIMARY KEY (d_no);
 ALTER TABLE delivery ADD CONSTRAINT IDX_delivery_FK0 FOREIGN KEY (user_Id) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
 
-ALTER TABLE product_reply ADD CONSTRAINT IDX_product_reply_PK PRIMARY KEY (pr_no);
-ALTER TABLE product_reply ADD CONSTRAINT IDX_product_reply_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
-ALTER TABLE product_reply ADD CONSTRAINT IDX_product_reply_FK1 FOREIGN KEY (user_Id) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
+ALTER TABLE product_comment ADD CONSTRAINT IDX_product_reply_PK PRIMARY KEY (pc_no);
+ALTER TABLE product_comment ADD CONSTRAINT IDX_product_reply_FK0 FOREIGN KEY (p_no) REFERENCES product (p_no) ON DELETE CASCADE;
+ALTER TABLE product_comment ADD CONSTRAINT IDX_product_reply_FK1 FOREIGN KEY (writer) REFERENCES userinfo (user_Id) ON DELETE CASCADE;
 

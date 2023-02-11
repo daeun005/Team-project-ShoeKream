@@ -1,4 +1,7 @@
 package com.itwill.shop.product;
+
+import java.util.List;
+
 /*
 CREATE TABLE product(
 		p_no                          		NUMBER(10)		 NULL ,
@@ -19,6 +22,9 @@ public class Product {
 	private String p_desc;
 	private int p_click_count;
 	private int category_no;
+	private int board_comment_count;
+	
+	private List<ProductComment> comments;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
@@ -90,6 +96,24 @@ public class Product {
 
 	public void setCategory_no(int category_no) {
 		this.category_no = category_no;
+	}
+	
+	public List<ProductComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<ProductComment> comments) {
+		this.comments = comments;
+	}
+	
+	
+
+	public int getBoard_comment_count() {
+		return board_comment_count;
+	}
+
+	public void setBoard_comment_count(int board_comment_count) {
+		this.board_comment_count = board_comment_count;
 	}
 
 	@Override

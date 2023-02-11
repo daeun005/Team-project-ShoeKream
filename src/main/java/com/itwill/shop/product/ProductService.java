@@ -81,11 +81,19 @@ public class ProductService {
 	public List<Product> priceSortDesc() throws Exception{
 		return productDao.priceSortDesc();
 	}
+	
+	public List<Product> priceSortCateDesc(int category_no) throws Exception{
+		return productDao.priceSortCateDesc(category_no);
+	}
 	/*
 	 * 가격 오름차순 정렬
 	 */
 	public List<Product> priceSortAsc() throws Exception{
 		return productDao.priceSortAsc();
+	}
+	
+	public List<Product> priceSortCateAsc(int category_no) throws Exception{
+		return productDao.priceSortCateAsc(category_no);
 	}
 	/*
 	 * 조회수 내림차순 정렬
@@ -104,12 +112,23 @@ public class ProductService {
 		return productDao.clickSortCateDesc(category_no);
 	}
 	
-	public List<Product> priceSortCateDesc(int category_no) throws Exception{
-		return productDao.priceSortCateDesc(category_no);
+	//댓글 생성
+	public void saveComment(ProductComment comment) throws Exception {
+		productDao.insertComment(comment);
+	}
+	//댓글 삭제
+	public void removeComment(int p_no) throws Exception {
+		productDao.deleteComment(p_no);
+	}
+	//댓글 수정
+	public void modifyComment(ProductComment comment) throws Exception {
+		productDao.updateComment(comment);
+	}
+	//user가 쓴 댓글
+	public List<ProductComment> findCommentByUserId(String userId) throws Exception {
+		return productDao.selectCommentByUserId(userId);
 	}
 	
-	public List<Product> priceSortCateAsc(int category_no) throws Exception{
-		return productDao.priceSortCateAsc(category_no);
-	}
+	
 
 }
