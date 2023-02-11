@@ -63,7 +63,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 							<form name="f" method="post">
 								<table align=center width=80%  border="0" cellpadding="0"
 									cellspacing="1">
-									<caption style="text-align: right;">총 <b><%= orderList.size() %></b> 건</caption>
+									
 									<!-- order start -->
 									<%
 									if(orderList!=null){
@@ -71,10 +71,13 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										List<OrderItem> orderItemList = order.getOrderItemList();
 									%>
 									<tr>
-										<td colspan="6" height=24 align=left bgcolor="f4f4f4" class=t1 >
-											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %></span>
-											<span style="font-size: 8pt">주문번호 <%= order.getO_no() %></span>
-											<span><a href="order_detail.jsp?o_no=<%= order.getO_no() %>" style="font-size: 6pt">상세보기</a></span>
+										<td colspan= "2" height=24 align=left bgcolor="f4f4f4" class=t1>
+											<span style="font-size: 10pt">&nbsp;[No. <%= order.getO_no() %>]</span>
+											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %> 구매</span>
+										</td>
+										<td colspan="1" height=24 align=right bgcolor="f4f4f4" class=t1>
+											<span style="font-size: 10pt; font-style: bold; align-content: right">
+											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>">&nbsp; 주문 상세보기&nbsp;&nbsp;&nbsp;&nbsp;</a> </span>
 										</td>
 									</tr>
 									<tr>
@@ -82,11 +85,10 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 										</td>
 									</tr>
 									<tr>
-										<td width="100%" colspan="8" bgcolor="ffffff" class=t1 >
+										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
 											<!--  -->
-											<table align="left" border="0" 
-												cellspacing="1" bgcolor="EEEEEE">
-												<tr >
+											<table align="left" border="0" cellspacing="1" bgcolor="EEEEEE">
+												<tr>
 													<%
 													int orderItemSize = orderItemList.size();
 													int remainSize = 8 - orderItemSize;
@@ -95,19 +97,28 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 														Product product = orderItem.getProduct();
 													%>
 													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 20%; height: 150px;" bgcolor="ffffff"><a style="padding: 0px"
-														href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px"
-															height="200px" src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a> <br>
-														<span style="font-size: 6pt"><b><%=product.getP_name()%></b> <br> <%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%> <%=orderItem.getOi_qty()%>개</span>
+													<tr>
+													<td align="center" style="padding: 0px; width: 40%" bgcolor="ffffff">
+													<a style="padding: 0px" href="product_detail.jsp?p_no=<%=product.getP_no()%>">
+														<img width="200px" height="200px"
+														src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a>
 													</td>
+													<td align="center" style="padding: 0px; width: 50%" bgcolor="ffffff">
+													<span style="font-size: 13pt"><a href = "product_detail.jsp?p_no=<%=product.getP_no()%>"><b><%=product.getP_name()%></b></a></span>
+													<br><br>
+													<span style = "font-size: 11pt"><%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%>원, <%=orderItem.getOi_qty()%>개</span>
+													</td>
+													<td align="center" style="padding: 0px; width: 10%" bgcolor="ffffff">
+													<span style = "font-size: 11pt"><a href = "product_detail.jsp?p_no=<%=product.getP_no()%>">리뷰 작성하기</a></span>
+													</td>
+													</tr>
 													<!--상품 끝 -->
 													<%} %>
 													<%
-													for(int j=0;j<remainSize;j++){
+													for(int j = 0;j < remainSize; j++){
 													%>
 													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 20%" bgcolor="ffffff">
-													</td>
+													<!-- <td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff"> </td> -->
 													<!--상품 끝 -->
 													<%
 													}	
@@ -122,39 +133,9 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 									</tr>
 									<!-- order end -->
 									<%
+									// 주문 내역이 없을 경우 보여줄 내용
 									}}else {
 									%>
-										<tr>
-										<td colspan="6" height=24 align=left bgcolor="E6ECDE" class=t1 >
-										</td>
-									</tr>
-									<tr>
-										<td colspan="6" height=4 align=left class=t1 >
-										</td>
-									</tr>
-									<tr>
-										<td width="5%"></td>
-										<td width="95%" colspan="8" bgcolor="ffffff" class=t1>
-											<!--  -->
-											<table align="left" border="0" 
-												cellspacing="1" bgcolor="EEEEEE">
-												<tr >
-													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
-													</td>
-													<!--상품 끝 -->
-													<!--상품시작 -->
-													<td align="center" style="padding: 0px;width: 55px" bgcolor="ffffff">
-													</td>
-													<!--상품 끝 -->
-													
-													</tr>
-											</table>
-										</td>
-									<tr>
-										<td colspan="5" width=145 height=10 align=center
-											bgcolor="ffffff" class=t1></td>
-									</tr>
 									<%} %>
 									<!-- order end -->
 								</table>

@@ -9,15 +9,17 @@
     pageEncoding="UTF-8"%>
 <%@include file="login_check.jspf"%>
 <%
+/****** order ******/
 OrderService orderService = new OrderService();
 List<Order> orderList = orderService.findByUserId(sUserId);
 List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 
-DeliveryService deliveryService = new DeliveryService();
-List<Delivery> deliveryInfo = deliveryService.selectDelivery(sUserId);
-
 String o_noStr = request.getParameter("o_no");
 Order thisOrder = orderService.findWithOrderItemByOrderNo(Integer.parseInt(o_noStr));
+
+/****** order ******/
+DeliveryService deliveryService = new DeliveryService();
+List<Delivery> deliveryInfo = deliveryService.selectDelivery(sUserId);
 
 Delivery thisDelivery = orderService.findWithOrderItemByDno(Integer.parseInt(o_noStr));
 // 화폐단위 구분을 위해 numberFormat 설정
@@ -142,8 +144,11 @@ function order_delete_action(){
 									tot_price = orderItem.getOi_qty() * orderItem.getProduct().getP_price();
 									%>
 									<tr>
+										
 										<td width=290 height=50 align=center  bgcolor="ffffff" class=t1>
-										<%= orderItem.getProduct().getP_image() %>
+										<a style="padding: 0px" href="product_detail.jsp?p_no=<%= orderItem.getProduct().getP_no() %>">
+										<img width="150px" height="150px"
+										src="image/product_image/<%= orderItem.getProduct().getP_image() %>" border="0" style="padding-top: 5px"></a>
 										</td>
 										<td width=290 height=50 align=center  bgcolor="ffffff" class=t1>
 										<a href='product_detail.jsp?p_no=<%= orderItem.getProduct().getP_no() %>'><%= orderItem.getProduct().getP_name() %></a>
