@@ -135,6 +135,7 @@
 			<!-- include_content.jsp end-->
 			<!-- content end -->
 		</div>
+		<br><br>
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->

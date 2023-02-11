@@ -39,7 +39,7 @@ if (orderService.findWithOrderItemByUserId(sUserId) != null) {
 		<div class="shopping-info">
 			<div class="info-item">
 				<span class="info-title"><img class="icon-board"></i>게시글 </span> <span
-					class="info-data"><a href="board_list_user.jsp"><%=boardListCount%>
+					class="info-data"><a href="user_view_board.jsp"><%=boardListCount%>
 						<span class="unit">개</span></a></span>
 			</div>
 			<div class="info-item">

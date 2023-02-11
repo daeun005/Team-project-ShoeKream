@@ -81,7 +81,7 @@ List<Board> boardList = BoardService.getInstance().findBoardListByUserId(sUserId
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
 								<table align="center" width="80%"  border="0" cellpadding="0" cellspacing="1"  bgcolor="FFFFFF" >
-									<caption style="text-align: left;">게시글 리스트</caption>
+									<!-- <caption style="text-align: left;">게시글 리스트</caption> -->
 									<tr>
 										<td width=15% height=25 bgcolor="f4f4f4" align=center class=t1><font
 											>번호</font></td>
