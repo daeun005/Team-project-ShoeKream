@@ -2,8 +2,7 @@
 <%@page import="com.itwill.shop.user.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.itwill.shop.cart.CartService"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String sUserId=(String)session.getAttribute("sUserId");
 %>	
