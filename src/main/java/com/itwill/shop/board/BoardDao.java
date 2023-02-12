@@ -532,7 +532,7 @@ public class BoardDao {
 
 		try {
 			con = dataSource.getConnection();
-			pstmt = con.prepareStatement(BoardSQL.BOARD_SEARCH);
+			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_TITLE);
 			pstmt.setString(1, "%" + keyword + "%");
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, last);

@@ -71,16 +71,5 @@ public class BoardSQL {
 	
 	public final static String BOARD_SELECT_BY_READ_COUNT = "select * from (select rownum idx, s.* from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ? order by board_readcount desc";
 	
-	public final static String BOARD_SELECT_BY_TITLE = "select * from (select rownum idx, s.* from (select board_no,board_title,board_regdate,board_readcount,board_group_no,board_step,board_depth,user_id from board order by board_group_no DESC, board_step asc) s ) where idx >= ? and idx<= ? and board_title like ?";
-	
-	public final static String BOARD_SEARCH = " select * from\r\n"
-			+ "        (select rownum idx ,sss.* from \r\n"
-			+ "                (select  * from   (\r\n"
-			+ "                                     select * from board \r\n"
-			+ "                                     order by board_group_no \r\n"
-			+ "                                     DESC, board_step asc\r\n"
-			+ "                                     ) ss \r\n"
-			+ "                   where board_title like ?) sss\r\n"
-			+ "        )\r\n"
-			+ "where idx>=? and idx<=?";
+	public final static String BOARD_SELECT_BY_TITLE = " select * from (select rownum idx ,sss.* from (select * from( select * from board order by board_group_no DESC, board_step asc) ss where board_title like ?) sss) where idx>=? and idx<=?";
 }
