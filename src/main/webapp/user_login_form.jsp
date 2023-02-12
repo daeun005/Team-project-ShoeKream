@@ -118,21 +118,21 @@ if(fuser==null){
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>사용자 관리
-											- 로그인</b></td>
+									<td height="50">
+										<font style="font-family: S-CoreDream-5Medium;" size=5>로그인</font></td>
 								</tr>
 							</table> <!-- login Form  -->
 							<form name="f" method="post">
 								<table border="0" cellpadding="0" cellspacing="1"
 									bgcolor="BBBBBB">
 									<tr>
-										<td id="id_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
+										<td id="id_icon" width=100 align=center bgcolor="ffffff" height="50"></td>
 										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px;">
 										<input type="text" style="font-size: 12pt" placeholder="아이디" name="user_id" id="user_id"
 										value="<%=fuser.getUser_id()%>"><div><font color="red"><%=msg1%></div></font></td>
 									</tr>
 									<tr>
-										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
+										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="50"></td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 										<input type="password" style="font-size: 12pt" placeholder="패스워드" name="user_password" id="user_password"
@@ -151,9 +151,12 @@ if(fuser==null){
 							</form> <br />
 							<table border="0" cellpadding="0" cellspacing="1">
 								<tr>
-									<td align=center><input type="button" value="로그인"
-										onClick="login();"> &nbsp; <input type="button"
-										value="회원가입" onClick="userCreate()"></td>
+									<td align=center>
+									<button class="add_button" type="button" value="로그인" onclick="login();">
+											<font style="font-family: S-CoreDream-3Light;" size=2>로그인</font></button>&nbsp;&nbsp;	
+									<button class="add_button" type="button" value="회원가입" onclick="userCreate();">
+											<font style="font-family: S-CoreDream-3Light;" size=2>회원가입</font></button><br><br>
+									</td>
 								</tr>
 							</table></td>
 					</tr>
