@@ -533,21 +533,21 @@ public class BoardDao {
 		try {
 			con = dataSource.getConnection();
 			pstmt = con.prepareStatement(BoardSQL.BOARD_SELECT_BY_TITLE);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, last);
-			pstmt.setString(3, "%" + keyword + "%");
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, last);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				Board board = new Board();
-				board.setBoard_no(rs.getInt(2));
-				board.setBoard_title(rs.getString(3));
-				board.setBoard_regDate(rs.getDate(4));
-				board.setBoard_readCount(rs.getInt(5));
-				board.setBoard_group_no(rs.getInt(6));
-				board.setBoard_step(rs.getInt(7));
-				board.setBoard_depth(rs.getInt(8));
-				board.setUser_id(rs.getString(9));
+				board.setBoard_no(rs.getInt("board_no"));
+				board.setBoard_title(rs.getString("board_title"));
+				board.setBoard_regDate(rs.getDate("board_regdate"));
+				board.setBoard_readCount(rs.getInt("board_readCount"));
+				board.setBoard_group_no(rs.getInt("board_group_no"));
+				board.setBoard_step(rs.getInt("board_step"));
+				board.setBoard_depth(rs.getInt("board_depth"));
+				board.setUser_id(rs.getString("user_id"));
 
 				boards.add(board);
 			}

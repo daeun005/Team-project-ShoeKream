@@ -161,7 +161,7 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 									<!-- search start -->
 									<td></td>
 									<td><form id = "searchform" method = "post">
-									<select id = 'searchType' name = 'searchType' style= height:30px;">
+									<select id = 'searchType' name = 'searchType' style= height:30px;>
 										<option selected value = "">선택</option>
 										<option value = "title">제목</option>
 										<option value = "id">글쓴이</option>
@@ -173,7 +173,7 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 									
 									<td align="right" width= 60px><input type="button" value="글쓰기" onclick="boardCreate();"></td>
 								</tr>
-							</table></td><br>
+							</table></td>
 					</tr>
 				</table>
 			</div>
