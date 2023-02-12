@@ -63,7 +63,7 @@ function add_cart_popup_window(f){
 	} else {
 		let left = Math.ceil(( window.screen.width)/5);
 		let top = Math.ceil(( window.screen.height)/3); 
-		let cartWin = window.open("about:blank","cartForm","width=260,height=130,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
+		let cartWin = window.open("about:blank","cartForm","width=400,height=130,top="+top+",left="+left+",location=no, directories=no, status=no, menubar=no, scrollbars=no,copyhistory=no");
 		f.action = 'cart_add_action_popup_window.jsp';
 		f.target = 'cartForm';
 		f.method = 'POST';

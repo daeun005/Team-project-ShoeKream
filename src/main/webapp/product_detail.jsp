@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.itwill.shop.order.OrderItem"%>
 <%@page import="com.itwill.shop.order.OrderService"%>
 <%@page import="com.itwill.shop.order.Order"%>
@@ -72,7 +73,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 					.open(
 							"about:blank",
 							"cartForm",
-							"width=260,height=130,top="
+							"width=450,height=130,top="
 									+ top
 									+ ",left="
 									+ 0
@@ -209,7 +210,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 										<%} %>
 										<br><br>
 										<%=product.getP_name()%><br><br>
-										￦ <%=product.getP_price()%><br><br>
+										<%=new DecimalFormat("#,##0").format(product.getP_price())%>&nbsp;원<br><br>
 										<%=product.getP_desc()%><br><br>
 										<%=product.getP_click_count() %>
 									</font>

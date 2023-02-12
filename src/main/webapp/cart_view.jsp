@@ -103,6 +103,7 @@
 				<form action="cart_delete_item_action.jsp" method="post">
 					<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
 					<input type="image" src='image/delete.png' >
+					
 				</form>
 			</td>
 </tr>
@@ -133,8 +134,9 @@
 									<button class="add_button" type="button" onclick="cart_view_form_select_submit();">
 													<font style="font-family: S-CoreDream-3Light;" size=2>총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</font></button>&nbsp;&nbsp; 
 									<button class="add_button" type="button" onclick="cart_delete();">
-													<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 비우기</font></button><br><br><br>				
+													<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 비우기</font></button>			
 											<%}%>
+											<br><br><br>	
 									</td>
 								</tr>
 							</table></td>
