@@ -113,7 +113,7 @@
 										<td width=640 colspan=6 height=26 class=t1 bgcolor="ffffff">
 											<p align=right>
 												<br /> 
-												<font style="font-family: S-CoreDream-5Medium;" size=5>총주문금액 :&nbsp;&nbsp; <span id="tot_order_price"> <%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
+												<font style="font-family: S-CoreDream-5Medium;" size=4>총주문금액 :&nbsp;&nbsp; <span id="tot_order_price"> <%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
 											</p>
 										</td>
 									</tr>

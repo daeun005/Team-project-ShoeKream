@@ -29,7 +29,8 @@ NumberFormat numberFormat = NumberFormat.getInstance();
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>쇼핑몰 관리</title>
+<title>S.KREAM | 주문 상세보기</title>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
@@ -72,7 +73,8 @@ function order_delete_action(){
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUser.getUser_name() %>님의 주문 상세 조회</b></td>
+									<td height="50">
+									<font style="font-family: S-CoreDream-5Medium;" size=5><%= sUser.getUser_name() %>님의 주문 상세 조회</font></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post" action="order_delete_action.jsp">
@@ -96,7 +98,7 @@ function order_delete_action(){
 										<td width=20% height=26 align=center bgcolor="ffffff" class=t1><%=new SimpleDateFormat("yyyy/MM/dd").format(thisOrder.getO_date()) %></td>
 										<td width=30% height=26 align=center bgcolor="ffffff" class=t1><%= sUserId %></td>
 										<td width=15% height=26 align=center bgcolor="ffffff" class=t1>
-												<input type="submit" value="삭제">
+												<input type="submit" value="삭제"  style="width:50px; height:30px; font-family: S-CoreDream-3Light; font-size:10pt;">
 										</td>
 									</tr>
 								</table>
@@ -170,8 +172,11 @@ function order_delete_action(){
 										<td width=640 colspan=5 height=26  bgcolor="ffffff" class=t1>
 										
 											<p align=right style="padding-top: 10px">
-												<font color=#FF0000>TOTAL : <%= order_tot_price %> 원
-												</font>
+												<!-- 총 주문금액 TOTAL ver. 
+												<font color=#FF0000>TOTAL : <%= order_tot_price %> 원</font>
+												 -->
+												<font style="font-family: S-CoreDream-5Medium;" size=4>총주문금액 :<%= order_tot_price %> 원</font>
+												
 											</p>
 										</td>
 									</tr>
@@ -181,10 +186,10 @@ function order_delete_action(){
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<td align=center> 
-										&nbsp;&nbsp;<a href=order_list.jsp
-										class=m1>주문목록</a>
-										&nbsp;&nbsp;<a href=product_list.jsp
-										class=m1>계속 쇼핑하기</a>
+										<button class="add_button" type="button" onclick="location='order_list.jsp'">
+											<font style="font-family: S-CoreDream-3Light;" size=2>주문목록</font></button>&nbsp;&nbsp; 
+										<button class="add_button" type="button" onclick="location='product_list.jsp'">
+											<font style="font-family: S-CoreDream-3Light;" size=2>계속 쇼핑하기</font></button>&nbsp;&nbsp; 
 									</td>
 								</tr>
 							</table><hr></td>
