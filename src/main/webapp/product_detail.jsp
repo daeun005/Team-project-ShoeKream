@@ -184,31 +184,38 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1><img
 										border=0 src='image/product_image/<%=product.getP_image()%>'
-										width=200 height=200></td>
+										width=300 height=300></td>
 
 
-									<td width=20% height=200 align=left>
-									<font style="font-family: S-CoreDream-3Light; font-color:black;" size=3>
-											조회수<br><br>
-											<!-- 
+									<td width=10% height=200 align=left>
+									<font style="font-family: S-CoreDream-3Light;" size=4>
 											카테고리<br><br>
-											 -->
 											상품명<br><br>
 											가격<br><br>
-											컬러<br>
+											컬러<br><br>
+											조회수
 									</font>
-									<td width=20% height=200 align=left>
-									<font style="font-family: S-CoreDream-3Light; font-color:black;" size=3>
+									<td width=30% height=200 align=left>
+									<font style="font-family: S-CoreDream-3Light;" size=4>
 									
-									 	<%=product.getP_click_count() %><br><br>
-									 
+										<%if(product.getCategory_no()==1){%>
+											운동화
+										<%}else if (product.getCategory_no()==2){ %>
+											구두
+										<%}else if (product.getCategory_no()==3){ %>
+											부츠
+										<%}else{ %>
+											슬리퍼
+										<%} %>
+										<br><br>
 										<%=product.getP_name()%><br><br>
-										<%=product.getP_price()%>&nbsp;원<br><br>
-										<%=product.getP_desc()%>
+										￦ <%=product.getP_price()%><br><br>
+										<%=product.getP_desc()%><br><br>
+										<%=product.getP_click_count() %>
 									</font>
 									</td>
 
-									<td width=30% height=200 class=t1>
+									<td width=20% height=200 class=t1>
 										<form name="add_cart_form" method="post"
 											action="cart_add_action.jsp">
 											<input type="hidden" name=p_no value="<%=product.getP_no()%>">
