@@ -102,7 +102,7 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<a href = "board_list.jsp"><b>게시판</b></a>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
@@ -137,6 +137,12 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 											<%=board.getBoard_regDate().toString().substring(0, 10)%></td>
 										<td width=15% align=center bgcolor="ffffff" align="left"><%=board.getBoard_readCount()%></td>
 									</tr>
+									<% } %>
+									<% if(boardListPage.itemList.isEmpty() == true) { %>
+										<tr><td colspan="4" height="200px" bgcolor="ffffff"><br>
+										<span style="font-size: 20pt"><b>일치하는 게시글이 없습니다.</b></span>
+										<br><br><br>
+										<span style="font-size: 13pt"><a href = "board_list.jsp">돌아가기</a></span></td></tr>
 									<% } %>
 								</table>
 							</form> <br>

@@ -93,7 +93,7 @@ keyword = request.getParameter("keyword");
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>게시판</b>
+									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<a href = "board_list.jsp"><b>게시판</b></a>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
