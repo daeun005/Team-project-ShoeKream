@@ -67,35 +67,22 @@ List<Product> popularList = productService.findPopular();
 			for (int i=0; i<popularList.size(); i++) {
 				Product product = popularList.get(i);
 									%>
-							<td align="center" width="33%" >
+								<td align="center" width="30%" >
 								<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
-								<img width=250px; height=250px; src="image/product_image/<%=product.getP_image()%>" border="0"></a>
+								<img width=250px; height=250px; src="image/product_image/<%=product.getP_image()%>" border="0"></a><br>
+																<!-- 조회수 -->
+								<img src="image/icons/heart.png" width=25px>
+								<font style="font-family: GongGothicMedium; vertical-align:super;" size=5;>&nbsp;<%=product.getP_click_count()%>&nbsp;&nbsp;</font><br><br><br>
+								<!-- 상품명 -->
+								<font style="font-family: GongGothicMedium;" size=5><%=product.getP_name()%></font><br><br><br>
+								<form align="left" style="display: inline; margin:0">
+									<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
+									<font style="font-family: GongGothicMedium; vertical-align:super;" size=5;><%=new DecimalFormat("#,##0").format(product.getP_price())%>&nbsp;원</font><br><br><br>
+						 		</form>
 							</td>
 							
 						<%} %>
 						</tr>
-						<tr>
-						<%
-			for (int i=0; i<popularList.size(); i++) {
-				Product product = popularList.get(i);
-									%>
-							<td  align="left" width="30%"  bgcolor="ffffff">
-								<font style="font-family: S-CoreDream-5Medium;" size=5><%=product.getP_name()%></font><br><br>
-								<font style="font-family: GongGothicMedium;" size=5><%=product.getP_name()%></font><br><br>
-								<form align="left" style="display: inline; margin:0">
-								<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
-									<!-- 
-												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
-									 -->
-						 		</form><br>
-								<font style="font-family: GongGothicMedium;" size=4>￦&nbsp;&nbsp;<%=new DecimalFormat("#,##0").format(product.getP_price())%></font><br><br>
-								<img src="image/icons/heart.png" width=25px>
-								<font style="font-family: GongGothicMedium; vertical-align:top;" size=4 >&nbsp;&nbsp;<%=product.getP_click_count()%></font>
-							</td>	
-					   <%}%>
-						</tr>
-
 								   <!--상품 끝 -->
 				</table>
 			</div> <br /></td>

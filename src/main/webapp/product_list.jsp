@@ -84,8 +84,7 @@ function product_alignment_action_form_submit(){
 <style type="text/css" media="screen">
 </style>
 </head>
-<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
-	marginwidth=0 marginheight=0>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0	marginwidth=0 marginheight=0>
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
@@ -106,10 +105,10 @@ function product_alignment_action_form_submit(){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>상품리스트</b></td>
+									<td bgcolor="ffffff" height="50"><font style="font-family: S-CoreDream-5Medium;" size=5>상품리스트</font></td>
 								</tr>
 							</table>
-							<br><b>정렬</b>&nbsp;
+							<br><font style="font-family: S-CoreDream-3Light;" size=3>정렬&nbsp;</font>
 							<select id="sort_option" onchange="product_alignment_action_form_submit();">
 								<option value="normal">선택
 								<option value="price_sort_asc">가격 오름차순
@@ -119,6 +118,7 @@ function product_alignment_action_form_submit(){
 						    <input id="sort_select" name="sort_select" type="hidden" value="">
 							<div id="f">
 								<table width="100%" align="center" border="0" cellpadding="10" cellspacing="1" bgcolor="ffffff">
+								
 									<%
 									int product_size=productList.size();
 									int product_column_size=4;
@@ -135,18 +135,28 @@ function product_alignment_action_form_submit(){
 									<tr>
 									<%} %>
 
-										<td align="center" width="25%"  bgcolor="ffffff"><a
-											href="product_detail.jsp?p_no=<%=product.getP_no()%>"><img width="200px" height="200px"
-												src="image/product_image/<%=product.getP_image()%>" border="0"></a><br />
+										<td align="center" width="25%"  bgcolor="f4f4f4">
+										<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
+										<img width="200px" height="200px" src="image/product_image/<%=product.getP_image()%>" border="0">
+										</a><br />
 
-												
-											<br /> <b><%=product.getP_name()%></b>
+											
+											<br /><font style="font-family: S-CoreDream-5Medium;" size=4><%=product.getP_name()%></font><br><br>
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="add_cart_popup_window(this.parentElement);" align="top">
-											</form><br> <font color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원
-										</font></td>
+												<!-- 
+												<font style="font-family: GongGothicMedium;" size=4>
+													<%=new DecimalFormat("#,##0").format(product.getP_price())%>&nbsp;원<br><br>
+												</font>
+												 -->
+												<font style="font-family: S-CoreDream-5Medium;" size=4>
+													<%=new DecimalFormat("#,##0").format(product.getP_price())%>&nbsp;원<br><br>
+												</font>
+												<button class="add_button" type="button" onclick="add_cart_popup_window(this.parentElement);">
+													<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 담기</font></button>
+											
+											</form><br><br></td> 
 									<%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	

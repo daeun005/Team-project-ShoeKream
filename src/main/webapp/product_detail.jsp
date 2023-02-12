@@ -173,15 +173,13 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>쇼핑몰 -
-											상품상세보기</b></td>
+									<td height="50"><font style="font-family: S-CoreDream-5Medium;" size=5>상품 상세 정보</font></td>
 								</tr>
 							</table> 
-							<table style="margin-left: 10px" border=0 width=80% height=376
-								align=center>
+							<table style="margin-left: 10px" border=0 width=80% height=376 align=center>
 
 								<tr width=100%>
-									<td colspan=5 height=5><hr color=#556b2f></td>
+									<td colspan=5 height=5><hr color=#000000></td>
 								</tr>
 								<tr width=100%>
 									<td width=30% height=200 align=center class=t1><img
@@ -190,17 +188,19 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 
 
 									<td width=20% height=200 align=left>
-											<font size=2>카테고리</font><br><br>
-											<font size=2>상품명</font><br><br>
-											<font size=2>가격</font><br><br>
-											<font size=2>컬러</font><br>
-									
+									<font style="font-family: S-CoreDream-3Light;" size=3>
+											카테고리<br><br>
+											상품명<br><br>
+											가격<br><br>
+											컬러<br>
+									</font>
 									<td width=20% height=200 align=left>
-											<font size=2><%=product.getCategory_no() %>(카테고리)</font><br><br>
-											<font size=2><%=product.getP_name()%></font><br><br>
-											<font size=2>￦ <%=product.getP_price()%></font><br><br>
-											<font size=1><%=product.getP_desc()%></font>
-									
+									<font style="font-family: S-CoreDream-3Light;" size=3>
+										<%=product.getCategory_no() %><br><br>
+										<%=product.getP_name()%><br><br>
+										￦ <%=product.getP_price()%><br><br>
+										<%=product.getP_desc()%>
+									</font>
 									</td>
 
 									<td width=30% height=200 class=t1>
@@ -212,8 +212,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 											<!-- 
 											 <input type=text name="cart_qty" value=1 size=4 class=TXTFLD>  
 											-->
-											<select id="cart_qty" name="cart_qty"
-												onchange="qty_change();">
+											<select id="cart_qty" name="cart_qty" onchange="qty_change();">
 												<option value="1">1
 												<option value="2">2
 												<option value="3">3
@@ -229,10 +228,15 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 												<input width=40px height=40px type=image src='image/cart.png' value="장바구니담기[장바구니보여주기]" title="장바구니담기[장바구니보여주기]" style="font-size: 6pt;"/> 
 												<a href="javascript:add_cart_popup_window(this.parentElement);" title="장바구니담기[계속쇼핑팝업]"><img src='image/cart25.png' style="margin-bottom: 5px "></a>
 											-->
-											<input type="button" class="w-btn w-btn-indigo" value="바로구매"
-												onClick="order_create_form();"><br> <br> <input
-												type="button" class="w-btn w-btn-indigo" value="장바구니"
-												onClick="javascript:add_cart_popup_window(this.parentElement);">
+										<button class="add_button" type="button" onclick="order_create_form();">
+											<font style="font-family: S-CoreDream-3Light;" size=2>바로구매</font></button><br><br>
+										<button class="add_button" type="button" onclick="add_cart_popup_window(this.parentElement);">
+											<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 담기</font></button>	
+											
+										<!-- 
+											<input type="button" class="add_button" value="바로구매" onClick="order_create_form();"><br> <br> 
+											<input type="button" class="add_button" value="장바구니 담기" onClick="javascript:add_cart_popup_window(this.parentElement);">
+										-->
 										</form>
 									</td>
 
@@ -240,15 +244,18 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 									</td>
 								</tr>
 								<tr>
-									<td colspan=5 height=21><hr color=#556b2f></td>
+									<td colspan=5 height=21><hr color=#000000></td>
 								</tr>
 							</table> </td>
 
 						<table border="0" cellpadding="0" cellspacing="1">
 							<tr>
-								<td align=center><input type="button"
-									class="w-btn w-btn-indigo" value="상품목록"
-									onClick="productList();"></td>
+								<td align=center>
+									<button class="add_button" type="button" onclick="productList();">
+											<font style="font-family: S-CoreDream-3Light;" size=2>상품목록</font></button>	
+								<!-- 
+								<input type="button" class="w-btn w-btn-indigo" value="상품목록" onClick="productList();"></td>
+								 -->
 							</tr>
 						</table>
 						<!-- review start -->
@@ -259,7 +266,7 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 							<li id="comment" class="fdb_itm" style="text-align: center;">
 								<div class="meta">
 								</div>
-								<input type="text" disable style="font-size: 40px; text-align:center; border: none;
+								<input type="text" disable style="font-size: 20px; text-align:center; border: none;
 								  " value="등록된 후기가 없습니다.">
 								<div>
 									<div class="xe_content"></div>

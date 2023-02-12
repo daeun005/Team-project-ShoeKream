@@ -325,4 +325,9 @@ img#p_search{
 	border: none;
 	height: 60px
 }
+
+.add_button{
+	 height:30px; 
+	 width:120px;
+}    
     

@@ -37,7 +37,7 @@ function product_search(){
 	<ul>
 		<li id="logo"><a href="shop_main.jsp"></a></li>
 		<%if(sUserId==null){  %>
-			<li id="cart" title="장바구니"><span class="w3-badge-no-login w3-green-no-login w3-margin-right"> </span><a href="user_login_form.jsp" title="장바구니"></a></li>
+			<li id="cart" title="장바구니"><span class="w3-badge-no-login w3-green-no-login w3-margin-right"></span><a href="user_login_form.jsp" title="장바구니"></a></li>
 			<li id="join" title="회원가입" ><a href="user_write_form.jsp" ></a></li>
 			<li id="login" title="로그인" ><a href="user_login_form.jsp" ></a></li>
 			
@@ -47,11 +47,11 @@ function product_search(){
 			<li id="logout" title="로그아웃" ><a href="user_logout_action.jsp"></a></li>
 			
 		<%} %>
-		<li id="p_search">
-			<img src="image/search.png" style="cursor:pointer" onclick="product_search();"></li>
+		<li id="p_search" >
+				<img src="image/icons/search.png" height=40 style="cursor:pointer; margin-right:60px;" onclick="product_search();"></li>
 		<li>
 			<form id="searchform" method="POST">
-				<input type="text" id="keyword" name="keyword" style="width:200px;height:30px;font-size:18px;"  value="">
+				<input type="text" id="keyword" name="keyword" style="width:200px;height:30px;font-size:18px;"  value="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</form>
 		</li>
 		

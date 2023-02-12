@@ -54,7 +54,7 @@ div#header #menu {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 10px 16px 20px 16px;
+	padding: 10px 10px 10px 10px;
 	text-decoration: none;
 }
 #menu .active {
@@ -64,6 +64,7 @@ div#header #menu {
 #menu li#logo {
 	width: 200px;
 	background: url('../image/logo_shoekream_pt10.png');
+	margin: 10px 10px 10px 10px;
 	background-position: left;
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -75,13 +76,12 @@ div#header #menu {
 #menu li#cart {
 	width: 40px;
 	height: 40px;
-	background: url('../image/top_cart.png');
-	margin-left:10px;
-	margin-top:9px;
-	background-position: center;
-	background-size: 90%;
+	background: url('../image/icons/cart2.png');
+	margin: 10px 10px 10px 10px;
+	background-position: left;
+	background-size: 100%;
 	background-repeat: no-repeat;
-	opacity: 0.6;
+	opacity: 0.7;
 }
 
 #menu li#cart:hover{
@@ -89,21 +89,23 @@ div#header #menu {
 }
 
 #menu li#login {
-	width: 60px;
-	height: 60px;
-	background: url('../image/top_login.png');
-	background-position: center;
-	background-size: 60%;
+	width: 35px;
+	height: 35px;
+	background: url('../image/icons/login.png');
+	margin: 10px 10px 10px 10px;
+	background-position: left;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	opacity: 0.7;
 }
 
 #menu li#logout {
-	width: 60px;
-	height: 60px;
-	background: url('../image/logout.png');
-	background-position: center;
-	background-size: 60%;
+	width: 35px;
+	height: 35px;
+	background: url('../image/icons/logout.png');
+	margin: 10px 10px 10px 10px;
+	background-position: left;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	opacity: 0.7;
 }
@@ -117,11 +119,12 @@ div#header #menu {
 }
 
 #menu li#join {
-	width: 63px;
-	height: 60px;
-	background: url('../image/top_join.png');
-	background-position: center;
-	background-size: 60%;
+	width: 35px;
+	height: 35px;
+	background: url('../image/icons/join.png');
+	margin: 10px 10px 10px 10px;
+	background-position: left;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	opacity: 0.7;
 }
@@ -136,13 +139,14 @@ div#top_navigation span{
 }
 
 #menu li#mypage {
-	width: 63px;
-	height: 50px;
-	background: url('../image/mypage.png');
-	background-position: bottom;
-	background-size: 60%;
+	width: 40px;
+	height: 40px;
+	background: url('../image/icons/mypage.png');
+	margin: 10px 10px 10px 10px;
+	background-position: left;
+	background-size: 100%;
 	background-repeat: no-repeat;
-	opacity: 0.8;
+	opacity: 0.7;
 }
 
 
