@@ -81,7 +81,7 @@ function idCheck() {
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input onkeyup="idCheck();" type="text" style="width: 150px" name="user_id"
+											<input onkeyup="idCheck();" type="text" style="width: 150px; font-size: 12pt" name="user_id"
 											value="" placeholder="5글자이상 12글자이하의 영문,숫자 혼합">
 											&nbsp;&nbsp;<font color="red"></font>
 											<span id="id_span" name= "id_span"></span>
@@ -92,7 +92,7 @@ function idCheck() {
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="password" style="width: 150px" name="user_password"
+											<input type="password" style="width: 150px; font-size: 12pt" name="user_password"
 											value="" >
 										</td>
 									</tr>
@@ -100,7 +100,7 @@ function idCheck() {
 										<td width=100 align=center bgcolor="E6ECDE" height="22">비밀번호
 											확인</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input onblur="pwCheck();" type="password" style="width: 150px" name="password2"
+											<input onblur="pwCheck();" type="password" style="width: 150px; font-size: 12pt" name="password2"
 											value="">
 											<span id="pw_span" name="pw_span"></span>
 										</td>
@@ -108,28 +108,28 @@ function idCheck() {
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="text" style="width: 150px" name="user_name"
+											<input type="text" style="width: 150px; font-size: 12pt" name="user_name"
 											value="">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">전화번호</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="text" style="width: 150px" name="user_phone"
+											<input type="text" style="width: 150px; font-size: 12pt" name="user_phone"
 											value="">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="text" style="width: 150px" name="user_email"
+											<input type="text" style="width: 150px; font-size: 12pt" name="user_email"
 											value="">
 										</td>
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
-											<input type="text" style="width: 150px" name="user_address"
+											<input type="text" style="width: 150px; font-size: 12pt;" name="user_address"
 											value="">
 										</td>
 									</tr>
