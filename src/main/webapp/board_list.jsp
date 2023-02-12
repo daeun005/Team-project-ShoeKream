@@ -46,10 +46,11 @@ keyword = request.getParameter("keyword");
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>게시판</title>
+<title>S.KREAM | 문의 게시판</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/board.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 
 <script type="text/javascript">
 	function boardCreate() {
@@ -92,8 +93,9 @@ keyword = request.getParameter("keyword");
 						<td>
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
-								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<a href = "board_list.jsp"><b>게시판</b></a>
+								<tr>									
+								<td height="50">
+									<font style="font-family: S-CoreDream-5Medium;" size=5>문의 게시판</font>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
@@ -112,7 +114,7 @@ keyword = request.getParameter("keyword");
 									bgcolor="f4f4f4">
 
 									<tr>
-										<td width=55% align=center bgcolor="f4f4f4">제목</td>
+										<td width=55% align=center bgcolor="f4f4f4" height=40>제목</td>
 										<td width=20% align=center bgcolor="f4f4f4">글쓴이</td>
 										<td width=10% align=center bgcolor="f4f4f4">글쓴날</td>
 										<td width=15% align=center bgcolor="f4f4f4">조회수</td>
@@ -120,7 +122,7 @@ keyword = request.getParameter("keyword");
 									
 									<% for (Board board : boardListPage.itemList) { %>
 									<tr>
-										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left">
+										<td width=55% bgcolor="ffffff" style="padding-left: 10px" align="left" height=30>
 										<a href='board_view.jsp?boardno=<%=board.getBoard_no()%>&pageno=<%=boardListPage.pageMaker.getCurPage()%>'>
 										<%=this.getTitleString(board)%></a></td>
 										<td width=20% align=center bgcolor="ffffff"><%=board.getUser_id()%></td>
@@ -170,7 +172,14 @@ keyword = request.getParameter("keyword");
 									</form></td>
 									<!-- search end -->
 									
-									<td align="right" width= 60px><input type="button" value="글쓰기" onclick="boardCreate();"></td>
+									<td align="right">
+									<!-- 
+									<input type="button" height=50px width= 60px value="글쓰기" onclick="boardCreate();"></td>
+									 -->
+									<button class="add_button" type="button" onclick="boardCreate();">
+													<font style="font-family: S-CoreDream-3Light;" size=2>글쓰기</font></button>
+									
+									
 								</tr>
 							</table></td><br>
 					</tr>

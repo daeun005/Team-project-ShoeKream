@@ -18,19 +18,19 @@
 <p>
 <font  style="font-family: S-CoreDream-3Light; color:#ffffff;">
 		<span><a href="product_list.jsp?category_no=0">
-			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">전체 상품</font>
+			<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;">전체 상품</font>
 		</a></span>
 		<span><a href="product_list.jsp?category_no=1">
-			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">운동화</font>
+			<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;">운동화</font>
 		</a></span>
 		<span><a href="product_list.jsp?category_no=2">
-			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">구두</font>
+			<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;">구두</font>
 		</a></span>
 		<span><a href="product_list.jsp?category_no=3">
-			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">부츠</font>
+			<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;">부츠</font>
 		</a></span>
 		<span><a href="product_list.jsp?category_no=4">
-			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">슬리퍼</font>
+			<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;">슬리퍼</font>
 		</a></span>
 		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,7 +49,7 @@
 		int cart_item_count = cartService.viewCartByUserId(sUserId).size();
 	%>	
 		<span><a href="user_view.jsp">			
-		<font  style="font-family: S-CoreDream-3Light; color:#ffffff;"><%=sUser.getUser_name()+"님"%></font>
+		<font  style="font-family: S-CoreDream-3Light; font-size:12pt; color:#ffffff;"><%=sUser.getUser_name()+"님"%></font>
 		</a></span>
 	<%} %>
 		
