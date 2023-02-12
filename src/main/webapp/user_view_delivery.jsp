@@ -45,19 +45,19 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 				<table style="padding-left: 10px" border=0 cellpadding=0
 					cellspacing=0>
 					<tr>
-						<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>배송주소록</b></td>
+						<td height="50">
+							<font style="font-family: S-CoreDream-5Medium;" size=5>배송주소록</font></td>
 					</tr>
 				</table>
 				<!-- view Form  -->
 					<table align=center width=80% border="0" cellpadding="0"
 						cellspacing="1" bgcolor="BBBBBB">
-						<caption style="text-align: left;">배송지 정보</caption>
+						<caption style="font-family: S-CoreDream-5Medium; font-size:12pt; text-align: left;">배송지 정보</caption>
 						<tr>
-							<td height=25 align=center bgcolor="E6ECDE" class=t1>받으시는
-								분</td>
-							<td height=25 align=center bgcolor="E6ECDE" class=t1>연락처</td>
-							<td height=25 align=center bgcolor="E6ECDE" class=t1>주소</td>
-							<td width=10 height=25 align=center bgcolor="E6ECDE" class=t1></td>
+							<td height=25 align=center bgcolor="f4f4f4" class=t1>받으시는분</td>
+							<td height=25 align=center bgcolor="f4f4f4" class=t1>연락처</td>
+							<td height=25 align=center bgcolor="f4f4f4" class=t1>주소</td>
+							<td width=10 height=25 align=center bgcolor="f4f4f4" class=t1></td>
 						</tr>
 						<%for(Delivery deliveryAddress : deliveryList) {%>
 						<tr>
