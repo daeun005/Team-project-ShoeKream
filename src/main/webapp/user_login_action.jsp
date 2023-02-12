@@ -83,6 +83,7 @@
 			response.sendRedirect("shop_main.jsp");
 			return;
 		}else{
+			System.out.println(urlArray.length+" 테스트");
 			response.sendRedirect(urlArray[4]);
 		}
 		
@@ -101,16 +102,9 @@
 		RequestDispatcher rd=
 				request.getRequestDispatcher("user_login_form.jsp");
 		rd.forward(request, response);
-	}catch(ArrayIndexOutOfBoundsException e){
-		/*********************case3[forward]****************/
-		request.setAttribute("msg2", e.getMessage());
-		request.setAttribute("fuser",new User(user_id,user_password,"","","",""));
-		RequestDispatcher rd=
-				request.getRequestDispatcher("shop_main.jsp");
-		rd.forward(request, response);
 	}catch(Exception e){
 		e.printStackTrace();
-		response.sendRedirect("user_error.jsp");
+		response.sendRedirect("shop_main.jsp");
 	}
 %>
 
