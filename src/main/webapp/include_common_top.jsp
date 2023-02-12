@@ -34,19 +34,14 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 	<%
-	if(sUserId==null){
-	%>
-		<span><a href=""></a></span>
-		<span><a href="javascript:login_message();">장바구니</a></span>
-	<%
-		}else{ 
-			User sUser=new UserService().findUser(sUserId);
-		    CartService cartService=new CartService();
-		  	int cart_item_count = cartService.viewCartByUserId(sUserId).size();
+	if(sUserId!=null){
+		User sUser=new UserService().findUser(sUserId);
+		   CartService cartService=new CartService();
+		int cart_item_count = cartService.viewCartByUserId(sUserId).size();
 	%>	
 		<span><a href="user_view.jsp"><%=sUser.getUser_name()+"님"%></a></span>
-		
 	<%} %>
+		
 		
 </font>		
 </p>

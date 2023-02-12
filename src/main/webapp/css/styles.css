@@ -132,6 +132,11 @@ div#login_content {
 	width: 400px;
     margin: 0 auto;
 }
+div#join_content {
+	width: 600px;
+    margin: 0 auto;
+}
+
 
 div#footer {
 	clear: left;

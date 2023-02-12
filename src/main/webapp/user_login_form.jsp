@@ -20,6 +20,8 @@ if(fuser==null){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/menu.css" type="text/css"> 
+<link rel=stylesheet href="css/shop.css" type="text/css"> 
  
 <script type="text/javascript">
 	function userCreate() {
@@ -44,6 +46,11 @@ if(fuser==null){
        } else {
            setCookie("id", document.f.user_id.value, 0); //날짜를 0으로 저장하여 쿠키삭제
        }
+       if (document.f.pwsave.checked == true) {
+           setCookie("pw", document.f.user_password.value, 7);
+       } else {
+           setCookie("pw", document.f.user_password.value, 0); 
+       }
 		
 		document.getElementById('url_history').value = document.referrer
 		f.action = "user_login_action.jsp";
@@ -53,27 +60,31 @@ if(fuser==null){
     window.onload = function() {
     	 
        if (getCookie("id")) { // getCookie함수로 id라는 이름의 쿠키를 불러와서 있을경우
-            document.f.user_Id.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
+            document.f.user_id.value = getCookie("id"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
             document.f.idsave.checked = true; // 체크는 체크됨으로
         }
+       if (getCookie("pw")) { // getCookie함수로 id라는 이름의 쿠키를 불러와서 있을경우
+           document.f.user_password.value = getCookie("pw"); //input 이름이 id인곳에 getCookie("id")값을 넣어줌
+           document.f.pwsave.checked = true; // 체크는 체크됨으로
+       }
  
     }
  
     function setCookie(name, value, expiredays) //쿠키 저장함수
     {
-        var todayDate = new Date();
+        let todayDate = new Date();
         todayDate.setDate(todayDate.getDate() + expiredays);
         document.cookie = name + "=" + escape(value) + "; path=/; expires="
                 + todayDate.toGMTString() + ";"
     }
  
     function getCookie(Name) { // 쿠키 불러오는 함수
-        var search = Name + "=";
-        if (document.cookie.length > 0) { // if there are any cookies
+        let search = Name + "=";
+        if (document.cookie.length > 0) { 
             offset = document.cookie.indexOf(search);
-            if (offset != -1) { // if cookie exists
-                offset += search.length; // set index of beginning of value
-                end = document.cookie.indexOf(";", offset); // set index of end of cookie value
+            if (offset != -1) { 
+                offset += search.length; 
+                end = document.cookie.indexOf(";", offset);
                 if (end == -1)
                     end = document.cookie.length;
                 return unescape(document.cookie.substring(offset, end));
@@ -87,7 +98,7 @@ if(fuser==null){
 <body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
 	marginwidth=0 marginheight=0>
 	<!-- container start-->
-	<div id="container">
+	<div id="container" height=100%>
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
@@ -124,7 +135,7 @@ if(fuser==null){
 										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="22"></td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-										<input type="password" placeholder="패스워드" name="user_password"
+										<input type="password" placeholder="패스워드" name="user_password" id="user_password"
 										value="<%=fuser.getUser_password()%>"><div><font color="red"><%=msg2%></div></font></td>
 									</tr>
 									<tr>

@@ -17,6 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
  
 <style type="text/css" media="screen">
 </style>
@@ -62,7 +63,7 @@ function idCheck() {
 		<div id="wrapper">
 			<!-- content start -->
 			<!-- include_content.jsp start-->
-			<div id="content">
+			<div id="join_content">
 				<table width=0 border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td>

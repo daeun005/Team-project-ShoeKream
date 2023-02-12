@@ -17,6 +17,7 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 
 <script src="js/user.js"></script>
 <script type="text/javascript">

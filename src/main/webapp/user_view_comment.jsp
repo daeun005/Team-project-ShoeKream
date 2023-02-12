@@ -20,6 +20,7 @@ List<ProductComment> commentList = (List)session.getAttribute("commentList");
 <link rel=stylesheet href="css/user.css" type="text/css">
 <link rel=stylesheet href="css/product.css" type="text/css">
 <link rel=stylesheet href="css/menu.css" type="text/css">
+<link rel=stylesheet href="css/shop.css" type="text/css">
 
 <script src="js/user.js"></script>
 </head>
