@@ -34,7 +34,8 @@ div#header h1 {
 /***************** menu end****************/
 div#container {
 	text-align: center;
-	margin: 0 auto
+	margin: 0 auto;
+	
 }
 
 div#content p {
@@ -102,8 +103,7 @@ div#user_navigation p {
 div#extra{background:#CCC8B3;}
 */
 div#footer {
-	background: #BFBD93;
-	
+	background: #000000;
 }
 
 div#footer p {

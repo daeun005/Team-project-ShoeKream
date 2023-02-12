@@ -5,14 +5,11 @@ div#header {
 }
 
 div#header h1 {
-	height: 50px;
+	height: 60px;
 	line-height: 50px;
 	margin: 0px 0 0 0;
 	padding-left: 10px;
-	background: white;
-	/*
-	background: #fff url('../image/nav_bg01.png');
-	*/
+	background: black;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%
@@ -23,7 +20,7 @@ div#header #menu {
 }
 
 #menu {
-	margin: 0 10% 0 10%;
+	margin: 0 5% 0 5%;
 	align-items: flex-end;
 	
 }
@@ -62,9 +59,9 @@ div#header #menu {
 }
 
 #menu li#logo {
-	width: 200px;
+	width: 250px;
 	background: url('../image/logo_shoekream_pt10.png');
-	margin: 10px 10px 10px 10px;
+	margin: 0px 10px 0px 10px;
 	background-position: left;
 	background-size: 100%;
 	background-repeat: no-repeat;

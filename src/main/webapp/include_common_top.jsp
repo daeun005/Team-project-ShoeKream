@@ -17,12 +17,22 @@
 <div id=top_navigation>
 <h1>
 <p>
-<font  style="font-family: S-CoreDream-3Light; color="ffffff">
-		<span><a href="product_list.jsp?category_no=0">전체 상품</a></span>
-		<span><a href="product_list.jsp?category_no=1">운동화</a></span>
-		<span><a href="product_list.jsp?category_no=2">구두</a></span>
-		<span><a href="product_list.jsp?category_no=3">부츠</a></span>
-		<span><a href="product_list.jsp?category_no=4">슬리퍼</a></span>
+<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">
+		<span><a href="product_list.jsp?category_no=0">
+			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">전체 상품</font>
+		</a></span>
+		<span><a href="product_list.jsp?category_no=1">
+			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">운동화</font>
+		</a></span>
+		<span><a href="product_list.jsp?category_no=2">
+			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">구두</font>
+		</a></span>
+		<span><a href="product_list.jsp?category_no=3">
+			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">부츠</font>
+		</a></span>
+		<span><a href="product_list.jsp?category_no=4">
+			<font  style="font-family: S-CoreDream-3Light; color:#ffffff;">슬리퍼</font>
+		</a></span>
 		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -39,11 +49,12 @@
 		   CartService cartService=new CartService();
 		int cart_item_count = cartService.viewCartByUserId(sUserId).size();
 	%>	
-		<span><a href="user_view.jsp"><%=sUser.getUser_name()+"님"%></a></span>
+		<span><a href="user_view.jsp">			
+		<font  style="font-family: S-CoreDream-3Light; color:#ffffff;"><%=sUser.getUser_name()+"님"%></font>
+		</a></span>
 	<%} %>
 		
-		
-</font>		
+</font>
 </p>
 </h1>
 </div>
