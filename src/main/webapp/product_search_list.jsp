@@ -45,8 +45,7 @@ function add_cart_popup_window(f){
 <style type="text/css" media="screen">
 </style>
 </head>
-<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0
-	marginwidth=0 marginheight=0>
+<body bgcolor=#FFFFFF text=#000000 leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
 	<!-- container start-->
 	<div id="container">
 		<!-- header start -->
@@ -65,8 +64,8 @@ function add_cart_popup_window(f){
 						<td><br />
 							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="50">
-								<font style="font-family: S-CoreDream-3Light;" size=5>검색결과</font></td>
+									<td height="50">
+								<font style="font-family: S-CoreDream-5Medium;" size=5>검색결과</font></td>
 								</tr>
 							</table>
 							<div id="f">
@@ -84,16 +83,18 @@ function add_cart_popup_window(f){
 									%>
 									<tr>
 									<%} %>
-										<td align="center" width="25%"  bgcolor="ffffff">
+										<td align="center" width="25%"  bgcolor="f4f4f4">
 										<a href="product_detail.jsp?p_no=<%=product.getP_no()%>">
 										<img width="200px" height="200px" src="image/product_image/<%=product.getP_image()%>" border="0"></a><br/><br/>
-											<b><%=product.getP_name()%></b>
+											<font style="font-family: S-CoreDream-5Medium;" size=4><%=product.getP_name()%></font><br><br>
 											<form style="display: inline;">
 												<input type="hidden" name="p_no" value="<%=product.getP_no()%>">
 												<input type="hidden" name="cart_qty" value="1">
-												<img src='image/cart20.png' style="cursor:pointer;" onclick="javascript:add_cart_popup_window(this.parentElement);" align="top"/>
-											</form><br> 
-											<font color="#FF0000">가격:<%=new DecimalFormat("#,##0").format(product.getP_price())%>원</font></td>
+											<font style="font-family: S-CoreDream-5Medium;" size=4>
+												<%=new DecimalFormat("#,##0").format(product.getP_price())%>원</font><br><br>
+											<button class="add_button" type="button" onclick="add_cart_popup_window(this.parentElement);">
+													<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 담기</font></button>
+											</form><br> </td>
 									<%if(i%product_column_size==3){%>
 									</tr>
 									<%} %>	
