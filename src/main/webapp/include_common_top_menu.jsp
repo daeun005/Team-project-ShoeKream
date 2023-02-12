@@ -51,7 +51,7 @@ function product_search(){
 				<img src="image/icons/search.png" height=40 style="cursor:pointer; margin-right:60px;" onclick="product_search();"></li>
 		<li>
 			<form id="searchform" method="POST">
-				<input type="text" id="keyword" name="keyword" style="width:200px;height:30px;font-size:18px;" onKeypress="javascript:if(event.keyCode==13) {product_search();}"/>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="text" id="keyword" name="keyword" style="width:200px;height:30px;font-size:18px;" onKeypress="javascript:if(event.keyCode==13) {product_search();}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</form>
 		</li>
 		
