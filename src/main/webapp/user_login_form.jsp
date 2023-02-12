@@ -17,6 +17,7 @@ if(fuser==null){
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>S.KREAM | 로그인</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/user.css" type="text/css">
@@ -128,14 +129,14 @@ if(fuser==null){
 									<tr>
 										<td id="id_icon" width=100 align=center bgcolor="ffffff" height="50"></td>
 										<td width=490 align="left" bgcolor="ffffff" style="padding-left: 10px;">
-										<input type="text" style="font-size: 12pt" placeholder="아이디" name="user_id" id="user_id"
+										<input type="text" style="font-family: S-CoreDream-3Light; font-size: 12pt" placeholder="아이디" name="user_id" id="user_id"
 										value="<%=fuser.getUser_id()%>"><div><font color="red"><%=msg1%></div></font></td>
 									</tr>
 									<tr>
 										<td id="pw_icon" width=100 align=center bgcolor="ffffff" height="50"></td>
 										<td width=490 align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-										<input type="password" style="font-size: 12pt" placeholder="패스워드" name="user_password" id="user_password"
+										<input type="password" style="font-family: S-CoreDream-3Light; font-size: 12pt" placeholder="패스워드" name="user_password" id="user_password"
 										value="<%=fuser.getUser_password()%>"><div><font color="red"><%=msg2%></div></font></td>
 									</tr>
 									<tr>
