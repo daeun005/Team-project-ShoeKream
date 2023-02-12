@@ -15,7 +15,7 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 
 <html>
 <head>
-<title>쇼핑몰 관리</title>
+<title>S.KREAM | 주문 내역</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
@@ -56,7 +56,8 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b><%= sUser.getUser_name() %>님 주문 리스트</b></td>
+									<td height="50">
+									<font style="font-family: S-CoreDream-5Medium;" size=5><%= sUser.getUser_name() %>님 주문 리스트</font></td>
 								</tr>
 							</table> <!--form-->
 							<form name="f" method="post">
@@ -76,8 +77,14 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 											<span style="font-size: 10pt; font-style: bold;">&nbsp;<%= order.getO_date() %> 구매</span>
 										</td>
 										<td colspan="1" height=24 align=right bgcolor="f4f4f4" class=t1>
-											<span style="font-size: 10pt; font-style: bold; align-content: right">
+											<span style="font-family: S-CoreDream-3Light; align-content: right;" size=2;>
 											<a href="order_detail.jsp?o_no=<%= order.getO_no() %>">&nbsp; 주문 상세보기&nbsp;&nbsp;&nbsp;&nbsp;</a> </span>
+										
+										<!-- 주문 상세보기 버튼 ver
+										<button class="add_button" type="button" value="주문 상세보기" onclick="location='order_detail.jsp?o_no=<%= order.getO_no() %>'">
+															<font style="font-family: S-CoreDream-3Light;" size=2>주문 상세보기</font></button>
+										 -->
+										
 										</td>
 									</tr>
 									<tr>
@@ -104,12 +111,16 @@ List<Order> orderList = orderService.findWithOrderItemByUserId(sUserId);
 														src="image/product_image/<%=product.getP_image() %>" border="0" style="padding-top: 5px"></a>
 													</td>
 													<td align="center" style="padding: 0px; width: 50%" bgcolor="ffffff">
-													<span style="font-size: 13pt"><a href = "product_detail.jsp?p_no=<%=product.getP_no()%>"><b><%=product.getP_name()%></b></a></span>
+													<span><a href = "product_detail.jsp?p_no=<%=product.getP_no()%>">
+														<font style="font-family: S-CoreDream-3Light;" size=4><%=product.getP_name()%></font></a></span>
 													<br><br>
-													<span style = "font-size: 11pt"><%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%>원, <%=orderItem.getOi_qty()%>개</span>
+													<span>
+														<font style="font-family: S-CoreDream-3Light;" size=4><%=new DecimalFormat("#,###").format(orderItem.getOi_qty()*product.getP_price())%>원, <%=orderItem.getOi_qty()%>개</font></span>
 													</td>
 													<td align="center" style="padding: 0px; width: 10%" bgcolor="ffffff">
-													<span style = "font-size: 11pt"><a href = "product_detail.jsp?p_no=<%=product.getP_no()%>">리뷰 작성하기</a></span>
+														<button class="add_button" type="button" value="리뷰 작성하기" onclick="location='product_detail.jsp?p_no=<%=product.getP_no()%>'">
+															<font style="font-family: S-CoreDream-3Light;" size=2>리뷰 작성하기</font></button>
+											
 													</td>
 													</tr>
 													<!--상품 끝 -->
