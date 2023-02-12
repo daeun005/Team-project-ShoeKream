@@ -107,9 +107,13 @@ function deliveryAddAction(){
 	let popupY= (window.screen.height / 2) - (300 / 2);
 // 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 
-	window.open('user_view_delivery_add_form.jsp','deliver_add_f','status=no, width=500, height=300, resizable = no,scrollbar = no','left='+ popupX + ', top='+ popupY);
+	window.open('user_view_delivery_add_form.jsp','_blank','status=no, width=500, height=300, resizable = no,scrollbar = no','left='+ popupX + ', top='+ popupY);
 }
 
 function returnUserView() {
 	location.href="user_view.jsp";
+}
+
+function delivery_delete(){
+	console.log(document.getElementById('delivery_f'));	
 }

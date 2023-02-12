@@ -617,6 +617,8 @@ public class ProductDao {
 					productComment.setPc_mark(rs.getInt(4));
 					productComment.setP_no(rs.getInt(5));
 					productComment.setWriter(rs.getString(6));
+					productComment.setP_image(rs.getString(7));
+					productComment.setP_name(rs.getString(8));
 					productCommentList.add(productComment);
 				}
 			} catch (Exception ex) {

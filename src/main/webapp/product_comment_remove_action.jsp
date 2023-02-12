@@ -11,7 +11,6 @@ if(request.getMethod().equalsIgnoreCase("GET")){
 }
 
 try{
-	request.setCharacterEncoding("UTF-8");
 	String param = "";
 	Enumeration params = request.getParameterNames();
 	while(params.hasMoreElements()){

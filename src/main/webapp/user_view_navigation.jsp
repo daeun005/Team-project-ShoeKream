@@ -5,10 +5,7 @@
 <%@page import="com.itwill.shop.cart.CartService"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	String sUserId=(String)session.getAttribute("sUserId");
-%>	
-
+	
 <ol class="mypage">마이페이지
 	<li></li>
 	<li></li>
@@ -30,11 +27,13 @@
 			<li class="mypage_item">
 			<a href="user_remove_form.jsp" class="" >회원탈퇴</a>
 			</li>
+			<li class="mypage_item">
+			<a href="user_logout_action.jsp">로그아웃</a>
+			</li>
 	</li>
-	<li><span class="mypage_title"><a href="user_logout_action.jsp">로그아웃</a></span></li>
-	<li></li>
-		
-		<li><a href="board_list.jsp">게시판리스트</a></li>
-		<li><a href="board_write.jsp">게시판쓰기</a></li>
+	<li><span class="mypage_title" >고객지원</a></span></li>
+			<li class="mypage_item">
+			<a href="board_list.jsp">문의게시판</a>
+			</li>
 		
 </ol>

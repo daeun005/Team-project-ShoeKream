@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+	<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.itwill.shop.cart.Cart"%>
 <%@page import="com.itwill.shop.delivery.Delivery"%>
@@ -9,6 +9,7 @@
 <%
 DeliveryService deliveryService = new DeliveryService();
 List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,7 +48,6 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 					</tr>
 				</table>
 				<!-- view Form  -->
-				<form name="delivery_f" method="post">
 					<table align=center width=80% border="0" cellpadding="0"
 						cellspacing="1" bgcolor="BBBBBB">
 						<caption style="text-align: left;">배송지 정보</caption>
@@ -64,14 +64,14 @@ List<Delivery> deliveryList = deliveryService.selectDelivery(sUserId);
 							<td width=130 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_phone()%></td>
 							<td width=150 height=30 align=center bgcolor="ffffff" class=t1><%=deliveryAddress.getD_address()%></td>
 							<td width=150 height=30 align=center bgcolor="ffffff" class=t1>
-								<form action="user_view_delivery_delete_address_action.jsp" method="post">
-									<input type="hidden" name="delivery_no" value="<%=deliveryAddress.getD_no()%>">
-									<input type="image" src='image/delete.png' >
-								</form>
-						<%} %>
+							<form id="delivery_f" name="delivery_f" method="post" action="user_view_delivery_delete_address_action.jsp">
+								<input type="hidden" id="delivery_no" name="delivery_no" value="<%=deliveryAddress.getD_no()%>">
+								<input type="image"	src='image/delete.png' >
+							</form>
 							</td>
+						</tr>
+						<%} %>
 					</table>
-				</form>
 				<br />
 				<br />
 				<div>
