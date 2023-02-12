@@ -46,8 +46,8 @@ List<Product> popularList = productService.findPopular();
 						<td><br />
 				<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="50">
-									<font style="font-family: S-CoreDream-3Light;" size=5>인기상품 ver.1</font></td>
+									<td height="50">
+									<font style="font-family: S-CoreDream-5Medium;" size=5>인기상품</font></td>
 								</tr>
 				</table>
 			<div id="f">
