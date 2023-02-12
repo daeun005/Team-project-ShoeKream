@@ -159,7 +159,7 @@ keyword = request.getParameter("keyword");
 							<table border="0" cellpadding="0" cellspacing="1" width="590">
 								<tr>
 									<!-- search start -->
-									<td></td>
+									<td width="130px"/>
 									<td><form id = "board_searchform" method = "post">
 									<select id = 'searchType' name = 'searchType' style= height:30px; onchange = "typechange();">
 										<option selected value = "">선택</option>
@@ -167,7 +167,7 @@ keyword = request.getParameter("keyword");
 										<option value = "id">글쓴이</option>
 									</select>
 									<input type = 'hidden' name = 'typesel' id = 'typesel' value = ''>
-									<input type='text' name='keyword' value = "" style= "width:400px; height:25px;">
+									<input type='text' name='keyword' value = "" style= "width:400px; height:25px;" onKeypress="javascript:if(event.keyCode==13) {search();}">
 									<input type="button" name='searchbtn' style= height:30px; value='검색' onclick = "search();">
 									</form></td>
 									<!-- search end -->
