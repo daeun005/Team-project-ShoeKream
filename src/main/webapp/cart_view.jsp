@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>쇼핑몰 관리</title>
+<title>S.KREAM | 장바구니</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
 <link rel=stylesheet href="css/shop.css" type="text/css">
@@ -40,85 +40,72 @@
 				<table border=0 cellpadding=0 cellspacing=0>
 					<tr>
 						<td><br />
-							<table style="padding-left: 10px" border=0 cellpadding=0
-								cellspacing=0>
+							<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
 								<tr>
-									<td height="22">&nbsp;&nbsp;<b>쇼핑몰 - 장바구니 보기</b></td>
+									<td height="50"><font style="font-family: S-CoreDream-5Medium;" size=5>장바구니</font></td>
 								</tr>
 							</table> <!--form name="f" method="post"--> 
 
 							<div id='f'>
-								<table align=center width=80% border="0" cellpadding="0"
-									cellspacing="1" bgcolor="BBBBBB">
-									<tr>
-										<!-- 체크박스 전체 선택 -->
-										<td width=60 height=25 align="center" bgcolor="E6ECDE" class=t1>
-											<input type="checkbox" id="all_select_checkbox" checked="checked" onchange="cart_item_all_select(event);cart_item_select_count();"></td>
-										<td width=40 height=25 align="center" bgcolor="E6ECDE" class=t1>
-											<font>이미지</font></td>
-										<td width=210 height=25 align="center" bgcolor="E6ECDE"	class=t1>
-											<font>상품명</font></td>
-										<td width=112 height=25 align="center" bgcolor="E6ECDE"	class=t1>
-											<font>수량</font></td>
-										<td width=146 height=25 align="center" bgcolor="E6ECDE"	class=t1>
-											<font>가격</font></td>
-										<td width=50 height=25 align="center" bgcolor="E6ECDE"	class=t1>
-											<font>삭제</font></td>
-									</tr>
+								<table align=center width=80% border="0" cellpadding="0" cellspacing="1" bgcolor="BBBBBB">
+		<tr>
+			<!-- 체크박스 전체 선택 -->
+			<td height=50 bgcolor=ffffff>
+				<input type="checkbox" id="all_select_checkbox" checked="checked" onchange="cart_item_all_select(event);cart_item_select_count();"></td>
+			<td bgcolor=ffffff>
+				<font style="font-family: S-CoreDream-3Light;" size=4>이미지</font></td>
+			<td bgcolor=ffffff>
+				<font style="font-family: S-CoreDream-3Light;" size=4>상품명</font></td>
+			<td bgcolor=ffffff>
+				<font style="font-family: S-CoreDream-3Light;" size=4>수량</font></td>
+			<td bgcolor=ffffff>
+				<font style="font-family: S-CoreDream-3Light;" size=4>가격</font></td>
+			<td bgcolor=ffffff>
+				<font style="font-family: S-CoreDream-3Light;" size=4>삭제</font></td>
+		</tr>
 									<!-- cart item start -->
 									<%
 									int tot_price = 0;
 									for (Cart cart : cartList) {
 										tot_price += cart.getProduct().getP_price() * cart.getCart_qty();
 									%>
-									<tr>
-										<td width=60 height=26 align=center bgcolor="ffffff" class=t1>
-										 <input type="checkbox" name="cart_item_no_check" onchange="cart_item_all_select_checkbox_deselect();cart_item_select_count();" value="<%=cart.getCart_no()%>" checked="checked">
-										</td>
-										<td width=40 height=26 align=center bgcolor="ffffff" class=t1>
-											<img src='image/product_image/<%=cart.getProduct().getP_image()%>' width="200px" height="200px" />
-										</td>
-										<td width=210 height=26 align=center bgcolor="ffffff" class=t1>
-											<a href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'><%=cart.getProduct().getP_name()%></a>
-										</td>
-<!-- qty form start -->
-										<td width=112 height=26 align=center bgcolor="ffffff" class=t1>
-											<form action="cart_update_item_action.jsp" method="post"	id="cart_update_form_<%=cart.getCart_no()%>">
-												<input type="hidden" name="cart_no"	value="<%=cart.getCart_no()%>"> 
-												<input type="button" value="-"	onclick="modify_qty('-','cart_update_form_<%=cart.getCart_no()%>');"/>
-												<input type="text" readonly="readonly" size="2"	style="text-algin: center; width: 15%" name="cart_qty"	value="<%=cart.getCart_qty()%>"> 
-												<input type="button" value="+"	onclick="modify_qty('+','cart_update_form_<%=cart.getCart_no()%>');"/>
-												<input type="hidden" name="cart_product_unit_price" value="<%=cart.getProduct().getP_price()%>"/>	
-												<input type='submit' value='변경'>											
-											</form>
-										</td>
-<!-- qty form end -->
-
-
-
-										<td width=146 height=26 align=center bgcolor="ffffff" class=t1><%=new DecimalFormat("#,##0").format(cart.getProduct().getP_price() * cart.getCart_qty())%></td>
-										<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
-
-	
-												<form action="cart_delete_item_action.jsp" method="post">
-												<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
-												<input  type="image" src='image/delete.png' >
-											</form>
-												
-												
-													<!-- <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 28 28" class="icon--close"> -->
-													
-													<g fill="none" fill-rule="evenodd"> 
-													<path d="M0 0H28V28H0z"></path> 
-													<g fill="#9B9BA0" transform="translate(6 6)" class="icon--close__group">
-													<rect width="2" height="18" x="7" y="-1" rx="1"	transform="rotate(-135 8 8)"></rect> 
-													<rect width="2"	height="18" x="7" y="-1" rx="1"	transform="rotate(-45 8 8)"></rect> 
-													</g> </g> </svg>
-												</a>
-											</form>
-
-										</td>
-									</tr>
+<tr>
+			<!-- 체크박스 -->
+			<td width=30 height=50 align=center bgcolor="ffffff">
+				<input type="checkbox" name="cart_item_no_check" onchange="cart_item_all_select_checkbox_deselect();cart_item_select_count();" value="<%=cart.getCart_no()%>" checked="checked">
+			</td>
+			<!-- 이미지 -->
+			<td width=40 height=50 align=center bgcolor="ffffff">
+				<img src='image/product_image/<%=cart.getProduct().getP_image()%>' width="200px" height="200px" />
+			</td>
+			<!-- 상품명 -->
+			<td width=200 height=50 align=center bgcolor="ffffff" >
+				<a href='product_detail.jsp?p_no=<%=cart.getProduct().getP_no()%>'>
+				<font style="font-family: S-CoreDream-3Light;" size=4><%=cart.getProduct().getP_name()%></font></a>
+			</td>
+			<!-- 수량변경 폼 -->
+			<td width=100 height=50 align=center bgcolor="ffffff">
+				<form action="cart_update_item_action.jsp" method="post"	id="cart_update_form_<%=cart.getCart_no()%>">
+					<input type="hidden" name="cart_no"	value="<%=cart.getCart_no()%>"> 
+					<input type="button" value="-"	onclick="modify_qty('-','cart_update_form_<%=cart.getCart_no()%>');"/>
+					<input type="text" readonly="readonly" size="2"	style="text-algin: center; width: 30px" name="cart_qty"	value="<%=cart.getCart_qty()%>"> 
+					<input type="button" value="+"	onclick="modify_qty('+','cart_update_form_<%=cart.getCart_no()%>');"/>
+					<input type="hidden" name="cart_product_unit_price" value="<%=cart.getProduct().getP_price()%>"/><br><br>	
+					<input type='submit' style="width:50px; height:30px; font-family: S-CoreDream-3Light;" size=4 value='변경'>											
+				</form>
+			</td>
+			<!-- 가격 -->
+			<td width=100 height=26 align=center bgcolor="ffffff" class=t1>
+				<font style="font-family: S-CoreDream-3Light;" size=4>
+				<%=new DecimalFormat("#,##0").format(cart.getProduct().getP_price() * cart.getCart_qty())%></font></td>
+			<!-- 삭제 폼 -->
+			<td width=50 height=26 align=center bgcolor="ffffff" class=t1>
+				<form action="cart_delete_item_action.jsp" method="post">
+					<input type="hidden" name="cart_no" value="<%=cart.getCart_no()%>">
+					<input type="image" src='image/delete.png' >
+				</form>
+			</td>
+</tr>
 									<%}%>
 									<!-- cart item end -->
 
@@ -126,7 +113,7 @@
 										<td width=640 colspan=6 height=26 class=t1 bgcolor="ffffff">
 											<p align=right>
 												<br /> 
-												<font color='red'>총주문금액 : <span id="tot_order_price"> <%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
+												<font style="font-family: S-CoreDream-5Medium;" size=5>총주문금액 :&nbsp;&nbsp; <span id="tot_order_price"> <%=new DecimalFormat("#,##0").format(tot_price)%></span> 원</font>
 											</p>
 										</td>
 									</tr>
@@ -139,10 +126,14 @@
 								<tr>
 									<td align=center>&nbsp;&nbsp; 
 									
-										<a href="product_list.jsp" class=m1>계속 쇼핑하기</a>&nbsp;&nbsp; 
-										<% if (cartList.size() >= 1) {%> 
-										<a href="javascript:cart_view_form_select_submit();" class=m1>총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</a>&nbsp;&nbsp;
-											<a href="javascript:cart_delete();" class=m1>장바구니 비우기</a>&nbsp;&nbsp;
+									<button class="add_button" type="button" onclick="location='product_list.jsp'">
+													<font style="font-family: S-CoreDream-3Light;" size=2>계속 쇼핑하기</font></button>&nbsp;&nbsp; 
+													
+									<% if (cartList.size() >= 1) {%> 
+									<button class="add_button" type="button" onclick="cart_view_form_select_submit();">
+													<font style="font-family: S-CoreDream-3Light;" size=2>총 <span style="font-weight: bold;" id="cart_item_select_count"></span>개 주문</font></button>&nbsp;&nbsp; 
+									<button class="add_button" type="button" onclick="cart_delete();">
+													<font style="font-family: S-CoreDream-3Light;" size=2>장바구니 비우기</font></button><br><br><br>				
 											<%}%>
 									</td>
 								</tr>
