@@ -188,17 +188,22 @@ ProductService.getInstance().updateHitCount(Integer.parseInt(p_noStr));
 
 
 									<td width=20% height=200 align=left>
-									<font style="font-family: S-CoreDream-3Light;" size=3>
+									<font style="font-family: S-CoreDream-3Light; font-color:black;" size=3>
+											조회수<br><br>
+											<!-- 
 											카테고리<br><br>
+											 -->
 											상품명<br><br>
 											가격<br><br>
 											컬러<br>
 									</font>
 									<td width=20% height=200 align=left>
-									<font style="font-family: S-CoreDream-3Light;" size=3>
-										<%=product.getCategory_no() %><br><br>
+									<font style="font-family: S-CoreDream-3Light; font-color:black;" size=3>
+									
+									 	<%=product.getP_click_count() %><br><br>
+									 
 										<%=product.getP_name()%><br><br>
-										￦ <%=product.getP_price()%><br><br>
+										<%=product.getP_price()%>&nbsp;원<br><br>
 										<%=product.getP_desc()%>
 									</font>
 									</td>

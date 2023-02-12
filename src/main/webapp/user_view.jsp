@@ -42,35 +42,36 @@
 							<table style="padding-left: 10px" border=0 cellpadding=0
 								cellspacing=0>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>내정보보기</b></td>
+									<td height="50">
+									<font style="font-family: S-CoreDream-5Medium;" size=5>내정보보기</font></td>
 								</tr>
 							</table> <!-- view Form  -->
 							<form name="f" method="post">
 								<table border="0" cellpadding="0" cellspacing="1" width="590"
 									bgcolor="BBBBBB">
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">아이디</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="30">아이디</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_id() %>
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="30">이름</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_name() %>
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">전화번호</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="30">전화번호</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_phone() %>
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
+										<td width=100 align=center bgcolor="f4f4f4" height="30">이메일
 											주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_email() %>
 										</td>
 									</tr>
 									<tr>
-										<td width=100 align=center bgcolor="E6ECDE" height="22">주소</td>
+										<td width=100 align=center bgcolor="f4f4f4" height="30">주소</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10"><%=sUser.getUser_address() %>
 										</td>
 									</tr>
