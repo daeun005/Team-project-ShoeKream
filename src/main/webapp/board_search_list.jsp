@@ -104,7 +104,7 @@ if(keyword.equals("") || keyword == null || searchType.equals("")) {
 								cellspacing=0>
 								<tr>
 								<td height="50">
-									<font style="font-family: S-CoreDream-5Medium;" size=5>문의 게시판</font>
+									<a href = "board_list.jsp"><font style="font-family: S-CoreDream-5Medium;" size=5>문의 게시판</a></font>
 									</td>
 								</tr>
 								<tr bgcolor="#FFFFFF">
