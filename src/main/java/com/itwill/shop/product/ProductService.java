@@ -99,7 +99,7 @@ public class ProductService {
 	 * 조회수 내림차순 정렬
 	 */
 	public List<Product> clickSortDesc() throws Exception{
-		return productDao.priceSortDesc();
+		return productDao.clickSortDesc();
 	}
 	/*
 	 * 조회수 오름차순 정렬
